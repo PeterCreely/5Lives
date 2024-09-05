@@ -1,4 +1,4 @@
-﻿const words1 = ["act", "aim", "add", "aid", "ago", "and", "age", "all", "art", "air", "ace", "amp", "aft", "ale", "axe", "abs", "box",
+const words1 = ["act", "aim", "add", "aid", "ago", "and", "age", "all", "art", "air", "ace", "amp", "aft", "ale", "axe", "abs", "box",
     "buy", "boy", "big", "bed", "bag", "bad", "bet", "bar", "bit", "ban", "bus", "but", "bop", "bum", "bow", "cow", "cry",
     "cap", "cop", "cup", "can", "car", "cat", "cut", "day", "dry", "dad", "dig", "dog", "die", "due", "eye", "egg", "end",
     "ear", "eat", "era", "fix", "fly", "few", "fan", "for", "fit", "fee", "fat", "far", "fun", "guy", "gap", "god", "gas",
@@ -200,7 +200,7 @@ let guessedLetters = [];
 let incorrectGuesses = 0;
 let maxLives = 5;
 let points = 0;
-let words = 5;
+let wordcount = 5;
 
 let clickCount = 0;
 
@@ -247,10 +247,10 @@ const updateincorrectGuessesDisplay = () => {
     incorrectGuessesDisplay.innerText = `You have ${incorrectGuesses} wrong guesses`;
 };
 
-const wordsDisplay = document.getElementById('words-display');
+const wordcountDisplay = document.getElementById('wordcount-display');
 
-const updatewordsDisplay = () => {
-    wordsDisplay.innerText = `There are only ${words} words...!`;
+const updatewordcountDisplay = () => {
+    wordcountDisplay.innerText = `There are only ${wordcount} words...!`;
 };
 
 const pointsDisplay = document.getElementById('points-display');
@@ -356,7 +356,7 @@ const continueGame = () => {
     clickCount++;
 
     if (clickCount === 1) {
-        let words = 4;
+        wordcount--;
         document.getElementById('word-display2').style.display = 'block';
         document.getElementById('word-display3').style.display = 'block';
         document.getElementById('word-display4').style.display = 'block';
@@ -365,32 +365,43 @@ const continueGame = () => {
         updateWordDisplay3();
         updateWordDisplay4();
         updateWordDisplay5();
+        updatewordcountDisplay();
     } else if (clickCount === 2) {
-        let words = 3;
+        wordcount--;
         document.getElementById('word-display3').style.display = 'block';
         document.getElementById('word-display4').style.display = 'block';
         document.getElementById('word-display5').style.display = 'block';
         updateWordDisplay3();
         updateWordDisplay4();
         updateWordDisplay5();
+        updatewordcountDisplay();
     } else if (clickCount === 3) {
-        let words = 2;
+        wordcount--;
         document.getElementById('word-display4').style.display = 'block';
         document.getElementById('word-display5').style.display = 'block';
         updateWordDisplay4();
         updateWordDisplay5();
+        updatewordcountDisplay();
     } else if (clickCount === 4) {
-        let words = 1;
+        wordcount--;
         document.getElementById('word-display5').style.display = 'block';
         updateWordDisplay5();
+        updatewordcountDisplay();
     } else {
         // Reset click count and show all words again
         clickCount = 0;
+        wordcount = 5;
+        document.getElementById('word-display1').style.display = 'block';
+        document.getElementById('word-display2').style.display = 'block';
+        document.getElementById('word-display3').style.display = 'block';
+        document.getElementById('word-display4').style.display = 'block';
+        document.getElementById('word-display5').style.display = 'block';
         updateWordDisplay1();
         updateWordDisplay2();
         updateWordDisplay3();
         updateWordDisplay4();
         updateWordDisplay5();
+        updatewordcountDisplay();
     }
 
     createKeyboard();
@@ -410,4 +421,5 @@ updateLivesDisplay();
 updateincorrectGuessesDisplay();
 updatepointsDisplay();
 updatewordsDisplay();
+updatewordcountDisplay();
 
