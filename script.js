@@ -220,12 +220,15 @@ const wordcountDisplay = document.getElementById('wordcount-display');
 const pointsDisplay = document.getElementById('points-display');
 const lostModal = document.getElementById('lostModal');
 const lostMessage = document.getElementById('lostMessage');
+const wonMessage = document.getElementById('wonMessage');
+const wonModal = document.getElementById('wonModal');
 const closeModal = document.getElementsByClassName('close')[0];
 const gameOverModal = document.getElementById('gameOverModal');
 const gameOverMessage = document.getElementById('gameOverMessage');
 const playerNameInput = document.getElementById('playerNameInput');
 const submitNameButton = document.getElementById('submitNameButton');
 const closeGameOverModal = document.getElementsByClassName('close')[0];
+const closeModalButtons = document.querySelectorAll('.close, #continueButton');
 
 
 /*const updateWordDisplay1 = () => {
@@ -353,6 +356,15 @@ const handleGameOver = () => {
     gameOverModal.style.display = 'block';
 };
 
+closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        wonModal.style.display = 'none';
+        if (button.id === 'continueButton') {
+            continueGame();
+        }
+    });
+});
+
 // When the user clicks on <span> (x), close the modal
 closeGameOverModal.onclick = () => {
     gameOverModal.style.display = 'none';
@@ -419,9 +431,10 @@ const handleGuess = (letter, button) => {
         });
 
         if (allWordsGuessed) {
-            message.innerText = 'You won!';
             points++;
+            wonMessage.innerHTML = `<strong>You WON!</strong> <br>You have ${maxLives} lives left. <br> `;
             pointsDisplay.innerText = `Points: ${points}`;
+            wonModal.style.display = 'block';
         }
 
     }
@@ -433,7 +446,6 @@ const handleGuess = (letter, button) => {
         updatepointsDisplay();
         if (incorrectGuesses === 0) {
             maxLives--;
-           //  message.innerHTML = `You LOST! The words were: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
             lostMessage.innerHTML = `<strong>You LOST!</strong> <br>You have ${maxLives} lives left. <br> The words were: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
             continueButton.innerText = `Continue with ${maxLives} lives left`; // Set button text
             lostModal.style.display = 'block';
@@ -452,6 +464,7 @@ const handleGuess = (letter, button) => {
 
 closeModal.onclick = () => {
     lostModal.style.display = 'none';
+    wonModal.style.display = 'none';
 };
 
 // When the user clicks anywhere outside of the modal, close it
