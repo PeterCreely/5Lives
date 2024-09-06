@@ -1,8 +1,8 @@
-﻿body {
+body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /*align-items: center;*/
     height: 100vh;
     background-color: black;
 }
@@ -11,45 +11,81 @@
     text-align: center;
     color: white;
 }
-
+/*
 #lives-image {
     height: 10px;
     margin-bottom: 20px;
 }
-
+*/
 #word-display1 {
     font-size: 24px;
     margin-bottom: 20px;
     color: darkgreen;
-    border: 1px solid red; /* Temporary border for visibility */
+    text-shadow: 
+        -1px -1px 0 #000, 
+        1px -1px 0 #000, 
+        -1px 1px 0 #000, 
+        1px 1px 0 #000;
 }
+
+    #word-display1 span {
+        border: 1px solid red; 
+        padding: 2px; 
+        margin: 1px; 
+        display: inline-block; 
+    }
 
 #word-display2 {
     font-size: 24px;
     margin-bottom: 20px;
     color: darkgreen;
-    border: 1px solid red; /* Temporary border for visibility */
+    /*border: 1px solid red; */
+}
+
+#word-display2 span {
+    border: 1px solid red;
+    padding: 2px;
+    margin: 1px;
+    display: inline-block;
 }
 
 #word-display3 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: darkgreen;
-    border: 1px solid red; /* Temporary border for visibility */
+    color: darkgreen;/
+}
+
+#word-display3 span {
+    border: 1px solid red;
+    padding: 2px;
+    margin: 1px;
+    display: inline-block;
 }
 
 #word-display4 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: darkgreen;
-    border: 1px solid red; /* Temporary border for visibility */
+    color: darkgreen;*/
+}
+
+#word-display4 span {
+    border: 1px solid red;
+    padding: 2px;
+    margin: 1px;
+    display: inline-block;
 }
 
 #word-display5 {
     font-size: 24px;
     margin-bottom: 20px;
     color: darkgreen;
-    border: 1px solid red; /* Temporary border for visibility */
+}
+
+#word-display5 span {
+    border: 1px solid red;
+    padding: 2px;
+    margin: 1px;
+    display: inline-block;
 }
 
 #keyboard {
@@ -74,7 +110,7 @@
     }
 
 .selected {
-    background-color: yellow; /* Change to your desired color */
+    background-color: green; /* Change to your desired color */
     color: black; /* Optional: Change text color */
 }
 
@@ -92,3 +128,36 @@
 footer {
     text-align: center;
 }
+
+#scoreboard {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: red;
+    width: 300px;
+    font-family: Arial, sans-serif;
+}
+
+    #scoreboard h3 {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    #scoreboard .header, #scoreboard .entry {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+    }
+
+    #scoreboard .header {
+        font-weight: bold;
+        border-bottom: 1px solid #ddd;
+    }
+
+    #scoreboard .entry {
+        border-bottom: 1px solid #eee;
+    }
+
+        #scoreboard .entry:last-child {
+            border-bottom: none;
+        }
