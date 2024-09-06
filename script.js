@@ -218,6 +218,14 @@ const livesDisplay = document.getElementById('lives-display');
 const incorrectGuessesDisplay = document.getElementById('guesses-display');
 const wordcountDisplay = document.getElementById('wordcount-display');
 const pointsDisplay = document.getElementById('points-display');
+const lostModal = document.getElementById('lostModal');
+const lostMessage = document.getElementById('lostMessage');
+const closeModal = document.getElementsByClassName('close')[0];
+const gameOverModal = document.getElementById('gameOverModal');
+const gameOverMessage = document.getElementById('gameOverMessage');
+const playerNameInput = document.getElementById('playerNameInput');
+const submitNameButton = document.getElementById('submitNameButton');
+const closeGameOverModal = document.getElementsByClassName('close')[0];
 
 
 /*const updateWordDisplay1 = () => {
@@ -341,37 +349,68 @@ const loadScoreboard = () => {
 };
 
 const handleGameOver = () => {
-    const playerName = prompt("Game Over! Enter your name for the scoreboard:");
+    gameOverMessage.innerHTML = `<strong>Game Over!</strong><br>You scored ${points} points.<br>Enter your name for the scoreboard:`;
+    gameOverModal.style.display = 'block';
+};
+
+// When the user clicks on <span> (x), close the modal
+closeGameOverModal.onclick = () => {
+    gameOverModal.style.display = 'none';
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = (event) => {
+    if (event.target == gameOverModal) {
+        gameOverModal.style.display = 'none';
+    }
+};
+
+// Handle name submission
+submitNameButton.onclick = () => {
+    const playerName = playerNameInput.value;
     if (playerName) {
         updateScoreboard(playerName, points);
+        gameOverModal.style.display = 'none';
+        location.reload(); // Reload the page or reset the game as needed
+    } else {
+        alert("Please enter your name.");
     }
-    // Reset the game or redirect to a different page
-    // For example, you can reload the page to start a new game
-    location.reload();
 };
 
 const handleGuess = (letter, button) => {
     if (guessedLetters.includes(letter)) return;
     guessedLetters.push(letter);
-    // button.classList.add('selected'); // Add this line to change the button color
 
-    if (selectedWord1.includes(letter) || selectedWord2.includes(letter) || selectedWord3.includes(letter) || selectedWord4.includes(letter) || selectedWord5.includes(letter)) {
+    let correctGuess = false;
+
+    if (selectedWord1.includes(letter) && wordDisplay1.style.display !== 'none') {
         button.classList.add('selected');
         updateWordDisplay1();
+        correctGuess = true;
+    }
+    if (selectedWord2.includes(letter) && wordDisplay2.style.display !== 'none') {
+        button.classList.add('selected');
         updateWordDisplay2();
+        correctGuess = true;
+    }
+    if (selectedWord3.includes(letter) && wordDisplay3.style.display !== 'none') {
+        button.classList.add('selected');
         updateWordDisplay3();
+        correctGuess = true;
+    }
+    if (selectedWord4.includes(letter) && wordDisplay4.style.display !== 'none') {
+        button.classList.add('selected');
         updateWordDisplay4();
+        correctGuess = true;
+    }
+    if (selectedWord5.includes(letter) && wordDisplay5.style.display !== 'none') {
+        button.classList.add('selected');
         updateWordDisplay5();
+        correctGuess = true;
+    }
 
-        const wordDisplays = [
-            document.getElementById('word-display1'),
-            document.getElementById('word-display2'),
-            document.getElementById('word-display3'),
-            document.getElementById('word-display4'),
-            document.getElementById('word-display5')
-        ];
-
-        // Build the win condition dynamically
+    if (correctGuess) {
+        const wordDisplays = [wordDisplay1, wordDisplay2, wordDisplay3, wordDisplay4, wordDisplay5];
         let allWordsGuessed = true;
         wordDisplays.forEach(display => {
             if (display.style.display !== 'none' && display.innerText.includes('_')) {
@@ -385,15 +424,20 @@ const handleGuess = (letter, button) => {
             pointsDisplay.innerText = `Points: ${points}`;
         }
 
-    } else {
+    }
+    else {
         button.classList.add('notselected');
         incorrectGuesses--;
         updateLivesDisplay();
         updateincorrectGuessesDisplay();
         updatepointsDisplay();
         if (incorrectGuesses === 0) {
-            message.innerHTML = `You LOST! The words were: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
             maxLives--;
+           //  message.innerHTML = `You LOST! The words were: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
+            lostMessage.innerHTML = `<strong>You LOST!</strong> <br>You have ${maxLives} lives left. <br> The words were: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
+            continueButton.innerText = `Continue with ${maxLives} lives left`; // Set button text
+            lostModal.style.display = 'block';
+     
             points--;
             incorrectGuesses = 5;
             updateLivesDisplay();
@@ -403,8 +447,25 @@ const handleGuess = (letter, button) => {
                 handleGameOver();
             }
         }
-    };
-}
+    }
+};
+
+closeModal.onclick = () => {
+    lostModal.style.display = 'none';
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = (event) => {
+    if (event.target == lostModal) {
+        lostModal.style.display = 'none';
+    }
+};
+
+// Continue button to close the modal and continue the game
+document.getElementById('continueButton').onclick = () => {
+    lostModal.style.display = 'none';
+    continueGame();
+};
 
     const createKeyboard = () => {
         const rows = [
@@ -451,7 +512,7 @@ const handleGuess = (letter, button) => {
 
     const continueGame = () => {
         guessedLetters = [];
-        let incorrectGuesses = 5;
+        incorrectGuesses = 5;
         selectedWord1 = words1[Math.floor(Math.random() * words1.length)];
         selectedWord2 = words2[Math.floor(Math.random() * words2.length)];
         selectedWord3 = words3[Math.floor(Math.random() * words3.length)];
@@ -518,6 +579,8 @@ const handleGuess = (letter, button) => {
         }
 
         createKeyboard();
+        updateLivesDisplay(); 
+        updateincorrectGuessesDisplay(); 
     };
 
 document.addEventListener('DOMContentLoaded', () => {
