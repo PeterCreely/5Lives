@@ -222,6 +222,11 @@ footer {
     color: #ff0000; /* Red text for the lost message */
 }
 
+
+#wonMessage {
+    color: darkgreen; /* Red text for the lost message */
+}
+
 #continueButton {
     background-color: #4CAF50; /* Green background */
     color: white; /* White text */
@@ -232,7 +237,7 @@ footer {
     font-size: 16px; /* Font size */
     margin-top: 10px; /* Margin on top */
 }
-
+x
     #continueButton:hover {
         background-color: #45a049; /* Darker green on hover */
     }
