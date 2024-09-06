@@ -29,10 +29,14 @@ body {
 }
 
     #word-display1 span {
-        border: 1px solid red; 
-        padding: 2px; 
-        margin: 1px; 
-        display: inline-block; 
+        border: 1px solid red;
+        padding: 2px;
+        margin: 1px;
+        display: inline-block;
+        width: 30px; /* Set a fixed width */
+        height: 30px; /* Set a fixed height if needed */
+        box-sizing: border-box; /* Include padding and border in the width and height */
+        text-align: center; /* Center the text inside the box */
     }
 
 #word-display2 {
@@ -47,6 +51,10 @@ body {
     padding: 2px;
     margin: 1px;
     display: inline-block;
+    width: 30px; /* Set a fixed width */
+    height: 30px; /* Set a fixed height if needed */
+    box-sizing: border-box; /* Include padding and border in the width and height */
+    text-align: center; /* Center the text inside the box */
 }
 
 #word-display3 {
@@ -60,6 +68,10 @@ body {
     padding: 2px;
     margin: 1px;
     display: inline-block;
+    width: 30px; /* Set a fixed width */
+    height: 30px; /* Set a fixed height if needed */
+    box-sizing: border-box; /* Include padding and border in the width and height */
+    text-align: center; /* Center the text inside the box */
 }
 
 #word-display4 {
@@ -73,6 +85,10 @@ body {
     padding: 2px;
     margin: 1px;
     display: inline-block;
+    width: 30px; /* Set a fixed width */
+    height: 30px; /* Set a fixed height if needed */
+    box-sizing: border-box; /* Include padding and border in the width and height */
+    text-align: center; /* Center the text inside the box */
 }
 
 #word-display5 {
@@ -86,6 +102,10 @@ body {
     padding: 2px;
     margin: 1px;
     display: inline-block;
+    width: 30px; /* Set a fixed width */
+    height: 30px; /* Set a fixed height if needed */
+    box-sizing: border-box; /* Include padding and border in the width and height */
+    text-align: center; /* Center the text inside the box */
 }
 
 #keyboard {
@@ -161,3 +181,77 @@ footer {
         #scoreboard .entry:last-child {
             border-bottom: none;
         }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 200px; /* Could be more or less, depending on screen size */
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+#lostMessage {
+    color: #ff0000; /* Red text for the lost message */
+}
+
+#continueButton {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    margin-top: 10px; /* Margin on top */
+}
+
+    #continueButton:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+
+#submitNameButton {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    margin-top: 10px; /* Margin on top */
+}
+
+    #submitNameButton:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+
+#gameOverMessage {
+    color: #ff0000; /* Red text for the lost message */
+}
