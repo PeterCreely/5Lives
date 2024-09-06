@@ -197,14 +197,14 @@ const words5 = ["amazing", "analyze", "acquire", "anxiety", "anybody", "achieve"
 let selectedWord5 = words5[Math.floor(Math.random() * words5.length)];
 
 let guessedLetters = [];
-let incorrectGuesses = 0;
+let incorrectGuesses = 5;
 let maxLives = 5;
-let points = 0;
+let points = 5;
 let wordcount = 5;
 
 let clickCount = 0;
 
-const livesImage = document.getElementById('lives-image');
+//const livesImage = document.getElementById('lives-image');
 const wordDisplay1 = document.getElementById('word-display1');
 const wordDisplay2 = document.getElementById('word-display2');
 const wordDisplay3 = document.getElementById('word-display3');
@@ -212,10 +212,15 @@ const wordDisplay4 = document.getElementById('word-display4');
 const wordDisplay5 = document.getElementById('word-display5');
 const keyboard = document.getElementById('keyboard');
 const message = document.getElementById('message');
-const resetButton = document.getElementById('reset-button');
+const resetButton = document.getElementById('quit-button');
 const continueButton = document.getElementById('continue-button');
+const livesDisplay = document.getElementById('lives-display');
+const incorrectGuessesDisplay = document.getElementById('guesses-display');
+const wordcountDisplay = document.getElementById('wordcount-display');
+const pointsDisplay = document.getElementById('points-display');
 
-const updateWordDisplay1 = () => {
+
+/*const updateWordDisplay1 = () => {
     wordDisplay1.innerHTML = selectedWord1.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
 };
 
@@ -233,30 +238,116 @@ const updateWordDisplay4 = () => {
 
 const updateWordDisplay5 = () => {
     wordDisplay5.innerHTML = selectedWord5.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
+};*/
+
+const updateWordDisplay1 = () => {
+    const wordDisplay1 = document.getElementById('word-display1');
+    wordDisplay1.innerHTML = selectedWord1.split('').map(letter => {
+        const span = document.createElement('span');
+        span.innerText = guessedLetters.includes(letter) ? letter : '_';
+        return span.outerHTML;
+    }).join(' ');
 };
 
-const livesDisplay = document.getElementById('lives-display');
+const updateWordDisplay2 = () => {
+    const wordDisplay2 = document.getElementById('word-display2');
+    wordDisplay2.innerHTML = selectedWord2.split('').map(letter => {
+        const span = document.createElement('span');
+        span.innerText = guessedLetters.includes(letter) ? letter : '_';
+        return span.outerHTML;
+    }).join(' ');
+};
+
+const updateWordDisplay3 = () => {
+    const wordDisplay3 = document.getElementById('word-display3');
+    wordDisplay3.innerHTML = selectedWord3.split('').map(letter => {
+        const span = document.createElement('span');
+        span.innerText = guessedLetters.includes(letter) ? letter : '_';
+        return span.outerHTML;
+    }).join(' ');
+};
+
+const updateWordDisplay4 = () => {
+    const wordDisplay4 = document.getElementById('word-display4');
+    wordDisplay4.innerHTML = selectedWord4.split('').map(letter => {
+        const span = document.createElement('span');
+        span.innerText = guessedLetters.includes(letter) ? letter : '_';
+        return span.outerHTML;
+    }).join(' ');
+};
+
+const updateWordDisplay5 = () => {
+    const wordDisplay5 = document.getElementById('word-display5');
+    wordDisplay5.innerHTML = selectedWord5.split('').map(letter => {
+        const span = document.createElement('span');
+        span.innerText = guessedLetters.includes(letter) ? letter : '_';
+        return span.outerHTML;
+    }).join(' ');
+};
 
 const updateLivesDisplay = () => {
     livesDisplay.innerText = `You Have ${maxLives} Lives`;
 };
 
-const incorrectGuessesDisplay = document.getElementById('guesses-display');
-
 const updateincorrectGuessesDisplay = () => {
-    incorrectGuessesDisplay.innerText = `You have ${incorrectGuesses} wrong guesses`;
+    incorrectGuessesDisplay.innerText = `You have only ${incorrectGuesses} guesses left!`;
 };
-
-const wordcountDisplay = document.getElementById('wordcount-display');
 
 const updatewordcountDisplay = () => {
     wordcountDisplay.innerText = `There are only ${wordcount} words...!`;
 };
 
-const pointsDisplay = document.getElementById('points-display');
-
 const updatepointsDisplay = () => {
     pointsDisplay.innerText = `You have ${points} points`;
+};
+
+let scoreboard = [];
+
+const updateScoreboard = (name, points) => {
+    scoreboard.push({ name, points });
+    // Sort the scoreboard by points in descending order
+    scoreboard.sort((a, b) => b.points - a.points);
+    localStorage.setItem('scoreboard', JSON.stringify(scoreboard)); // Save to localStorage
+    displayScoreboard();
+};
+
+const displayScoreboard = () => {
+    const scoreboardDiv = document.getElementById('scoreboard');
+    scoreboardDiv.innerHTML = `
+        <h3>SCOREBOARD</h3>
+        <div class="header">
+            <span>No.</span>
+            <span>Name</span>
+            <span>Score</span>
+        </div>
+    `;
+    scoreboard.forEach((entry, index) => {
+        scoreboardDiv.innerHTML += `
+            <div class="entry">
+                <span>${index + 1}</span>
+                <span>${entry.name}</span>
+                <span>${entry.points}</span>
+            </div>
+        `;
+    });
+};
+
+const loadScoreboard = () => {
+    const savedScoreboard = localStorage.getItem('scoreboard');
+    if (savedScoreboard) {
+        scoreboard = JSON.parse(savedScoreboard);
+        displayScoreboard();
+    }
+};
+
+const handleGameOver = () => {
+    const playerName = prompt("Game Over! Enter your name for the scoreboard:");
+    if (playerName) {
+        updateScoreboard(playerName, points);
+    }
+    // Reset the game or redirect to a different page
+    // For example, you can reload the page to start a new game
+    location.reload();
 };
 
 const handleGuess = (letter, button) => {
@@ -271,155 +362,199 @@ const handleGuess = (letter, button) => {
         updateWordDisplay3();
         updateWordDisplay4();
         updateWordDisplay5();
-        if (!wordDisplay1.innerText.includes('_') && !wordDisplay2.innerText.includes('_') && !wordDisplay3.innerText.includes('_') && !wordDisplay4.innerText.includes('_') && !wordDisplay5.innerText.includes('_')) {
+
+        const wordDisplays = [
+            document.getElementById('word-display1'),
+            document.getElementById('word-display2'),
+            document.getElementById('word-display3'),
+            document.getElementById('word-display4'),
+            document.getElementById('word-display5')
+        ];
+
+        // Build the win condition dynamically
+        let allWordsGuessed = true;
+        wordDisplays.forEach(display => {
+            if (display.style.display !== 'none' && display.innerText.includes('_')) {
+                allWordsGuessed = false;
+            }
+        });
+
+        if (allWordsGuessed) {
             message.innerText = 'You won!';
             points++;
             pointsDisplay.innerText = `Points: ${points}`;
         }
+
     } else {
         button.classList.add('notselected');
-        incorrectGuesses++;
-        livesImage.innerText = `Incorrect guesses: ${incorrectGuesses}`;
+        incorrectGuesses--;
         updateLivesDisplay();
         updateincorrectGuessesDisplay();
         updatepointsDisplay();
-        if (incorrectGuesses === 5) {
-            message.innerHTML = `Game over! The words were: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
+        if (incorrectGuesses === 0) {
+            message.innerHTML = `You LOST! The words were: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
             maxLives--;
-            incorrectGuesses = 0;
+            points--;
+            incorrectGuesses = 5;
             updateLivesDisplay();
             updateincorrectGuessesDisplay();
             updatepointsDisplay();
+            if (maxLives === 0) {
+                handleGameOver();
+            }
         }
-    }
-};
+    };
+}
 
-const createKeyboard = () => {
-    const rows = [
-        'qwertyuiop',
-        'asdfghjkl',
-        'zxcvbnm'
-    ];
+    const createKeyboard = () => {
+        const rows = [
+            'qwertyuiop',
+            'asdfghjkl',
+            'zxcvbnm'
+        ];
 
-    keyboard.innerHTML = ''; // Clear existing buttons
+        keyboard.innerHTML = ''; // Clear existing buttons
 
-    rows.forEach(row => {
-        const rowDiv = document.createElement('div');
-        rowDiv.classList.add('row');
-        row.split('').forEach(letter => {
-            const button = document.createElement('button');
-            button.innerText = letter;
-            button.addEventListener('click', () => handleGuess(letter, button));
-            rowDiv.appendChild(button);
+        rows.forEach(row => {
+            const rowDiv = document.createElement('div');
+            rowDiv.classList.add('row');
+            row.split('').forEach(letter => {
+                const button = document.createElement('button');
+                button.innerText = letter;
+                button.addEventListener('click', () => handleGuess(letter, button));
+                rowDiv.appendChild(button);
+            });
+            keyboard.appendChild(rowDiv);
         });
-        keyboard.appendChild(rowDiv);
-    });
-};
+    };
 
-const resetGame = () => {
-    guessedLetters = [];
-    selectedWord1 = words1[Math.floor(Math.random() * words1.length)];
-    selectedWord2 = words2[Math.floor(Math.random() * words2.length)];
-    selectedWord3 = words3[Math.floor(Math.random() * words3.length)];
-    selectedWord4 = words4[Math.floor(Math.random() * words4.length)];
-    selectedWord5 = words5[Math.floor(Math.random() * words5.length)];
-    let incorrectGuesses = 0;
-    let points = 0;
-    let maxLives = 5;
-    message.innerText = '';
-    livesImage.innerText = '';
-    updateWordDisplay1();
-    updateWordDisplay2();
-    updateWordDisplay3();
-    updateWordDisplay4();
-    updateWordDisplay5();
-    createKeyboard();
-};
-
-
-const continueGame = () => {
-    guessedLetters = [];
-    selectedWord1 = words1[Math.floor(Math.random() * words1.length)];
-    selectedWord2 = words2[Math.floor(Math.random() * words2.length)];
-    selectedWord3 = words3[Math.floor(Math.random() * words3.length)];
-    selectedWord4 = words4[Math.floor(Math.random() * words4.length)];
-    selectedWord5 = words5[Math.floor(Math.random() * words5.length)];
-    message.innerText = '';
-    livesImage.innerText = '';
-
-    document.getElementById('word-display1').style.display = 'none';
-    document.getElementById('word-display2').style.display = 'none';
-    document.getElementById('word-display3').style.display = 'none';
-    document.getElementById('word-display4').style.display = 'none';
-    document.getElementById('word-display5').style.display = 'none';
-
-    clickCount++;
-
-    if (clickCount === 1) {
-        wordcount--;
-        document.getElementById('word-display2').style.display = 'block';
-        document.getElementById('word-display3').style.display = 'block';
-        document.getElementById('word-display4').style.display = 'block';
-        document.getElementById('word-display5').style.display = 'block';
-        updateWordDisplay2();
-        updateWordDisplay3();
-        updateWordDisplay4();
-        updateWordDisplay5();
-        updatewordcountDisplay();
-    } else if (clickCount === 2) {
-        wordcount--;
-        document.getElementById('word-display3').style.display = 'block';
-        document.getElementById('word-display4').style.display = 'block';
-        document.getElementById('word-display5').style.display = 'block';
-        updateWordDisplay3();
-        updateWordDisplay4();
-        updateWordDisplay5();
-        updatewordcountDisplay();
-    } else if (clickCount === 3) {
-        wordcount--;
-        document.getElementById('word-display4').style.display = 'block';
-        document.getElementById('word-display5').style.display = 'block';
-        updateWordDisplay4();
-        updateWordDisplay5();
-        updatewordcountDisplay();
-    } else if (clickCount === 4) {
-        wordcount--;
-        document.getElementById('word-display5').style.display = 'block';
-        updateWordDisplay5();
-        updatewordcountDisplay();
-    } else {
-        // Reset click count and show all words again
-        clickCount = 0;
-        wordcount = 5;
-        document.getElementById('word-display1').style.display = 'block';
-        document.getElementById('word-display2').style.display = 'block';
-        document.getElementById('word-display3').style.display = 'block';
-        document.getElementById('word-display4').style.display = 'block';
-        document.getElementById('word-display5').style.display = 'block';
+    const resetGame = () => {
+        guessedLetters = [];
+        selectedWord1 = words1[Math.floor(Math.random() * words1.length)];
+        selectedWord2 = words2[Math.floor(Math.random() * words2.length)];
+        selectedWord3 = words3[Math.floor(Math.random() * words3.length)];
+        selectedWord4 = words4[Math.floor(Math.random() * words4.length)];
+        selectedWord5 = words5[Math.floor(Math.random() * words5.length)];
+        let incorrectGuesses = 5;
+        let points = 0;
+        let maxLives = 5;
+        message.innerText = '';
+        // livesImage.innerText = '';
         updateWordDisplay1();
         updateWordDisplay2();
         updateWordDisplay3();
         updateWordDisplay4();
         updateWordDisplay5();
-        updatewordcountDisplay();
-    }
+        createKeyboard();
+    };
 
+
+    const continueGame = () => {
+        guessedLetters = [];
+        let incorrectGuesses = 5;
+        selectedWord1 = words1[Math.floor(Math.random() * words1.length)];
+        selectedWord2 = words2[Math.floor(Math.random() * words2.length)];
+        selectedWord3 = words3[Math.floor(Math.random() * words3.length)];
+        selectedWord4 = words4[Math.floor(Math.random() * words4.length)];
+        selectedWord5 = words5[Math.floor(Math.random() * words5.length)];
+        message.innerText = '';
+        // livesImage.innerText = '';
+
+        document.getElementById('word-display1').style.display = 'none';
+        document.getElementById('word-display2').style.display = 'none';
+        document.getElementById('word-display3').style.display = 'none';
+        document.getElementById('word-display4').style.display = 'none';
+        document.getElementById('word-display5').style.display = 'none';
+
+        clickCount++;
+
+        if (clickCount === 1) {
+            wordcount--;
+            document.getElementById('word-display2').style.display = 'block';
+            document.getElementById('word-display3').style.display = 'block';
+            document.getElementById('word-display4').style.display = 'block';
+            document.getElementById('word-display5').style.display = 'block';
+            updateWordDisplay2();
+            updateWordDisplay3();
+            updateWordDisplay4();
+            updateWordDisplay5();
+            updatewordcountDisplay();
+        } else if (clickCount === 2) {
+            wordcount--;
+            document.getElementById('word-display3').style.display = 'block';
+            document.getElementById('word-display4').style.display = 'block';
+            document.getElementById('word-display5').style.display = 'block';
+            updateWordDisplay3();
+            updateWordDisplay4();
+            updateWordDisplay5();
+            updatewordcountDisplay();
+        } else if (clickCount === 3) {
+            wordcount--;
+            document.getElementById('word-display4').style.display = 'block';
+            document.getElementById('word-display5').style.display = 'block';
+            updateWordDisplay4();
+            updateWordDisplay5();
+            updatewordcountDisplay();
+        } else if (clickCount === 4) {
+            wordcount--;
+            document.getElementById('word-display5').style.display = 'block';
+            updateWordDisplay5();
+            updatewordcountDisplay();
+        } else {
+            // Reset click count and show all words again
+            clickCount = 0;
+            wordcount = 5;
+            document.getElementById('word-display1').style.display = 'block';
+            document.getElementById('word-display2').style.display = 'block';
+            document.getElementById('word-display3').style.display = 'block';
+            document.getElementById('word-display4').style.display = 'block';
+            document.getElementById('word-display5').style.display = 'block';
+            updateWordDisplay1();
+            updateWordDisplay2();
+            updateWordDisplay3();
+            updateWordDisplay4();
+            updateWordDisplay5();
+            updatewordcountDisplay();
+        }
+
+        createKeyboard();
+    };
+
+document.addEventListener('DOMContentLoaded', () => {
     createKeyboard();
-};
+    resetGame();
 
-resetButton.addEventListener('click', resetGame);
+    updateLivesDisplay();
+    updateincorrectGuessesDisplay();
+    updatepointsDisplay();
+    updateWordDisplay1();
+    updateWordDisplay2();
+    updateWordDisplay3();
+    updateWordDisplay4();
+    updateWordDisplay5();
+    updatewordcountDisplay();
 
-continueButton.addEventListener('click', continueGame);
+    //displayScoreboard();
+    loadScoreboard();
 
-createKeyboard();
-updateWordDisplay1();
-updateWordDisplay2();
-updateWordDisplay3();
-updateWordDisplay4();
-updateWordDisplay5();
-updateLivesDisplay();
-updateincorrectGuessesDisplay();
-updatepointsDisplay();
-updatewordsDisplay();
-updatewordcountDisplay();
+    resetButton.addEventListener('click', resetGame);
+
+    continueButton.addEventListener('click', continueGame);
+
+});
+
+ /*       createKeyboard();
+        updateWordDisplay1();
+        updateWordDisplay2();
+        updateWordDisplay3();
+        updateWordDisplay4();
+        updateWordDisplay5();
+        updateLivesDisplay();
+        updateincorrectGuessesDisplay();
+        updatepointsDisplay();
+        updatewordsDisplay();
+        updatewordcountDisplay();
+
+});*/
+
 
