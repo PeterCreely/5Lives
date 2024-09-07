@@ -21,11 +21,7 @@ body {
     font-size: 24px;
     margin-bottom: 20px;
     color: darkgreen;
-    text-shadow: 
-        -1px -1px 0 #000, 
-        1px -1px 0 #000, 
-        -1px 1px 0 #000, 
-        1px 1px 0 #000;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
     #word-display1 span {
@@ -46,50 +42,52 @@ body {
     /*border: 1px solid red; */
 }
 
-#word-display2 span {
-    border: 1px solid red;
-    padding: 2px;
-    margin: 1px;
-    display: inline-block;
-    width: 30px; /* Set a fixed width */
-    height: 30px; /* Set a fixed height if needed */
-    box-sizing: border-box; /* Include padding and border in the width and height */
-    text-align: center; /* Center the text inside the box */
-}
+    #word-display2 span {
+        border: 1px solid red;
+        padding: 2px;
+        margin: 1px;
+        display: inline-block;
+        width: 30px; /* Set a fixed width */
+        height: 30px; /* Set a fixed height if needed */
+        box-sizing: border-box; /* Include padding and border in the width and height */
+        text-align: center; /* Center the text inside the box */
+    }
 
 #word-display3 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: darkgreen;/
+    color: darkgreen;
+    /
 }
 
-#word-display3 span {
-    border: 1px solid red;
-    padding: 2px;
-    margin: 1px;
-    display: inline-block;
-    width: 30px; /* Set a fixed width */
-    height: 30px; /* Set a fixed height if needed */
-    box-sizing: border-box; /* Include padding and border in the width and height */
-    text-align: center; /* Center the text inside the box */
-}
+    #word-display3 span {
+        border: 1px solid red;
+        padding: 2px;
+        margin: 1px;
+        display: inline-block;
+        width: 30px; /* Set a fixed width */
+        height: 30px; /* Set a fixed height if needed */
+        box-sizing: border-box; /* Include padding and border in the width and height */
+        text-align: center; /* Center the text inside the box */
+    }
 
 #word-display4 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: darkgreen;*/
+    color: darkgreen;
+    */
 }
 
-#word-display4 span {
-    border: 1px solid red;
-    padding: 2px;
-    margin: 1px;
-    display: inline-block;
-    width: 30px; /* Set a fixed width */
-    height: 30px; /* Set a fixed height if needed */
-    box-sizing: border-box; /* Include padding and border in the width and height */
-    text-align: center; /* Center the text inside the box */
-}
+    #word-display4 span {
+        border: 1px solid red;
+        padding: 2px;
+        margin: 1px;
+        display: inline-block;
+        width: 30px; /* Set a fixed width */
+        height: 30px; /* Set a fixed height if needed */
+        box-sizing: border-box; /* Include padding and border in the width and height */
+        text-align: center; /* Center the text inside the box */
+    }
 
 #word-display5 {
     font-size: 24px;
@@ -97,16 +95,16 @@ body {
     color: darkgreen;
 }
 
-#word-display5 span {
-    border: 1px solid red;
-    padding: 2px;
-    margin: 1px;
-    display: inline-block;
-    width: 30px; /* Set a fixed width */
-    height: 30px; /* Set a fixed height if needed */
-    box-sizing: border-box; /* Include padding and border in the width and height */
-    text-align: center; /* Center the text inside the box */
-}
+    #word-display5 span {
+        border: 1px solid red;
+        padding: 2px;
+        margin: 1px;
+        display: inline-block;
+        width: 30px; /* Set a fixed width */
+        height: 30px; /* Set a fixed height if needed */
+        box-sizing: border-box; /* Include padding and border in the width and height */
+        text-align: center; /* Center the text inside the box */
+    }
 
 #keyboard {
     display: flex;
@@ -237,10 +235,11 @@ footer {
     font-size: 16px; /* Font size */
     margin-top: 10px; /* Margin on top */
 }
+
 x
-    #continueButton:hover {
-        background-color: #45a049; /* Darker green on hover */
-    }
+#continueButton:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
 
 #submitNameButton {
     background-color: #4CAF50; /* Green background */
