@@ -432,7 +432,7 @@ const handleGuess = (letter, button) => {
 
         if (allWordsGuessed) {
             points++;
-            wonMessage.innerHTML = `<strong>You WON!</strong> <br>You have ${maxLives} lives left. <br> `;
+            wonMessage.innerHTML = `<br><strong>Woo! High Five!<br>They're ALL Right!</strong><br><br>You have ${maxLives} lives left. <br>Keep Going!<br> `;
             pointsDisplay.innerText = `Points: ${points}`;
             wonModal.style.display = 'block';
         }
@@ -446,7 +446,7 @@ const handleGuess = (letter, button) => {
         updatepointsDisplay();
         if (incorrectGuesses === 0) {
             maxLives--;
-            lostMessage.innerHTML = `<strong>You LOST!</strong> <br>You have ${maxLives} lives left. <br> The words were: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
+            lostMessage.innerHTML = `<strong>Oops a Daisy!<br>You ran out of guesses</strong><br><br>You have ${maxLives} lives left. <br><br> The words were: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
             continueButton.innerText = `Continue with ${maxLives} lives left`; // Set button text
             lostModal.style.display = 'block';
      
