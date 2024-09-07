@@ -313,7 +313,6 @@ const updatepointsDisplay = () => {
 };
 
 let scoreboard = [];
-let scoreboard = [];
 
 const updateScoreboard = (name, points) => {
     scoreboard.push({ name, points });
