@@ -129,12 +129,12 @@ body {
 
 .selected {
     background-color: green; /* Change to your desired color */
-    color: black; /* Optional: Change text color */
+    color: white; /* Optional: Change text color */
 }
 
 .notselected {
     background-color: red; /* Change to your desired color */
-    color: black; /* Optional: Change text color */
+    color: white; /* Optional: Change text color */
 }
 
 #message {
@@ -259,3 +259,16 @@ x
 #gameOverMessage {
     color: #ff0000; /* Red text for the lost message */
 }
+
+#continue-button {
+    background-color: black;
+    color: black;
+    border: none;
+    padding: 1px 1px;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+    #continue-button:hover {
+        background-color: black;
+    }
