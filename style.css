@@ -134,12 +134,12 @@ body {
     }
 
 .selected {
-    background-color: green; /* Change to your desired color */
+    background-color: dimgrey; /* Change to your desired color */
     color: white; /* Optional: Change text color */
 }
 
 .notselected {
-    background-color: red; /* Change to your desired color */
+    background-color: black; /* Change to your desired color */
     color: white; /* Optional: Change text color */
 }
 
