@@ -597,7 +597,6 @@ const continueGame = () => {
     updateincorrectGuessesDisplay();
 };
 
-
 document.addEventListener('DOMContentLoaded', () => {
     createKeyboard();
     resetGame();
@@ -618,5 +617,4 @@ document.addEventListener('DOMContentLoaded', () => {
     resetButton.addEventListener('click', resetGame);
 
     continueButton.addEventListener('click', continueGame);
-
 });
