@@ -140,7 +140,7 @@ body {
 
 .notselected {
     background-color: black; /* Change to your desired color */
-    color: white; /* Optional: Change text color */
+    color: dimgrey; /* Optional: Change text color */
 }
 
 #message {
