@@ -620,3 +620,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     continueButton.addEventListener('click', continueGame);
 });
+
+document.getElementById('open-de-image').addEventListener('click', () => {
+    window.open('indexde.html', '_blank'); // Opens the new page in a new tab
+});
+
+document.getElementById('open-ie-image').addEventListener('click', () => {
+    window.open('indexie.html', '_blank'); // Opens the new page in a new tab
+});
