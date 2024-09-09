@@ -229,7 +229,9 @@ const playerNameInput = document.getElementById('playerNameInput');
 const submitNameButton = document.getElementById('submitNameButton');
 const closeGameOverModal = document.getElementsByClassName('close')[0];
 const closeModalButtons = document.querySelectorAll('.close, #continueButton');
+const logoImage = document.getElementById('logo-image');
 
+logoImage.src = 'logo.png';
 
 /*const updateWordDisplay1 = () => {
     wordDisplay1.innerHTML = selectedWord1.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
