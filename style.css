@@ -19,7 +19,6 @@ body {
 */
 #word-display1 {
     font-size: 24px;
-    font-style: bold;
     margin-bottom: 20px;
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -38,7 +37,6 @@ body {
 
 #word-display2 {
     font-size: 24px;
-    font-style: bold;
     margin-bottom: 20px;
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -57,7 +55,6 @@ body {
 
 #word-display3 {
     font-size: 24px;
-    font-style: bold;
     margin-bottom: 20px;
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -76,7 +73,6 @@ body {
 
 #word-display4 {
     font-size: 24px;
-    font-style: bold;
     margin-bottom: 20px;
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -95,7 +91,6 @@ body {
 
 #word-display5 {
     font-size: 24px;
-    font-style: bold;
     margin-bottom: 20px;
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
