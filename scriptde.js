@@ -69,7 +69,7 @@ const words3 = ["acker", "adler", "agent", "aktie", "alarm", "allee", "ally", "a
     "trotz", "tulpe", "türke", "übung", "umbau", "union", "unter", "uralt", "urope", "venus", "video",
     "villa", "virus", "vogel", "voran", "waage", "wachs", "warze", "weich", "welle", "wende", "wessi",
     "wiese", "wieum", "wille", "witwe", "wolke", "wolle", "woran", "wunde", "wurst", "wüste", "zeile",
-    "zumal", "zunge", "zuvor", "zweck", "zwölf", "damit", "hallo", "igitt", "prima", "tself",
+    "zumal", "zunge", "zuvor", "zweck", "zwölf", "damit", "hallo", "igitt", "prima", 
 ];
 let selectedWord3 = words3[Math.floor(Math.random() * words3.length)];
 
