@@ -271,10 +271,11 @@ document.getElementById('continueButton').onclick = () => {
 
 const createKeyboard = () => {
     const rows = [
-        '1234567890.!',
+        '1234567890',
         'qwertyuiop',
         'asdfghjkl',
-        'zxcvbnm'
+        'zxcvbnm',
+        '.,!#'
     ];
 
     keyboard.innerHTML = ''; // Clear existing buttons
