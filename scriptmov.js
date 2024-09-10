@@ -293,9 +293,9 @@ const createKeyboard = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  //  if (!checkLastAttempt()) {
-   //     return; // Exit if the player has already played today
-   // }
+    if (!checkLastAttempt()) {
+    return; // Exit if the player has already played today
+    }
     createKeyboard();
 
     const dailyWords = getDailyWords();
