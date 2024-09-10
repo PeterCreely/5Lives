@@ -151,7 +151,7 @@ const updateScoreboard = (name, points) => {
 const displayScoreboard = () => {
     const scoreboardDiv = document.getElementById('scoreboard');
     scoreboardDiv.innerHTML = `
-        <h3>SCOREBOARD</h3>
+        <h3>Clár Ceannaire</h3>
         <div class="header">
             <span>No.</span>
             <span>Name</span>
@@ -178,7 +178,7 @@ const loadScoreboard = () => {
 };
 
 const handleGameOver = () => {
-    gameOverMessage.innerHTML = `<strong>Game Over!</strong><br>You scored ${points} points.<br>Enter your name for the scoreboard:`;
+    gameOverMessage.innerHTML = `<strong>Cluiche Thar!</strong><br>Scóráil tú ${points} phointe.<br>Cuir isteach d'ainm don scórchlár:`;
     gameOverModal.style.display = 'block';
 };
 
@@ -259,8 +259,8 @@ const handleGuess = (letter, button) => {
 
         if (allWordsGuessed) {
             points++;
-            wonMessage.innerHTML = `<br><strong>Woo! High Five!<br>They're ALL Right!</strong><br><br>You have ${maxLives} lives left. <br>Keep Going!<br> `;
-            pointsDisplay.innerText = `Points: ${points}`;
+            wonMessage.innerHTML = `<br><strong>Go hiontach! Cúig Ard!<br>Tá siad GACH Ceart!</strong><br><br>Tá ${maxLives} shaol fágtha agat. <br>Coinnigh ag dul!<br> `;
+            pointsDisplay.innerText = `Pointí: ${points}`;
             wonModal.style.display = 'block';
         }
     } else {
@@ -272,7 +272,7 @@ const handleGuess = (letter, button) => {
         updatepointsDisplay();
         if (incorrectGuesses === 0) {
             maxLives--;
-            lostMessage.innerHTML = `<strong>Oops a Daisy!<br>You ran out of guesses</strong><br><br>You have ${maxLives} lives left. <br><br> The words were: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
+                       lostMessage.innerHTML = `<strong>Ó Níl!<br>Rith tú amach as buille faoi thuairim</strong><br><br>Tá ${maxLives} shaol fágtha agat. <br><br> Bhí na focail: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
             continueButton.innerText = `Continue with ${maxLives} lives left`; // Set button text
             lostModal.style.display = 'block';
 
