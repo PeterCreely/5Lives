@@ -276,3 +276,68 @@ x
     #continue-button:hover {
         background-color: black;
     }
+
+#playArea {
+    width: 400px;
+    height: 400px;
+    border: 2px solid white;
+    position: relative;
+    overflow: hidden;
+}
+
+#ball {
+    width: 30px;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#ballgameOverMessage {
+    display: none; /* Hide the message initially */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: red;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#ballscoreboard {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px auto;
+    background-color: black;
+    width: 300px;
+    font-family: Arial, sans-serif;
+}
+
+    #ballscoreboard h3 {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    #ballscoreboard .header, #ballscoreboard .entry {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+    }
+
+    #ballscoreboard .header {
+        font-weight: bold;
+        border-bottom: 1px solid #ddd;
+    }
+
+    #ballscoreboard .entry {
+        border-bottom: 1px solid #eee;
+    }
+
+        #ballscoreboard .entry:last-child {
+            border-bottom: none;
+        }
+
+
