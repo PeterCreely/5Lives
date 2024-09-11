@@ -81,8 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function handleBallClick() {
-        score++; // Increase the score
-        console.log(`Score: ${score}`); // Log the score
+        points++; // Increase the score
+        console.log(`Score: ${points}`); // Log the score
         ballTop = -50; // Reset the ball position to off-screen at the top
         ball.style.top = ballTop + 'px';
         ball.style.left = getRandomXPosition() + 'px'; // Set a new random x position
