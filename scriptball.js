@@ -70,16 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         //displayballScoreboard();
     }
 
-   /* ball.addEventListener('click', () => {
-        points++; // Increase the score
-        console.log(`Points: ${points}`); // Log the score
-        ballTop = -50; // Reset the ball position to off-screen at the top
-        ball.style.top = ballTop + 'px';
-        ball.style.left = getRandomXPosition() + 'px'; // Set a new random x position
-
-    }); */
-
-
     function handleBallClick() {
         points++; // Increase the score
         console.log(`Score: ${points}`); // Log the score
@@ -87,6 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ball.style.top = ballTop + 'px';
         ball.style.left = getRandomXPosition() + 'px'; // Set a new random x position
     }
+    
+    ball.addEventListener('click', handleBallClick);
+    ball.addEventListener('touchstart', handleBallClick);
 
     const handleballGameOver = () => {
         ballgameOverMessage.innerHTML = `<strong>Game Over!</strong><br>You scored ${points} points.<br>Enter your name for the scoreboard:`;
