@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5LIVES Ball</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .reduced-line-spacing {
+            line-height: 0.1; /* Adjust this value as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1 class="reduced-line-spacing">WELCOME TO</h1>
+        <img id="logo-image" src="logo1.png" alt="Logo Image" class="reduced-line-spacing">
+        <h3 id="wordcount-display" class="reduced-line-spacing"></h3>
+        <h1 id="lives-display" class="reduced-line-spacing"></h1>
+        <h3>Can you CATCH them all...?</h3>
+        <h3 id="guesses-display"> </h3>
+        <h3 id="points-display" class="reduced-line-spacing"> </h3>
+        <div id="playArea">
+            <img id="ball" src="ball.png" alt="Ball">
+            <div id="ballgameOverModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">×</span>
+                    <p id="ballgameOverMessage"></p>
+                    <input type="text" id="playerNameInput" placeholder="Enter your name" />
+                    <button id="submitNameButton">SUBMIT</button>
+                </div>
+            </div>
+            <div id="startGameModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">×</span>
+                    <p style="color: red;">Ready to start the game?</p>
+                    <button id="startGameButton">START GAME</button>
+                </div>
+            </div>
+        </div>
+        <div id="ballscoreboard"></div>
+        <br />
+
+        <img id="open-ie-image" src="ie.png" alt="Open ie Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-ie-image').addEventListener('click', () => {
+                window.open('indexie.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <img id="open-de-image" src="de.png" alt="Open de Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-de-image').addEventListener('click', () => {
+                window.open('indexde.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+
+        <img id="open-en-image" src="en.png" alt="Open en Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-en-image').addEventListener('click', () => {
+                window.open('index.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <br />
+
+        <img id="open-mov-image" src="mov.png" alt="Open mov Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-mov-image').addEventListener('click', () => {
+                window.open('indexmov.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <img id="open-ball-image" src="ball1.png" alt="Open ball Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-ball-image').addEventListener('click', () => {
+                window.open('indexball.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <h4>© 2023 - 5Lives - petercreely@outlook.com</h4>
+    </div>
+
+    <!--<footer>
+        <p>© 2023 - 5Lives</p>
+    </footer>-->
+    <script src="scriptball.js"></script>
+
+</body>
+</html>
