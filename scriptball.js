@@ -80,32 +80,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function dropBall() {
+        let speed;
         if (points <= 5) {
             let speed = getRandomSpeed(1, 5);
-            ballTop += speed; // Adjust the speed of the ball drop
-            ball.style.top = ballTop + 'px';
+            ballTop += speed; 
         } else if (points > 5 && points <= 15) {
             let speed = getRandomSpeed(1, 10);
-            ballTop += speed; // Adjust the speed of the ball drop
-            ball.style.top = ballTop + 'px';
+            ballTop += speed; 
         } else if (points > 15 && points <= 25) {
             let speed = getRandomSpeed(1, 15);
-            ballTop += speed; // Adjust the speed of the ball drop
-            ball.style.top = ballTop + 'px';
-        } else {
+            ballTop += speed; 
+        } else if (points > 25 && points <= 25) {
+            let speed = getRandomSpeed(1, 15);
+            ballTop += speed;
+
+        } else if (points > 25 && points <= 35) {
+            if (ballTop <= -50) {
+                ballTop = playAreaHeight; // Start from the bottom
+            }
+            let speed = getRandomSpeed(1, 10);
+            ballTop -= speed;
+        } else if (points > 35 && points <= 45) {
+            if (ballTop <= -50) {
+                ballTop = playAreaHeight; // Start from the bottom
+            }
+            let speed = getRandomSpeed(1, 15);
+            ballTop -= speed;
+        } else if (points > 45 && points <= 55) {
+            if (ballTop <= -50) {
+                ballTop = playAreaHeight; // Start from the bottom
+            }
+            let speed = getRandomSpeed(1, 15);
+            ballTop -= speed;
+        }
+
+        else {
             let speed = getRandomSpeed(1, 20);
             ballTop += speed; // Adjust the speed of the ball drop
-            ball.style.top = ballTop + 'px';
+            //ball.style.top = ballTop + 'px';
         }
- 
-        if (ballTop < playAreaHeight) {
+
+        ball.style.top = ballTop + 'px';
+
+        if (ballTop < playAreaHeight && ballTop > -50) {
             requestAnimationFrame(dropBall);
         } else {
-            ballTop = -50; // Reset the ball position to the top
+            if (ballTop >= playAreaHeight) {
+                ballTop = -50; // Reset the ball position to the top
+            } else {
+                ballTop = playAreaHeight; // Reset the ball position to the bottom
+            }
             ball.style.top = ballTop + 'px';
             ball.style.left = getRandomXPosition() + 'px';
             maxLives--;
-            console.log(`Lives remaining: ${maxLives}`); 
+            console.log(`Lives remaining: ${maxLives}`);
             if (maxLives > 0) {
                 let timeout = getRandomTimeout(1000, 5000);
                 setTimeout(dropBall, timeout);
@@ -116,10 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         updateLivesDisplay();
         updatepointsDisplay();
-        //displayballScoreboard();
         updatehighestStreakDisplay();
     }
-
+    
     function handleBallClick() {
         updatePoints(1);
         console.log(`Score: ${points}`); // Log the score
