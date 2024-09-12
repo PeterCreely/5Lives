@@ -14,14 +14,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const startGameButton = document.getElementById('startGameButton');
     const playAreaHeight = playArea.clientHeight;
     const playAreaWidth = playArea.clientWidth
-    //const closeballGameOverModal = document.getElementsByClassName('close')[0];
     const livesDisplay = document.getElementById('lives-display');
     const pointsDisplay = document.getElementById('points-display');
+    const highestStreakDisplay = document.getElementById('highestStreak-display');
+    const currentStreakDisplay = document.getElementById('currentStreak-display');
 
     let ballTop = -50;
     let maxLives = 5;
     let points = 0;
     let ballscoreboard = [];
+    let currentStreak = 0;
+    let highestStreak = localStorage.getItem('highestStreak') ? parseInt(localStorage.getItem('highestStreak')) : 0;
 
     const updateLivesDisplay = () => {
         livesDisplay.innerText = `You Have ${maxLives} Balls`;
@@ -31,8 +34,39 @@ document.addEventListener('DOMContentLoaded', () => {
         pointsDisplay.innerText = `You have ${points} points`;
     };
 
-    //updateLivesDisplay();
-    //updatepointsDisplay();
+    const updatehighestStreakDisplay = () => {
+    if (highestStreakDisplay) {
+        highestStreakDisplay.innerText = `Hottest Streak ! ${highestStreak} ! in a row`;
+    }
+    };
+
+    const updatecurrentStreakDisplay = () => {
+    if (currentStreakDisplay) {
+        currentStreakDisplay.innerText = `current streak ${currentStreak} in a row`;
+    }
+    };
+
+    function updatePoints(newPoints) {
+    if (newPoints > 0) {
+        points += newPoints;
+        currentStreak += newPoints;
+        if (currentStreak > highestStreak) {
+            highestStreak = currentStreak;
+            localStorage.setItem('highestStreak', highestStreak); // Save to local storage
+            updatehighestStreakDisplay();
+            updatecurrentStreakDisplay();
+        }
+    } else {
+        currentStreak = 0; // Reset current streak if no points are gained
+    }
+    displayStreaks();
+    }
+    
+    function displayStreaks() {
+    console.log(`Current Streak: ${currentStreak}, Highest Streak: ${highestStreak}`);
+    updatehighestStreakDisplay();
+    updatecurrentStreakDisplay();// Ensure the highest streak display is always updated
+    }
 
     function getRandomSpeed(min, max) {
         return Math.random() * (max - min) + min;
@@ -78,14 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 handleballGameOver();
             }
+            updatePoints(0); 
         }
         updateLivesDisplay();
         updatepointsDisplay();
         //displayballScoreboard();
+        updatehighestStreakDisplay();
     }
 
     function handleBallClick() {
-        points++; // Increase the score
+        updatePoints(1);
         console.log(`Score: ${points}`); // Log the score
         ballTop = -50; // Reset the ball position to off-screen at the top
         ball.style.top = ballTop + 'px';
@@ -181,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
     closeModal.addEventListener('click', () => {
         ballgameOverModal.style.display = 'none';
     });
-
 
     loadballScoreboard(); 
 
