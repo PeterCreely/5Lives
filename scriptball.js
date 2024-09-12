@@ -46,9 +46,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function dropBall() {
-        let speed = getRandomSpeed(1, 20);
-        ballTop += speed; // Adjust the speed of the ball drop
-        ball.style.top = ballTop + 'px';
+        if (points <= 5) {
+            let speed = getRandomSpeed(1, 5);
+            ballTop += speed; // Adjust the speed of the ball drop
+            ball.style.top = ballTop + 'px';
+        } else if (points > 5 && points <= 15) {
+            let speed = getRandomSpeed(1, 10);
+            ballTop += speed; // Adjust the speed of the ball drop
+            ball.style.top = ballTop + 'px';
+        } else if (points > 15 && points <= 25) {
+            let speed = getRandomSpeed(1, 15);
+            ballTop += speed; // Adjust the speed of the ball drop
+            ball.style.top = ballTop + 'px';
+        } else {
+            let speed = getRandomSpeed(1, 20);
+            ballTop += speed; // Adjust the speed of the ball drop
+            ball.style.top = ballTop + 'px';
+        }
  
         if (ballTop < playAreaHeight) {
             requestAnimationFrame(dropBall);
