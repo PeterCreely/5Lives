@@ -341,4 +341,155 @@ x
             border-bottom: none;
         }
 
+#popArea {
+    width: 350px;
+    height: 500px;
+    border: 2px solid white;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto; /* This centers it horizontally */
+}
+
+.bubble {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid white;
+    button .style.color = 'black';
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    border-radius: 50%; /* Makes the bubbles round */
+}
+
+
+.bubble1 {
+    width: 30px;
+    height: 30px;
+    background-color: grey;
+    border: 1px solid white;
+    button .style.color = 'black';
+    position: absolute;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    border-radius: 50%; /* Makes the bubbles round */
+}
+
+#boxes {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.box {
+    width: 50px;
+    height: 40px;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+}
+
+#calculateButton, #clearButton {
+    width: 170px;
+    height: 40px;
+    display: inline-block;
+    margin: 20px 10px; /* Adds space between buttons */
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+#resultBox {
+    width: 350;
+    height: 40px;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    margin: 20px auto;
+}
+
+#scoreBox {
+    width: 350;
+    height: 40px;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    margin: 20px auto;
+}
+
+
+#popgameOverMessage {
+    display: none; /* Hide the message initially */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: red;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#poplevelMessage {
+    display: none; /* Hide the message initially */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: red;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#popscoreboard {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px auto;
+    background-color: black;
+    width: 300px;
+    font-family: Arial, sans-serif;
+}
+
+    #popscoreboard h3 {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    #popscoreboard .header, #ballscoreboard .entry {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+    }
+
+    #popscoreboard .header {
+        font-weight: bold;
+        border-bottom: 1px solid #ddd;
+    }
+
+    #popscoreboard .entry {
+        border-bottom: 1px solid #eee;
+    }
+
+        #popscoreboard .entry:last-child {
+            border-bottom: none;
+        }
+
 
