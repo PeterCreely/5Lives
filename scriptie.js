@@ -302,7 +302,7 @@ const handleGuess = (letter, button) => {
                   associatedWordsMessage += `${cleanWord} = ${associatedWords[cleanWord]}<br>`;
               }
           });
-          lostMessage.innerHTML = `<strong>Ó Níl!<br>Rith tú amach as buille faoi thuairim</strong><br><br>Tá ${maxLives} shaol fágtha agat. <br><br> Bhí na focail:<br>:${associatedWordsMessage} <br>`;
+          lostMessage.innerHTML = `<strong>Ó Níl!<br>Rith tú amach as buille faoi thuairim</strong><br><br>Tá ${maxLives} shaol fágtha agat. <br><br> Bhí na focail:<br>${associatedWordsMessage} <br>`;
           continueButton.innerText = `Lean ar aghaidh le ${maxLives} shaol fágtha`; // Set button text
           lostModal.style.display = 'block';
 
