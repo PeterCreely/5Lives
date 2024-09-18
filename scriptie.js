@@ -338,9 +338,9 @@ document.getElementById('continueButton').onclick = () => {
 
 const createKeyboard = () => {
     const rows = [
-        'qwertzuiop',
+        'qwertyuiop',
         'asdfghjkl',
-        'yxcvbnm',
+        'zxcvbnm',
         'áéíóú'
     ];
 
