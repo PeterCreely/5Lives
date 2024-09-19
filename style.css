@@ -502,3 +502,69 @@ x
             border-bottom: none;
         }
 
+#startButton {
+    font-family: 'Ink Free';
+    font-weight: bold;
+    display: inline-block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    #startButton:hover {
+        background-color: grey;
+    }
+
+#duckButton {
+    font-family: 'Ink Free';
+    font-weight: bold;
+    display: inline-block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    #duckButton:hover {
+        background-color: grey;
+    }
+
+
+#blockButton {
+    font-family: 'Ink Free';
+    font-weight: bold;
+    display: inline-block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    #blockButton:hover {
+        background-color: grey;
+    }
+
+#timer {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.draggable {
+    position: absolute;
+    cursor: grab;
+}
+
