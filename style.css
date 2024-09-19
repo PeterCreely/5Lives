@@ -1,5 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Ink Free';
+    font-weight: bold;
     display: flex;
     justify-content: center;
     /*align-items: center;*/
@@ -18,6 +19,8 @@ body {
 }
 */
 #word-display1 {
+    font-family: 'Ink Free';
+    font-weight: bold;
     font-size: 24px;
     margin-bottom: 20px;
     color: white;
@@ -112,17 +115,19 @@ body {
     flex-wrap: wrap;
     max-width: 300px;
     margin: 0 auto;
+
 }
 
     #keyboard button {
         width: 30px;
         height: 30px;
         margin: 2px;
-        font-size: 16px;
-        font-weight: bold;
+        font-size: 20px;
+        font-weight: bolder;
         text-align: center;
         text-align: center;
         border-radius: 50%; /* Make buttons circular */
+        font-family: 'Ink Free';
     }
 
     #keyboard .row {
@@ -157,7 +162,7 @@ footer {
     margin: 20px auto;
     background-color: black;
     width: 300px;
-    font-family: Arial, sans-serif;
+    font-family: 'Ink Free';
 }
 
     #scoreboard h3 {
@@ -221,6 +226,11 @@ footer {
     }
 
 #lostMessage {
+    color: #ff0000; /* Red text for the lost message */
+}
+
+
+#Message {
     color: #ff0000; /* Red text for the lost message */
 }
 
@@ -314,7 +324,7 @@ x
     margin: 20px auto;
     background-color: black;
     width: 300px;
-    font-family: Arial, sans-serif;
+    font-family: 'Ink Free';
 }
 
     #ballscoreboard h3 {
@@ -465,7 +475,7 @@ x
     margin: 20px auto;
     background-color: black;
     width: 300px;
-    font-family: Arial, sans-serif;
+    font-family: 'Ink Free';
 }
 
     #popscoreboard h3 {
@@ -491,5 +501,4 @@ x
         #popscoreboard .entry:last-child {
             border-bottom: none;
         }
-
 
