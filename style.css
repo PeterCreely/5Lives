@@ -1,5 +1,5 @@
 body {
-    font-family: Forte;
+    font-family: 'Ink Free';
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -19,7 +19,7 @@ body {
 }
 */
 #word-display1 {
-font-family: Forte;
+font-family: 'Ink Free';
     font-weight: bold;
     font-size: 24px;
     margin-bottom: 20px;
@@ -122,7 +122,7 @@ font-family: Forte;
         width: 30px;
         height: 30px;
         margin: 2px;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: bolder;
         text-align: center;
         text-align: center;
