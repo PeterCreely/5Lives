@@ -1,5 +1,5 @@
 body {
-    font-family: 'Bradley Hand ITC';
+    font-family: Chiller;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -19,7 +19,7 @@ body {
 }
 */
 #word-display1 {
-font-family: 'Bradley Hand ITC';
+font-family: Chiller;
     font-weight: bold;
     font-size: 24px;
     margin-bottom: 20px;
