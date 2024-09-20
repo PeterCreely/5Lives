@@ -101,19 +101,15 @@
 
     duckButton.addEventListener('click', function () {
         if (duckCount < maxDucks) {
-        // Create a new image element
-        const duck = document.createElement('img');
-        duck.src = 'duck1.png'; // Path to your duck image
-        duck.alt = 'Duck';
-        duck.classList.add('draggable');
-        duck.style.left = '50%';
-        duck.style.top = '50%';
-        duck.style.transform = 'translate(-50%, -50%)';
+            const duck = document.createElement('img');
+            duck.src = 'duck1.png'; 
+            duck.alt = 'Duck';
+            duck.classList.add('draggable');
+            duck.style.left = '50%';
+            duck.style.top = '50%';
+            duck.style.transform = 'translate(-50%, -50%)';
 
-        // Append the duck to the play area
-        playArea.appendChild(duck);
-
-        // Make the duck draggable
+            playArea.appendChild(duck);
             makeDraggable(duck);
 
             duckCount++;
@@ -124,17 +120,16 @@
 
     blockButton.addEventListener('click', function () {
         if (blockCount < maxBlocks) {
-        // Create a new image element
-        const block = document.createElement('img');
-        block.src = 'block.png'; // Path to your duck image
-        block.alt = 'Block';
-        block.classList.add('draggable');
-        block.style.left = '50%';
-        block.style.top = '50%';
-        block.style.transform = 'translate(-50%, -50%)';
+            const block = document.createElement('img');
+            block.src = 'block.png';
+            block.alt = 'Block';
+            block.classList.add('draggable');
+            //block.style.position = 'absolute';
+            block.style.left = '50%';
+            block.style.top = '50%';
+            block.style.transform = '';
 
-        playArea.appendChild(block);
-
+            playArea.appendChild(block);
             makeDraggable(block);
 
             blockCount++;
@@ -145,17 +140,22 @@
 
     function makeDraggable(element) {
         let isDragging = false;
-        let startX, startY, initialX, initialY;
+        let offsetX, offsetY;
 
         element.addEventListener('mousedown', startDrag);
         element.addEventListener('touchstart', startDrag);
 
         function startDrag(e) {
             isDragging = true;
-            startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
-            startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
-            initialX = parseInt(element.style.left, 10);
-            initialY = parseInt(element.style.top, 10);
+            const startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+            const startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
+            const rect = element.getBoundingClientRect();
+            const playAreaRect = playArea.getBoundingClientRect();
+
+            offsetX = startX - rect.left;
+            offsetY = startY - rect.top;
+
+            console.log('Start Drag:', { startX, startY, rect, offsetX, offsetY });
 
             document.addEventListener('mousemove', drag);
             document.addEventListener('touchmove', drag);
@@ -169,12 +169,22 @@
             const currentX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
             const currentY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
 
-            const dx = currentX - startX;
-            const dy = currentY - startY;
+            const newLeft = currentX - offsetX - playArea.getBoundingClientRect().left;
+            const newTop = currentY - offsetY - playArea.getBoundingClientRect().top;
 
-            element.style.left = `${initialX + dx}px`;
-            element.style.top = `${initialY + dy}px`;
+            const playAreaRect = playArea.getBoundingClientRect();
+            const elementRect = element.getBoundingClientRect();
+
+            if (newLeft >= 0 && newLeft + elementRect.width <= playAreaRect.width) {
+                element.style.left = `${newLeft}px`;
+            }
+            if (newTop >= 0 && newTop + elementRect.height <= playAreaRect.height) {
+                element.style.top = `${newTop}px`;
+            }
+
+            console.log('Dragging:', { currentX, currentY, newLeft, newTop });
         }
+
 
         function endDrag() {
             isDragging = false;
@@ -182,9 +192,11 @@
             document.removeEventListener('touchmove', drag);
             document.removeEventListener('mouseup', endDrag);
             document.removeEventListener('touchend', endDrag);
-
             element.removeEventListener('mousedown', startDrag);
             element.removeEventListener('touchstart', startDrag);
+
+            console.log('End Drag');
         }
     }
+
 });
