@@ -23,48 +23,69 @@
         let dx = (Math.random() - 0.5) * 10; // Random speed and direction
         let dy = (Math.random() - 0.5) * 10;
         let timeLeft = 30;
+let margin = 10; 
 
-        function moveBall() {
-            x += dx;
-            y += dy;
-
-            // Check for collision with walls and reverse direction if needed
-            if (x <= 0 || x >= playAreaWidth - ballWidth) {
-                dx = -dx;
-            }
-            if (y <= 0 || y >= playAreaHeight - ballHeight) {
-                dy = -dy;
-            }
-
-            ball.style.left = `${x}px`;
-            ball.style.top = `${y}px`;
-
-            const elements = document.querySelectorAll('.draggable');
-            elements.forEach(element => {
-                const elementRect = element.getBoundingClientRect();
-                const ballRect = ball.getBoundingClientRect();
-                if (ballRect.left < elementRect.right &&
-                    ballRect.right > elementRect.left &&
-                    ballRect.top < elementRect.bottom &&
-                    ballRect.bottom > elementRect.top) {
-                    if (element.alt === 'Duck') {
-                        clearInterval(intervalId);
-                        clearInterval(timerId);
-                        alert('Game Over! The ball touched the duck. Your Duck is dead!');
-                        resetGame();
-                    } else {
-                        const overlapX = Math.min(ballRect.right - elementRect.left, elementRect.right - ballRect.left);
-                        const overlapY = Math.min(ballRect.bottom - elementRect.top, elementRect.bottom - ballRect.top);
-
-                        if (overlapX < overlapY) {
-                            dx = -dx; // Reflect horizontally
-                        } else {
-                            dy = -dy; // Reflect vertically
-                        }
-                    }
-                }
-            });
+function isOverlapping(x, y, width, height) {
+    const elements = document.querySelectorAll('.draggable');
+    for (let element of elements) {
+        const rect = element.getBoundingClientRect();
+        if (x < rect.right + margin && x + width > rect.left - margin &&
+            y < rect.bottom + margin && y + height > rect.top - margin) {
+            return true;
         }
+    }
+    return false;
+}
+
+do {
+    x = Math.random() * (playAreaWidth - ballWidth);
+    y = Math.random() * (playAreaHeight - ballHeight);
+} while (isOverlapping(x, y, ballWidth, ballHeight));
+
+dx = (Math.random() - 0.5) * 10; // Random speed and direction
+dy = (Math.random() - 0.5) * 10;
+
+function moveBall() {
+    x += dx;
+    y += dy;
+
+    // Check for collision with walls and reverse direction if needed
+    if (x <= 0 || x >= playAreaWidth - ballWidth) {
+        dx = -dx;
+    }
+    if (y <= 0 || y >= playAreaHeight - ballHeight) {
+        dy = -dy;
+    }
+
+    ball.style.left = `${x}px`;
+    ball.style.top = `${y}px`;
+
+    const elements = document.querySelectorAll('.draggable');
+    elements.forEach(element => {
+        const elementRect = element.getBoundingClientRect();
+        const ballRect = ball.getBoundingClientRect();
+        if (ballRect.left < elementRect.right &&
+            ballRect.right > elementRect.left &&
+            ballRect.top < elementRect.bottom &&
+            ballRect.bottom > elementRect.top) {
+            if (element.alt === 'Duck') {
+                clearInterval(intervalId);
+                clearInterval(timerId);
+                alert('Game Over! The ball touched the duck. Your Duck is dead!');
+                resetGame();
+            } else {
+                const overlapX = Math.min(ballRect.right - elementRect.left, elementRect.right - ballRect.left);
+                const overlapY = Math.min(ballRect.bottom - elementRect.top, elementRect.bottom - ballRect.top);
+
+                if (overlapX < overlapY) {
+                    dx = -dx; // Reflect horizontally
+                } else {
+                    dy = -dy; // Reflect vertically
+                }
+            }
+        }
+    });
+}
 
         function resetGame() {
             clearInterval(intervalId);
