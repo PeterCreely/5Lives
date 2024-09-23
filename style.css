@@ -604,3 +604,7 @@ x
 #open-duck-image:hover {
     filter: brightness(0.5); /* Darken the image */
 }
+
+.new-shade {
+    filter: brightness(0.5); /* Darken the image */
+}
