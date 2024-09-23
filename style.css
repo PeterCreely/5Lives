@@ -568,3 +568,39 @@ x
     cursor: grab;
 }
 
+
+#open-ie-image:hover {
+    filter: brightness(0.5); /* Darken the image */
+}
+
+#open-en-image:hover {
+    filter: brightness(0.5); /* Darken the image */
+}
+
+#open-de-image:hover {
+    filter: brightness(0.5); /* Darken the image */
+}
+
+#open-de-image:hover {
+    filter: brightness(0.5); /* Darken the image */
+}
+
+#open-mov-image:hover {
+    filter: brightness(0.5); /* Darken the image */
+}
+
+#open-book-image:hover {
+    filter: brightness(0.5); /* Darken the image */
+}
+
+#open-ball-image:hover {
+    filter: brightness(0.5); /* Darken the image */
+}
+
+#open-pop-image:hover {
+    filter: brightness(0.5); /* Darken the image */
+}
+
+#open-duck-image:hover {
+    filter: brightness(0.5); /* Darken the image */
+}
