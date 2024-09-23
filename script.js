@@ -628,3 +628,10 @@ document.getElementById('open-de-image').addEventListener('click', () => {
 document.getElementById('open-ie-image').addEventListener('click', () => {
     window.open('indexie.html', '_blank'); // Opens the new page in a new tab
 });
+
+function removeTouchClass() {
+    image.classList.remove('new-shade'); // Remove the shading change class
+}
+
+image.addEventListener('touchstart', addTouchClass);
+image.addEventListener('touchend', removeTouchClass);
