@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5LIVES v1</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .reduced-line-spacing {
+            line-height: 0.1; /* Adjust this value as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <div id="lives-image"></div> -->
+        <h1 class="reduced-line-spacing">WELCOME TO</h1>
+        <img id="logo-image" src="logo1.png" alt="Logo Image" class="reduced-line-spacing">
+        <h3 id="wordcount-display" class="reduced-line-spacing"></h3>
+        <h3>Can you solve them all...?</h3>
+        <h1 id="lives-display" class="reduced-line-spacing"></h1>
+        <h3 id="guesses-display"> </h3>
+        <h3 id="points-display" class="reduced-line-spacing"> </h3>
+        <h4>FIRST WORD</h4>
+        <div id="word-display1"></div>
+        <h4>SECOND WORD</h4>
+        <div id="word-display2"></div>
+        <h4>THIRD WORD</h4>
+        <div id="word-display3"></div>
+        <h4>FORTH WORD</h4>
+        <div id="word-display4"></div>
+        <h4>FIFTH WORD</h4>
+        <div id="word-display5"></div>
+        <div id="keyboard"></div>
+        <div id="message"></div>
+        <button id="continue-button">Continue Game</button><br>
+        <button id="quit-button">Quit Game</button>
+        <div id="scoreboard"></div> <!-- Add this line for the scoreboard -->
+        <h4>© 2023 - 5Lives - petercreely@outlook.com</h4>
+
+        <img id="open-ie-image" src="ie.png" alt="Open ie Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-ie-image').addEventListener('click', () => {
+                window.open('indexie.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <img id="open-de-image" src="de.png" alt="Open de Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-de-image').addEventListener('click', () => {
+                window.open('indexde.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+
+        <img id="open-en-image" src="en.png" alt="Open en Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-en-image').addEventListener('click', () => {
+                window.open('indexen.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <img id="open-es-image" src="es.png" alt="Open es Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-es-image').addEventListener('click', () => {
+                window.open('indexes.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+
+        <br />
+
+        <img id="open-mov-image" src="mov.png" alt="Open mov Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-mov-image').addEventListener('click', () => {
+                window.open('indexmov.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <img id="open-book-image" src="book.png" alt="Open book Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-book-image').addEventListener('click', () => {
+                window.open('indexbook.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+
+        <img id="open-ball-image" src="ball1.png" alt="Open ball Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-ball-image').addEventListener('click', () => {
+                window.open('indexball.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <img id="open-pop-image" src="bubble1.png" alt="Open pop Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-pop-image').addEventListener('click', () => {
+                window.open('indexpop.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+
+        <img id="open-duck-image" src="duck1.png" alt="Open duck Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-duck-image').addEventListener('click', () => {
+                window.open('indexduck.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <br />
+
+        <img id="open-home-image" src="home2.png" alt="Open home Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-home-image').addEventListener('click', () => {
+                window.open('index.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+
+        <div id="message"></div> <!-- Keep this if you still need it -->
+        <!-- Modal HTML -->
+        <div id="lostModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p id="lostMessage">hello</p>
+                <button id="continueButton">Continue</button>
+            </div>
+        </div>
+        <div id="gameOverModal" class="modal">
+            <div class="modal-content">
+                <span class="close">×</span>
+                <p id="gameOverMessage"></p>
+                <input type="text" id="playerNameInput" placeholder="Enter your name">
+                <button id="submitNameButton">Submit</button>
+            </div>
+        </div>
+        <div id="wonModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p id="wonMessage">You Won</p>
+                <button id="continueButton">Continue</button>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!--<footer>
+        <p>© 2023 - 5Lives</p>
+    </footer>-->
+    <script src="scripten.js"></script>
+
+</body>
+</html>
