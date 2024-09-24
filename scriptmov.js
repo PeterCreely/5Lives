@@ -1,9 +1,11 @@
 ﻿let guessedLetters = [];
 let incorrectGuesses = 5;
 let maxLives = 1;
-let points = 1;
+let points = 0;
 let wordcount = 5;
 let clickCount = 0;
+let currentStreak = localStorage.getItem('currentStreak') ? parseInt(localStorage.getItem('currentStreak')) : 0;
+let highestStreak = localStorage.getItem('highestStreak') ? parseInt(localStorage.getItem('highestStreak')) : 0;
 
 const wordDisplay1 = document.getElementById('word-display1');
 const wordDisplay2 = document.getElementById('word-display2');
@@ -57,6 +59,42 @@ const associatedWords = {
     "face/off": "Dir: Woo, John - Year: 1997", "catch-22": "Dir: Nichols, Mike - Year: 1970", "tokyo-ga": "Dir: Wenders, Wim - Year: 1985", "phantasm": "Dir: Coscarelli, Don - Year: 1979", "precious": "Dir: Daniels, Lee - Year: 2009", "fingered": "Dir: Kern, Richard - Year: 1988", "coraline": "Dir: Selick, Henry - Year: 2009", "silkwood": "Dir: Nichols, Mike - Year: 1983", "swingers": "Dir: Liman, Doug - Year: 1996", "bulworth": "Dir: Beatty, Warren - Year: 1998", "watchmen": "Dir: Snyder, Zack - Year: 2009", "manhatta": "Dir: Sheeler, Charles & Paul Strand - Year: 1921", "shirkers": "Dir: Tan, Sandi - Year: 2018", "sinister": "Dir: Derrickson, Scott - Year: 2012", "nebraska": "Dir: Payne, Alexander - Year: 2013", "dolemite": "Dir: Martin, D'Urville - Year: 1975", "sunshine": "Dir: Boyle, Danny - Year: 2007", "wellness": "Dir: Mahaffy, Jake - Year: 2008", "ravenous": "Dir: Bird, Antonia - Year: 1999", "lifeboat": "Dir: Hitchcock, Alfred - Year: 1944", "wargames": "Dir: Badham, John - Year: 1983", "serenity": "Dir: Whedon, Joss - Year: 2005", "breakin'": "Dir: Silberg, Joel - Year: 1984", "fandango": "Dir: Reynolds, Kevin - Year: 1985", "claudine": "Dir: Berry, John - Year: 1974", "redacted": "Dir: De Palma, Brian - Year: 2007", "cocktail": "Dir: Donaldson, Roger - Year: 1988", "whoopee!": "Dir: Freeland, Thornton - Year: 1930", "kalendar": "Dir: Uman, Naomi - Year: 2008", "d.e.b.s.": "Dir: Robinson, Angela - Year: 2004", "hoosiers": "Dir: Anspaugh, David - Year: 1986", "applause": "Dir: Mamoulian, Rouben - Year: 1929", "cinnamon": "Dir: Everson, Kevin Jerome - Year: 2006", "blackhat": "Dir: Mann, Michael - Year: 2015", "re-entry": "Dir: Belson, Jordan - Year: 1964", "begotten": "Dir: Merhige, E. Elias - Year: 1990", "timecode": "Dir: Figgis, Mike - Year: 2000", "soapdish": "Dir: Hoffman, Michael - Year: 1991", "ruthless": "Dir: Ulmer, Edgar G. - Year: 1948", "manpower": "Dir: Walsh, Raoul - Year: 1941", "zootopia": "Dir: Howard, Byron & Rich Moore - Year: 2016", "kick-ass": "Dir: Vaughn, Matthew - Year: 2010", "mandingo": "Dir: Fleischer, Richard - Year: 1975", "marooned": "Dir: Sturges, John - Year: 1969", "deadpool": "Dir: Miller, Tim - Year: 2016", "protocol": "Dir: Ross, Herbert - Year: 1984", "gunsmoke": "Dir: Juran, Nathan - Year: 1953", "dementia": "Dir: Parker, John - Year: 1955", "columbus": "Dir: Kogonada - Year: 2017", "suburbia": "Dir: Spheeris, Penelope - Year: 1983", "barabbas": "Dir: Fleischer, Richard - Year: 1962", "waitress": "Dir: Shelly, Adrienne - Year: 2007", "suddenly": "Dir: Allen, Lewis - Year: 1954", "thirteen": "Dir: Williams, David D. - Year: 1997", "saboteur": "Dir: Hitchcock, Alfred - Year: 1942", "laughter": "Dir: d'Arrast, Harry - Year: 1930", "sneakers": "Dir: Robinson, Phil Alden - Year: 1992", "pushover": "Dir: Quine, Richard - Year: 1954", "suburbia": "Dir: Linklater, Richard - Year: 1996", "cry - baby": "Dir: Waters, John - Year: 1990", "stardust": "Dir: Vaughn, Matthew - Year: 2007", "twilight": "Dir: Hardwicke, Catherine - Year: 2008", "champion": "Dir: Robson, Mark - Year: 1949", "wattstax": "Dir: Stuart, Mel - Year: 1973", "brubaker": "Dir: Rosenberg, Stuart - Year: 1980", "vampires": "Dir: Carpenter, John - Year: 1998", "insomnia": "Dir: Nolan, Christopher - Year: 2002", "colossal": "Dir: Vigalondo, Nacho - Year: 2016", "dogfight": "Dir: Savoca, Nancy - Year: 1991", "mudbound": "Dir: Rees, Dee - Year: 2017", "godzilla": "Dir: Edwards, Gareth - Year: 2014", "hercules": "Dir: Musker, John / Ron Clements - Year: 1997", "scrooged": "Dir: Donner, Richard - Year: 1988", "rejected": "Dir: Hertzfeldt, Don - Year: 2000", "invictus": "Dir: Eastwood, Clint - Year: 2009", "clockers": "Dir: Lee, Spike - Year: 1995", "mermaids": "Dir: Benjamin, Richard - Year: 1990", "blockers": "Dir: Cannon, Kay - Year: 2018", "overlord": "Dir: Avery, Julius - Year: 2018", "restless": "Dir: Van Sant, Gus - Year: 2011", "sleepers": "Dir: Levinson, Barry - Year: 1996", "hardcore": "Dir: Schrader, Paul - Year: 1979", "thirteen": "Dir: Hardwicke, Catherine - Year: 2003", "calcutta": "Dir: Malle, Louis - Year: 1969", "hamilton": "Dir: Porterfield, Matthew - Year: 2006", "casanova": "Dir: Hallström, Lasse - Year: 2005", "criminal": "Dir: Jacobs, Gregory - Year: 2004", "moonbird": "Dir: Hubley, John - Year: 1959", "hustlers": "Dir: Scafaria, Lorene - Year: 2019", "defiance": "Dir: Zwick, Edward - Year: 2008", "intruder": "Dir: Spiegel, Scott - Year: 1989", "c.h.u.d.": "Dir: Cheek, Douglas - Year: 1984", "wildcats": "Dir: Ritchie, Michael - Year: 1986", "reckless": "Dir: Fleming, Victor - Year: 1935", "deranged": "Dir: Gillen, Jeff / Alan Ormsby - Year: 1974", "moontide": "Dir: Mayo, Archie - Year: 1942", "basquiat": "Dir: Schnabel, Julian - Year: 1996", "cornered": "Dir: Dmytryk, Edward - Year: 1945", "trancers": "Dir: Band, Charles - Year: 1985", "carousel": "Dir: King, Henry - Year: 1956", "megamind": "Dir: McGrath, Tom - Year: 2010", "piercing": "Dir: Pesce, Nicolas - Year: 2018", "francine": "Dir: Cassidy, Brian M. & Melanie Shatzky - Year: 2012", "grounded": "Dir: Feig, Paul - Year: 2006", "bullseye": "Dir: Prister, Alex - Year: 2014", "restrepo": "Dir: Hetherington, Tim & Sebastian Junger - Year: 2010", "stargate": "Dir: Emmerich, Roland - Year: 1994", "excision": "Dir: Bates Jr., Richard - Year: 2012", "lowlands": "Dir: Thompson, Peter - Year: 2009", "caligula": "Dir: Brass, Tinto - Year: 1980", "dynamite": "Dir: DeMille, Cecil B. - Year: 1929", "sangaree": "Dir: Ludwig, Edward - Year: 1953", "maverick": "Dir: Donner, Richard - Year: 1994", "kon - tiki": "Dir: Heyerdahl, Thor - Year: 1951", "brothers": "Dir: Sheridan, Jim - Year: 2009", "lovesong": "Dir: Brakhage, Stan - Year: 2001", "ambition": "Dir: Hartley, Hal - Year: 1991", "promises": "Dir: Bolado, Carlos / B.Z.Goldberg / Justine Shapiro - Year: 2001", "godspell": "Dir: Greene, David - Year: 1973", "rounders": "Dir: Dahl, John - Year: 1998", "riverrun": "Dir: Korty, John - Year: 1970", "funnyman": "Dir: Korty, John - Year: 1967", "counting": "Dir: Cohen, Jem - Year: 2015", "mistress": "Dir: Primus, Barry - Year: 1992", "superman": "Dir: Fleischer, Dave - Year: 1941", "sextette": "Dir: Hughes, Ken - Year: 1978", "moonplay": "Dir: Menken, Marie - Year: 1962", "collapse": "Dir: Smith, Chris - Year: 2009",
     "boundin'": "Dir: Luckey, Bud - Year: 2003", "prophecy": "Dir: Frankenheimer, John - Year: 1979", "oblivion": "Dir: Kosinski, Joseph - Year: 2013", "calcutta": "Dir: Farrow, John - Year: 1947", "outbreak": "Dir: Petersen, Wolfgang - Year: 1995", "eternals": "Dir: Zhao, Chloé - Year: 2021", "geostorm": "Dir: Devlin, Dean - Year: 2017", "twilight": "Dir: Benton, Robert - Year: 1998", "festival": "Dir: Lerner, Murray - Year: 1967", "depraved": "Dir: Fessenden, Larry - Year: 2019", "werewolf": "Dir: Zarindast, Tony - Year: 1995", "impulses": "Dir: Davis, James - Year: 1959", "stigmata": "Dir: Wainwright, Rupert - Year: 1999", "mahogany": "Dir: Gordy, Berry - Year: 1975", "carefree": "Dir: Sandrich, Mark - Year: 1938", "wildlife": "Dir: Dano, Paul - Year: 2018", "carriers": "Dir: Pastor, Àlex & David Pastor - Year: 2009", "defiance": "Dir: Flynn, John - Year: 1980", "lovesong": "Dir: Kim So Yong - Year: 2016", "h.o.t.s.": "Dir: Sindell, Gerald Seth - Year: 1979", "mcconkey": "Dir: Bruce, Rob/Scott Gaffney/Murray Wais/Steve Winter/David Zieff - Year: 2013", "undertow": "Dir: Green, David Gordon - Year: 2004", "splinter": "Dir: Wilkins, Toby - Year: 2008", "deadgirl": "Dir: Sarmiento, Michael & Gadi Harel - Year: 2008", "lovetrue": "Dir: Har'el, Alma - Year: 2016", "unbroken": "Dir: Jolie, Angelina - Year: 2014", "detropia": "Dir: Ewing, Heidi E. & Rachel Grady - Year: 2012", "lymelife": "Dir: Martini, Derick - Year: 2008", "spookies": "Dir: Joseph, Genie - Year: 1986", "tenement": "Dir: Findlay, Roberta - Year: 1985", "pathogen": "Dir: Hagins, Emily - Year: 2006", "anaconda": "Dir: Llosa, Luis - Year: 1997", "surfwise": "Dir: Pray, Doug - Year: 2007", "trespass": "Dir: Hill, Walter - Year: 1992", "palmetto": "Dir: Schlöndorff, Volker - Year: 1998", "critters": "Dir: Herek, Stephen - Year: 1986", "drumline": "Dir: Stone III, Charles - Year: 2002", "ricochet": "Dir: Mulcahy, Russell - Year: 1991", "wordplay": "Dir: Creadon, Patrick - Year: 2006", "mallrats": "Dir: Smith, Kevin - Year: 1995", "sparrows": "Dir: Beaudine, William - Year: 1926", "jacknife": "Dir: Jones, David - Year: 1989", "backlash": "Dir: Sturges, John - Year: 1956", "conquest": "Dir: Brown, Clarence - Year: 1937", "disraeli": "Dir: Green, Alfred E. - Year: 1929", "chocolat": "Dir: Hallström, Lasse - Year: 2000", "homicide": "Dir: Mamet, David - Year: 1991", "mudhoney": "Dir: Meyer, Russ - Year: 1965", "crack - up": "Dir: Reis, Irving - Year: 1946", "nocturne": "Dir: Marin, Edwin L. - Year: 1946", "tomorrow": "Dir: Anthony, Joseph - Year: 1972", "jeopardy": "Dir: Sturges, John - Year: 1953", "suspense": "Dir: Tuttle, Frank - Year: 1946", "patterns": "Dir: Cook, Fielder - Year: 1956", "svengali": "Dir: Mayo, Archie - Year: 1931", "conflict": "Dir: Bernhardt, Curtis - Year: 1945", "whiplash": "Dir: Seiler, Lewis - Year: 1948", "loophole": "Dir: Schuster, Harold D. - Year: 1954", "crashout": "Dir: Foster, Lewis R. - Year: 1955", "backfire": "Dir: Sherman, Vincent - Year: 1950", "delusion": "Dir: Colpaert, Carl - Year: 1991", "pardners": "Dir: Taurog, Norman - Year: 1956", "guncrazy": "Dir: Davis, Tamra - Year: 1992", "playgirl": "Dir: Pevney, Joseph - Year: 1954", "cimarron": "Dir: Ruggles, Wesley - Year: 1931", "undertow": "Dir: Castle, William - Year: 1949", "jealousy": "Dir: Machatý, Gustav - Year: 1945", "jennifer": "Dir: Newton, Joel - Year: 1953", "backlash": "Dir: Forde, Eugene - Year: 1947", "violence": "Dir: Bernhard, Jack - Year: 1947", "unmasked": "Dir: Blair, George - Year: 1950", "violated": "Dir: Strate, Walter - Year: 1953", "incident": "Dir: Beaudine, William - Year: 1948", "manzanar": "Dir: Nakamura, Robert A. - Year: 1971", "unmasked": "Dir: Cunard, Grace & Francis Ford - Year: 1917", "groupies": "Dir: Dorfman, Ron - Year: 1970", "chandler": "Dir: Magwood, Paul - Year: 1971", "sayonara": "Dir: Logan, Joshua - Year: 1957", "ironweed": "Dir: Babenco, Hector - Year: 1987", "galaxina": "Dir: Sachs, William - Year: 1980",
 };
+
+const updatehighestStreakDisplay = () => {
+    if (highestStreakDisplay) {
+        highestStreakDisplay.innerText = `Hottest Streak ! ${highestStreak} ! days in a row`;
+    }
+};
+
+const updatecurrentStreakDisplay = () => {
+    if (currentStreakDisplay) {
+        currentStreakDisplay.innerText = `Current Streak ${currentStreak} days in a row`;
+    }
+};
+
+function displayStreaks() {
+    console.log(`Current Streak: ${currentStreak}, Highest Streak: ${highestStreak}`);
+    updatehighestStreakDisplay();
+    updatecurrentStreakDisplay();// Ensure the highest streak display is always updated
+}
+
+function updatePoints(newPoints) {
+    if (newPoints > 0) {
+        points += newPoints;
+        currentStreak += newPoints;
+        localStorage.setItem('currentStreak', currentStreak);
+        if (currentStreak > highestStreak) {
+            highestStreak = currentStreak;
+            localStorage.setItem('highestStreak', highestStreak); // Save to local storage
+            updatehighestStreakDisplay();
+            updatecurrentStreakDisplay();
+        }
+    } else {
+        currentStreak = 0; // Reset current streak if no points are gained
+        localStorage.setItem('currentStreak', currentStreak);
+    }
+    displayStreaks();
+}
 
 const checkLastAttempt = () => {
     const lastAttempt = localStorage.getItem('lastAttempt');
@@ -119,6 +157,8 @@ const startGame = () => {
     updateWordDisplay3(selectedWord3);
     updateWordDisplay4(selectedWord4);
     updateWordDisplay5(selectedWord5);
+    updatehighestStreakDisplay();
+    updatecurrentStreakDisplay();
 };
 
 
@@ -343,10 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateWordDisplay5();*/
     updatewordcountDisplay();
 
-    //displayScoreboard();
-    loadScoreboard();
-
-
+    displayStreaks();
 });
 
 
@@ -392,7 +429,7 @@ const handleGuess = (letter, button) => {
         });
 
         if (allWordsGuessed) {
-    points++;
+    updatePoints(1);
     let associatedWordsMessage = "";
     wordDisplays.forEach(display => {
         const displayedWord = display.innerText.replace(/\s+/g, '').trim();
