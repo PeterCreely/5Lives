@@ -32,6 +32,8 @@ const submitNameButton = document.getElementById('submitNameButton');
 const closeGameOverModal = document.getElementsByClassName('close')[0];
 const closeModalButtons = document.querySelectorAll('.close, #continueButton');
 const logoImage = document.getElementById('logo-image');
+const highestStreakDisplay = document.getElementById('highestStreak-display');
+const currentStreakDisplay = document.getElementById('currentStreak-display');
 
 logoImage.src = 'logomov.png';
 
