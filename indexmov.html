@@ -33,9 +33,9 @@
         <div id="word-display5"></div>
         <div id="keyboard"></div>
         <div id="message"></div>
-        <button id="continue-button">Continue Game</button><br>
-        <button id="quit-button">Quit Game</button>
-        <div id="scoreboard"></div> <!-- Add this line for the scoreboard -->
+        
+        <h4 id="currentStreak-display" > </h4>
+        <h3 id="highestStreak-display"  > </h3>
         <h4>© 2023 - 5Lives - petercreely@outlook.com</h4>
 
         <img id="open-ie-image" src="ie.png" alt="Open ie Page" style="cursor: pointer;">
@@ -109,6 +109,16 @@
         <script>
             document.getElementById('open-duck-image').addEventListener('click', () => {
                 window.open('indexduck.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+                <br />
+
+        <img id="open-home-image" src="home2.png" alt="Open home Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-home-image').addEventListener('click', () => {
+                window.open('index.html', '_blank'); // Opens the new page in a new tab
             });
         </script>
 
