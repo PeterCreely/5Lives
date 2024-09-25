@@ -338,9 +338,6 @@
         }
     }
 
-
-
-
     document.getElementById('calculateButton').addEventListener('click', calculateResult);
     document.getElementById('clearButton').addEventListener('click', clearBoxes);
 
