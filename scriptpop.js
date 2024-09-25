@@ -6,6 +6,7 @@
     const bubbleSize = 30;
     const bubbles = [];
     const livesDisplay = document.getElementById('lives-display');
+    const failSound = new Audio('buzzer.mp3');
 
     const list1 = [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     const symbols = ['-', '+', '*', '/'];
@@ -200,6 +201,7 @@
                 document.getElementById('resultBox').textContent = 'Correct';
                 score += expectedResult;
             } else {
+                failSound.play();
                 document.getElementById('resultBox').textContent = 'Wrong';
                 score -= Math.abs(expectedResult); // Subtract the absolute value of the expected result
             }
