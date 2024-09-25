@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,14 +33,11 @@
         <div id="word-display5"></div>
         <div id="keyboard"></div>
         <div id="message"></div>
-        <button id="continue-button">Continue Game</button><br>
-        <button id="quit-button">Quit Game</button>
-        <div id="scoreboard"></div> <!-- Add this line for the scoreboard -->
+        <h4 id="currentStreak-display"> </h4>
+        <h3 id="highestStreak-display"> </h3>
         <h4>© 2023 - 5Lives - petercreely@outlook.com</h4>
 
-
         <img id="open-ie-image" src="ie.png" alt="Open ie Page" style="cursor: pointer;">
-
         <script>
             document.getElementById('open-ie-image').addEventListener('click', () => {
                 window.open('indexie.html', '_blank'); // Opens the new page in a new tab
@@ -48,33 +45,29 @@
         </script>
 
         <img id="open-de-image" src="de.png" alt="Open de Page" style="cursor: pointer;">
-
         <script>
             document.getElementById('open-de-image').addEventListener('click', () => {
                 window.open('indexde.html', '_blank'); // Opens the new page in a new tab
             });
         </script>
 
-
         <img id="open-en-image" src="en.png" alt="Open en Page" style="cursor: pointer;">
-
         <script>
             document.getElementById('open-en-image').addEventListener('click', () => {
                 window.open('index.html', '_blank'); // Opens the new page in a new tab
             });
         </script>
 
-                <img id="open-es-image" src="es.png" alt="Open es Page" style="cursor: pointer;">
-
+        <img id="open-es-image" src="es.png" alt="Open es Page" style="cursor: pointer;">
         <script>
             document.getElementById('open-es-image').addEventListener('click', () => {
                 window.open('indexes.html', '_blank'); // Opens the new page in a new tab
             });
         </script>
-        
-        <br />
-        <img id="open-mov-image" src="mov.png" alt="Open mov Page" style="cursor: pointer;">
 
+        <br />
+
+        <img id="open-mov-image" src="mov.png" alt="Open mov Page" style="cursor: pointer;">
         <script>
             document.getElementById('open-mov-image').addEventListener('click', () => {
                 window.open('indexmov.html', '_blank'); // Opens the new page in a new tab
@@ -82,7 +75,6 @@
         </script>
 
         <img id="open-book-image" src="book.png" alt="Open book Page" style="cursor: pointer;">
-
         <script>
             document.getElementById('open-book-image').addEventListener('click', () => {
                 window.open('indexbook.html', '_blank'); // Opens the new page in a new tab
@@ -90,7 +82,6 @@
         </script>
 
         <img id="open-ball-image" src="ball1.png" alt="Open ball Page" style="cursor: pointer;">
-
         <script>
             document.getElementById('open-ball-image').addEventListener('click', () => {
                 window.open('indexball.html', '_blank'); // Opens the new page in a new tab
@@ -98,25 +89,15 @@
         </script>
 
         <img id="open-pop-image" src="bubble1.png" alt="Open pop Page" style="cursor: pointer;">
-
         <script>
             document.getElementById('open-pop-image').addEventListener('click', () => {
                 window.open('indexpop.html', '_blank'); // Opens the new page in a new tab
             });
         </script>
-        
-        <img id="open-duck-image" src="duck1.png" alt="Open duck Page" style="cursor: pointer;">
 
-        <script>
-            document.getElementById('open-duck-image').addEventListener('click', () => {
-                window.open('indexduck.html', '_blank'); // Opens the new page in a new tab
-            });
-        </script>
-
-                <br />
+        <br />
 
         <img id="open-home-image" src="home2.png" alt="Open home Page" style="cursor: pointer;">
-
         <script>
             document.getElementById('open-home-image').addEventListener('click', () => {
                 window.open('index.html', '_blank'); // Opens the new page in a new tab
@@ -149,12 +130,8 @@
             </div>
         </div>
 
-
-
     </div>
-    <!--<footer>
-        <p>© 2023 - 5Lives</p>
-    </footer>-->
+
     <script src="scriptbook.js"></script>
 
 </body>
