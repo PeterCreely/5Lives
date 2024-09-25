@@ -157,7 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ball.style.top = ballTop + 'px';
         ball.style.left = getRandomXPosition() + 'px'; // Set a new random x position
 
-        clickSound.play();
+        const soundClone = clickSound.cloneNode(); // Clone the audio element
+        soundClone.play();
     }
     
     ball.addEventListener('click', handleBallClick);
