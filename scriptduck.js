@@ -15,7 +15,7 @@
     const maxDucks = 1;
     let blockCount = 0;
     const maxBlocks = 3;
-
+    const failSound = new Audio('buzzer.mp3');
 
     startButton.addEventListener('click', function () {
         let x = Math.random() * (playAreaWidth - ballWidth);
@@ -69,6 +69,7 @@ function moveBall() {
             ballRect.top < elementRect.bottom &&
             ballRect.bottom > elementRect.top) {
             if (element.alt === 'Duck') {
+                failSound.play();
                 clearInterval(intervalId);
                 clearInterval(timerId);
                 alert('Game Over! The ball touched the duck. Your Duck is dead!');
