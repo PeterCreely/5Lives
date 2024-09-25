@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const pointsDisplay = document.getElementById('points-display');
     const highestStreakDisplay = document.getElementById('highestStreak-display');
     const currentStreakDisplay = document.getElementById('currentStreak-display');
+    const clickSound = new Audio('slap.wav');
+    const failSound = new Audio('boo.wav');
 
     let ballTop = -50;
     let maxLives = 5;
@@ -133,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ball.style.top = ballTop + 'px';
             ball.style.left = getRandomXPosition() + 'px';
             maxLives--;
+            failSound.play();
             console.log(`Lives remaining: ${maxLives}`);
             if (maxLives > 0) {
                 let timeout = getRandomTimeout(1000, 5000);
@@ -153,6 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ballTop = -50; // Reset the ball position to off-screen at the top
         ball.style.top = ballTop + 'px';
         ball.style.left = getRandomXPosition() + 'px'; // Set a new random x position
+
+        clickSound.play();
     }
     
     ball.addEventListener('click', handleBallClick);
