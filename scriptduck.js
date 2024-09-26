@@ -16,22 +16,29 @@ document.addEventListener('DOMContentLoaded', function () {
     let duckCount = 0;
     const maxDucks = 1;
     let blockCount = 0;
-    const maxBlocks = 4;
+    const maxBlocks = 0;
     let timeLeft;
-    const failSound = new Audio('buzzer.mp3');
-    const bombSound = new Audio('bomb.wav');
 
     let margin = 10;
 
+    let duckButtonClicked = false;
+
+    const failSound = new Audio('buzzer.mp3');
+    const bombSound = new Audio('bomb.wav');
+
     const levels = [
         { speed: 10, maxBlocks: 3, timeLimit: 25, numBalls: 1, maxDucks: 1, bomb: 1 },
-        { speed: 12, maxBlocks: 3, timeLimit: 25, numBalls: 2, maxDucks: 1, bomb: 0 },
-        { speed: 3, maxBlocks: 3, timeLimit: 35, numBalls: 3, maxDucks: 1, bomb: 0 },
+        { speed: 12, maxBlocks: 3, timeLimit: 30, numBalls: 2, maxDucks: 1, bomb: 2 },
+        { speed: 3, maxBlocks: 3, timeLimit: 35, numBalls: 3, maxDucks: 1, bomb: 1 },
         { speed: 4, maxBlocks: 4, timeLimit: 35, numBalls: 4, maxDucks: 1, bomb: 1 },
         { speed: 5, maxBlocks: 5, timeLimit: 45, numBalls: 5, maxDucks: 1, bomb: 2 },
         // Add more levels as needed
     ];
     let currentLevel = 0;
+
+   // levels[currentLevel].maxBlocks = 3;
+
+    // console.log(levels[currentLevel].maxBlocks);
 
     const updatelevelDisplay = () => {
         levelDisplay.innerText = `Welcome to level ${currentLevel +1}...!`;
@@ -40,7 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
     updatelevelDisplay();
 
     startButton.addEventListener('click', function () {
-
+        if (duckButtonClicked) {
+            console.log('Start button clicked');
         const level = levels[currentLevel];
         updatelevelDisplay();
         timeLeft = level.timeLimit; // Initialize timeLeft for the current level
@@ -54,7 +62,9 @@ document.addEventListener('DOMContentLoaded', function () {
             timerId = setInterval(updateTimer, 1000);
             ballintervalId = setInterval(moveBall, 20);
             bombintervalId = setInterval(moveBomb, 20);
-        
+        } else {
+            console.log('Please click the duck button first');
+        }
 
     });
 
@@ -241,11 +251,13 @@ document.addEventListener('DOMContentLoaded', function () {
         clearInterval(ballintervalId);
         clearInterval(timerId);
         document.querySelectorAll('.ball').forEach(ball => ball.remove());
+        document.querySelectorAll('.bomb').forEach(bomb => bomb.remove());
         timer.textContent = levels[currentLevel].timeLimit;
         timeLeft = levels[currentLevel].timeLimit;
 
         duckCount = 0;
         blockCount = 0;
+         duckButtonClicked = false;
 
         // Remove all ducks and blocks
         document.querySelectorAll('.draggable').forEach(element => element.remove());
@@ -256,12 +268,14 @@ document.addEventListener('DOMContentLoaded', function () {
         clearInterval(bombintervalId);
         clearInterval(ballintervalId);
             clearInterval(timerId);
-            document.querySelectorAll('.ball').forEach(ball => ball.remove());
+        document.querySelectorAll('.ball').forEach(ball => ball.remove());
+        document.querySelectorAll('.bomb').forEach(bomb => bomb.remove());
             timer.textContent = levels[currentLevel].timeLimit;
             timeLeft = levels[currentLevel].timeLimit;
 
             duckCount = 0;
-            blockCount = 0;
+        blockCount = 0;
+         duckButtonClicked = false;
 
             document.querySelectorAll('.draggable').forEach(element => element.remove());
             updatelevelDisplay();
@@ -286,6 +300,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     duckButton.addEventListener('click', function () {
+        duckButtonClicked = true;
+        console.log('Duck button clicked');
         if (duckCount < maxDucks) {
             const duck = document.createElement('img');
             duck.src = 'duck1.png';
@@ -305,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     blockButton.addEventListener('click', function () {
-        if (blockCount < maxBlocks) {
+        if (blockCount < levels[currentLevel].maxBlocks) {
             const block = document.createElement('img');
             block.src = 'block.png';
             block.alt = 'Block';
