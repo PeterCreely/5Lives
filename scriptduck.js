@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updatelevelDisplay();
 
     startButton.addEventListener('click', function () {
+        blockButton.disabled = true;
         if (duckButtonClicked) {
             console.log('Start button clicked');
         const level = levels[currentLevel];
