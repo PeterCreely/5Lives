@@ -258,8 +258,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         duckCount = 0;
         blockCount = 0;
-         duckButtonClicked = false;
-
+        duckButtonClicked = false;
+        blockButton.disabled = false;
         // Remove all ducks and blocks
         document.querySelectorAll('.draggable').forEach(element => element.remove());
 
@@ -276,7 +276,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             duckCount = 0;
         blockCount = 0;
-         duckButtonClicked = false;
+        duckButtonClicked = false;
+        blockButton.disabled = false;
 
             document.querySelectorAll('.draggable').forEach(element => element.remove());
             updatelevelDisplay();
