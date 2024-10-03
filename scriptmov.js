@@ -104,6 +104,7 @@ const checkLastAttemptmovie = () => {
 
     if (lastAttemptmovie === today) {
         alert("You have already played today. Come back tomorrow!");
+               window.location.href = "index.html";
         return false;
     }
 
