@@ -104,7 +104,7 @@ const checkLastAttemptbook = () => {
 
     if (lastAttemptbook === today) {
         alert("You have already played today. Come back tomorrow!");
-                window.location.href = "index.html";
+        window.location.href = "index.html";
         return false;
     }
 
@@ -285,7 +285,8 @@ closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
         wonModal.style.display = 'none';
         if (button.id === 'continueButton') {
-             startGame();
+            //  continueGame();
+            startGame();
         }
     });
 });
@@ -304,7 +305,6 @@ window.onclick = (event) => {
         gameOverModal.style.display = 'none';
     }
 };
-
 /*
 // Handle name submission
 submitNameButton.onclick = () => {
@@ -380,6 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updatewordcountDisplay();
    // loadScoreboard();
     displayStreaksbook();
+    checkLastAttemptbook();
 });
 
 const handleGuess = (letter, button) => {
