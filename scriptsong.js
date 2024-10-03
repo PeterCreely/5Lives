@@ -108,7 +108,7 @@ const checkLastAttemptsong = () => {
 
     if (lastAttemptsong === today) {
         alert("You have already played today. Come back tomorrow!");
-                window.location.href = "index.html";
+        window.location.href = "index.html";
         return false;
     }
 
@@ -319,7 +319,8 @@ submitNameButton.onclick = () => {
     } else {
         alert("Please enter your name.");
     }
-};*/
+};
+*/
 
 closeModal.onclick = () => {
     lostModal.style.display = 'none';
@@ -381,6 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateIncorrectGuessesDisplay();
     updatepointsDisplay();
     updatewordcountDisplay();
+    checkLastAttemptsong();
 
 });
 
