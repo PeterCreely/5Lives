@@ -284,7 +284,7 @@ closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
         wonModal.style.display = 'none';
         if (button.id === 'continueButton') {
-            continueGame();
+             startGame();
         }
     });
 });
