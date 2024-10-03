@@ -283,7 +283,7 @@ closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
         wonModal.style.display = 'none';
         if (button.id === 'continueButton') {
-            startGame();
+            continueGame();
         }
     });
 });
@@ -330,7 +330,7 @@ window.onclick = (event) => {
 // Continue button to close the modal and continue the game
 document.getElementById('continueButton').onclick = () => {
     lostModal.style.display = 'none';
-    startGame();
+    continueGame();
 };
 
 const createKeyboard = () => {
