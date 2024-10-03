@@ -4,8 +4,8 @@ let maxLives = 1;
 let points = 0;
 let wordcount = 5;
 let clickCount = 0;
-let currentStreak = localStorage.getItem('currentStreak') ? parseInt(localStorage.getItem('currentStreak')) : 0;
-let highestStreak = localStorage.getItem('highestStreak') ? parseInt(localStorage.getItem('highestStreak')) : 0;
+let currentStreakbook = localStorage.getItem('currentStreakbook') ? parseInt(localStorage.getItem('currentStreakbook')) : 0;
+let highestStreakbook = localStorage.getItem('highestStreakbook') ? parseInt(localStorage.getItem('highestStreakbook')) : 0;
 
 const wordDisplay1 = document.getElementById('word-display1');
 const wordDisplay2 = document.getElementById('word-display2');
@@ -32,8 +32,8 @@ const submitNameButton = document.getElementById('submitNameButton');
 const closeGameOverModal = document.getElementsByClassName('close')[0];
 const closeModalButtons = document.querySelectorAll('.close, #continueButton');
 const logoImage = document.getElementById('logo-image');
-const highestStreakDisplay = document.getElementById('highestStreak-display');
-const currentStreakDisplay = document.getElementById('currentStreak-display');
+const highestStreakDisplaybook = document.getElementById('highestStreakbook-display');
+const currentStreakDisplaybook = document.getElementById('currentStreakbook-display');
 
 logoImage.src = 'logomov.png';
 
@@ -62,47 +62,47 @@ const associatedWords = {
     "survivor": "by chuck palahniuk", "tanequil": "by terry brooks", "tartuffe": "by molière", "thirteen": "by lauren myracle", "tidepool": "by nicole willson", "timbuktu": "by paul auster", "timeless": "by alexandra monir", "timeline": "by michael crichton", "tomorrow": "by damian dibben", "treasure": "by rebekah weatherspoon", "trelawny": "by isabelle holland", "trespass": "by rose tremain", "trickery": "by jaymin eve", "troubles": "by j.g. farrell", "trysting": "by emmanuelle pagano", "twilight": "by stephenie meyer", "unchosen": "by katharyn blair", "ungifted": "by gordon korman", "unlocked": "by courtney milan", "unspoken": "by sarah rees brennan ", "unveiled": "by courtney milan", "uprising": "by margaret peterson haddix", "uprooted": "by naomi novik", "upstaged": "by patricia mccowan", "vauxhall": "by gabriel gbadamosi", "vengeful": "by victoria schwab", "vibrator": "by mari; emmerich akasaka", "victoria": "by daisy goodwin", "villette": "by charlotte brontë", "warcross": "by marie lu", "warlight": "by michael ondaatje", "warprize": "by elizabeth vaughan", "watchman": "by ian rankin", "watchmen": "by alan moore", "waverley": "by walter scott", "whipbird": "by robert drewe", "whipped:": "by lucia jordan", "whispers": "by stuart david schiff (editor)", "whiteout": "by cambria hebert", "wildcard": "by marie lu", "wildfire": "by ilona andrews", "wildwood": "by colin meloy", "wolfgang": "by e.l. beth", "wolfpack": "by abby wambach", "wreckage": "by jason nickey", "yearbook": "by seth rogen"
 };
 
-const updatehighestStreakDisplay = () => {
-    if (highestStreakDisplay) {
-        highestStreakDisplay.innerText = `Hottest Streak ! ${highestStreak} ! days in a row`;
+const updatehighestStreakDisplaybook = () => {
+    if (highestStreakDisplaybook) {
+        highestStreakDisplaybook.innerText = `Hottest Streak ! ${highestStreakbook} ! days in a row`;
     }
 };
 
-const updatecurrentStreakDisplay = () => {
-    if (currentStreakDisplay) {
-        currentStreakDisplay.innerText = `Current Streak ${currentStreak} days in a row`;
+const updatecurrentStreakDisplaybook = () => {
+    if (currentStreakDisplaybook) {
+        currentStreakDisplaybook.innerText = `Current Streak ${currentStreakbook} days in a row`;
     }
 };
 
-function displayStreaks() {
-    console.log(`Current Streak: ${currentStreak}, Highest Streak: ${highestStreak}`);
-    updatehighestStreakDisplay();
-    updatecurrentStreakDisplay();// Ensure the highest streak display is always updated
+function displayStreaksbook() {
+    console.log(`Current Streak: ${currentStreakbook}, Highest Streak: ${highestStreakbook}`);
+    updatehighestStreakDisplaybook();
+    updatecurrentStreakDisplaybook();// Ensure the highest streak display is always updated
 }
 
 function updatePoints(newPoints) {
     if (newPoints > 0) {
         points += newPoints;
-        currentStreak += newPoints;
-        localStorage.setItem('currentStreak', currentStreak);
-        if (currentStreak > highestStreak) {
-            highestStreak = currentStreak;
-            localStorage.setItem('highestStreak', highestStreak); // Save to local storage
-            updatehighestStreakDisplay();
-            updatecurrentStreakDisplay();
+        currentStreakbook += newPoints;
+        localStorage.setItem('currentStreakbook', currentStreakbook);
+        if (currentStreakbook > highestStreakbook) {
+            highestStreakbook = currentStreakbook;
+            localStorage.setItem('highestStreakbook', highestStreakbook); // Save to local storage
+            updatehighestStreakDisplaybook();
+            updatecurrentStreakDisplaybook();
         }
     } else {
-        currentStreak = 0; // Reset current streak if no points are gained
-        localStorage.setItem('currentStreak', currentStreak);
+        currentStreakbook = 0; // Reset current streak if no points are gained
+        localStorage.setItem('currentStreakbook', currentStreakbook);
     }
-    displayStreaks();
+    displayStreaksbook();
 }
 
-const checkLastAttempt = () => {
-    const lastAttempt = localStorage.getItem('lastAttempt');
+const checkLastAttemptbook = () => {
+    const lastAttemptbook = localStorage.getItem('lastAttemptbook');
     const today = new Date().toISOString().split('T')[0]; // Get YYYY-MM-DD format
 
-    if (lastAttempt === today) {
+    if (lastAttemptbook === today) {
         alert("You have already played today. Come back tomorrow!");
         return false;
     }
@@ -110,9 +110,9 @@ const checkLastAttempt = () => {
     return true;
 };
 
-const setLastAttempt = () => {
+const setLastAttemptbook = () => {
     const today = new Date().toISOString().split('T')[0]; // Get YYYY-MM-DD format
-    localStorage.setItem('lastAttempt', today);
+    localStorage.setItem('lastAttemptbook', today);
 };
 
 // Simple hash function to create a seed from the date
@@ -159,9 +159,10 @@ const startGame = () => {
     updateWordDisplay3(selectedWord3);
     updateWordDisplay4(selectedWord4);
     updateWordDisplay5(selectedWord5);
-    updatehighestStreakDisplay();
-    updatecurrentStreakDisplay();
-    checkLastAttempt();
+    updatehighestStreakDisplaybook();
+    updatecurrentStreakDisplaybook();
+    checkLastAttemptbook();
+    displayStreaksbook();
 };
 
 const updateWordDisplay1 = (selectedWord1) => {
@@ -266,7 +267,7 @@ const loadScoreboard = () => {
 };
 
 const handleGameOver = () => {
-    setLastAttempt();
+    setLastAttemptbook();
     const selectedWords = [selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5];
     associatedWordsMessage = "";
     selectedWords.forEach(word => {
@@ -339,7 +340,7 @@ const createKeyboard = () => {
         'qwertyuiop',
         'asdfghjkl',
         'zxcvbnm',
-        '.,!#-'
+        '.,!#- '
     ];
 
     keyboard.innerHTML = ''; // Clear existing buttons
@@ -349,7 +350,7 @@ const createKeyboard = () => {
         rowDiv.classList.add('row');
         row.split('').forEach(letter => {
             const button = document.createElement('button');
-            button.innerText = letter;
+            button.innerText = letter === ' ' ? '␣' : letter; 
             button.addEventListener('click', () => handleGuess(letter, button));
             rowDiv.appendChild(button);
         });
@@ -375,7 +376,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateIncorrectGuessesDisplay();
     updatepointsDisplay();
     updatewordcountDisplay();
-    loadScoreboard();
+   // loadScoreboard();
+    displayStreaksbook();
 });
 
 const handleGuess = (letter, button) => {
