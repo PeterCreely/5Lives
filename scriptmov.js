@@ -104,8 +104,9 @@ const checkLastAttemptmovie = () => {
 
     if (lastAttemptmovie === today) {
         alert("You have already played today. Come back tomorrow!");
-               window.location.href = "index.html";
+        window.location.href = "index.html";
         return false;
+
     }
 
     return true;
@@ -285,7 +286,7 @@ closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
         wonModal.style.display = 'none';
         if (button.id === 'continueButton') {
- startGame();
+            startGame();
         }
     });
 });
@@ -378,6 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updatepointsDisplay();
     updatewordcountDisplay();
     displayStreaksmovies();
+    checkLastAttemptmovie();
 });
 
 const handleGuess = (letter, button) => {
