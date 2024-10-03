@@ -305,6 +305,7 @@ window.onclick = (event) => {
     }
 };
 
+/*
 // Handle name submission
 submitNameButton.onclick = () => {
     const playerName = playerNameInput.value;
@@ -315,7 +316,7 @@ submitNameButton.onclick = () => {
     } else {
         alert("Please enter your name.");
     }
-};
+};*/
 
 closeModal.onclick = () => {
     lostModal.style.display = 'none';
