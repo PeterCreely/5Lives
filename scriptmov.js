@@ -303,7 +303,7 @@ window.onclick = (event) => {
         gameOverModal.style.display = 'none';
     }
 };
-
+/*
 // Handle name submission
 submitNameButton.onclick = () => {
     const playerName = playerNameInput.value;
@@ -315,7 +315,7 @@ submitNameButton.onclick = () => {
         alert("Please enter your name.");
     }
 };
-
+*/
 closeModal.onclick = () => {
     lostModal.style.display = 'none';
     wonModal.style.display = 'none';
