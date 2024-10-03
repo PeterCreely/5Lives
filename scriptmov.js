@@ -314,8 +314,8 @@ submitNameButton.onclick = () => {
     } else {
         alert("Please enter your name.");
     }
-};
-*/
+};*/
+
 closeModal.onclick = () => {
     lostModal.style.display = 'none';
     wonModal.style.display = 'none';
