@@ -1,3 +1,4 @@
+
 const words1 = ["act", "aim", "add", "aid", "ago", "and", "age", "all", "art", "air", "ace", "amp", "aft", "ale", "axe", "abs", "box",
     "buy", "boy", "big", "bed", "bag", "bad", "bet", "bar", "bit", "ban", "bus", "but", "bop", "bum", "bow", "cow", "cry",
     "cap", "cop", "cup", "can", "car", "cat", "cut", "day", "dry", "dad", "dig", "dog", "die", "due", "eye", "egg", "end",
@@ -233,6 +234,7 @@ const logoImage = document.getElementById('logo-image');
 
 logoImage.src = 'logo1.png';
 
+
 /*const updateWordDisplay1 = () => {
     wordDisplay1.innerHTML = selectedWord1.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
 };
@@ -442,38 +444,40 @@ const handleGuess = (letter, button) => {
     }
 
     else {
-    button.classList.add('notselected');
-    incorrectGuesses--;
-    updateLivesDisplay();
-    updateincorrectGuessesDisplay();
-    updatepointsDisplay();
-    if (incorrectGuesses === 0) {
-        maxLives--;
-        lostMessage.innerHTML = `<strong>Oops a Daisy!<br>You ran out of guesses</strong><br><br>You have ${maxLives} lives left. <br><br> The words were: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
-        continueButton.innerText = `Continue with ${maxLives} lives left`; // Set button text
-        lostModal.style.display = 'block';
-
-        points--;
-        incorrectGuesses = 5;
+        button.classList.add('notselected');
+        incorrectGuesses--;
         updateLivesDisplay();
         updateincorrectGuessesDisplay();
         updatepointsDisplay();
-        if (maxLives === 0) {
-            handleGameOver();
+        if (incorrectGuesses === 0) {
+            maxLives--;
+            lostMessage.innerHTML = `<strong>Oops a Daisy!<br>You ran out of guesses</strong><br><br>You have ${maxLives} lives left. <br><br> The words were: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
+            continueButton.innerText = `Continue with ${maxLives} lives left`; // Set button text
+            lostModal.style.display = 'block';
+
+            points--;
+            incorrectGuesses = 5;
+            updateLivesDisplay();
+            updateincorrectGuessesDisplay();
+            updatepointsDisplay();
+            if (maxLives === 0) {
+                handleGameOver();
+            }
         }
     }
-}
 };
 
 closeModal.onclick = () => {
     lostModal.style.display = 'none';
     wonModal.style.display = 'none';
+    continueGame();
 };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = (event) => {
     if (event.target == lostModal) {
         lostModal.style.display = 'none';
+        continueGame();
     }
 };
 
@@ -482,7 +486,7 @@ document.getElementById('continueButton').onclick = () => {
     lostModal.style.display = 'none';
     continueGame();
 };
-
+/*
 const createKeyboard = () => {
     const rows = [
         'qwertyuiop',
@@ -504,6 +508,7 @@ const createKeyboard = () => {
         keyboard.appendChild(rowDiv);
     });
 };
+*/
 
 const resetGame = () => {
     guessedLetters = [];
@@ -600,25 +605,30 @@ const continueGame = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    createKeyboard();
-    resetGame();
+    //createKeyboard();
+   // resetGame();
 
-    updateLivesDisplay();
-    updateincorrectGuessesDisplay();
-    updatepointsDisplay();
-    updateWordDisplay1();
-    updateWordDisplay2();
-    updateWordDisplay3();
-    updateWordDisplay4();
-    updateWordDisplay5();
-    updatewordcountDisplay();
+   // updateLivesDisplay();
+   // updateincorrectGuessesDisplay();
+   // updatepointsDisplay();
+   // updateWordDisplay1();
+   // updateWordDisplay2();
+   // updateWordDisplay3();
+   // updateWordDisplay4();
+  //  updateWordDisplay5();
+   // updatewordcountDisplay();
 
     //displayScoreboard();
-    loadScoreboard();
+   // loadScoreboard();
 
-    resetButton.addEventListener('click', resetGame);
+  //  resetButton.addEventListener('click', resetGame);
 
-    continueButton.addEventListener('click', continueGame);
+  //  continueButton.addEventListener('click', continueGame);
+});
+
+
+document.getElementById('open-en-image').addEventListener('click', () => {
+    window.open('index.html', '_blank'); // Opens the new page in a new tab
 });
 
 document.getElementById('open-de-image').addEventListener('click', () => {
@@ -629,9 +639,18 @@ document.getElementById('open-ie-image').addEventListener('click', () => {
     window.open('indexie.html', '_blank'); // Opens the new page in a new tab
 });
 
+document.getElementById('open-mov-image').addEventListener('click', () => {
+    window.open('indexmov.html', '_blank'); // Opens the new page in a new tab
+});
+
+function addTouchClass() {
+    image.classList.add('new-shade'); // Add the shading change class
+}
+
+// Function to remove the class on touch end
 function removeTouchClass() {
     image.classList.remove('new-shade'); // Remove the shading change class
 }
 
-image.addEventListener('touchstart', addTouchClass);
-image.addEventListener('touchend', removeTouchClass);
+//image.addEventListener('touchstart', addTouchClass);
+//image.addEventListener('touchend', removeTouchClass);
