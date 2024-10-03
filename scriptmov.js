@@ -98,11 +98,11 @@ function updatePoints(newPoints) {
     displayStreaksmovies();
 }
 
-const checkLastAttempt = () => {
-    const lastAttempt = localStorage.getItem('lastAttempt');
+const checkLastAttemptmovie = () => {
+    const lastAttemptmovie = localStorage.getItem('lastAttemptmovie');
     const today = new Date().toISOString().split('T')[0]; // Get YYYY-MM-DD format
 
-    if (lastAttempt === today) {
+    if (lastAttemptmovie === today) {
         alert("You have already played today. Come back tomorrow!");
         return false;
     }
@@ -110,9 +110,9 @@ const checkLastAttempt = () => {
     return true;
 };
 
-const setLastAttempt = () => {
+const setLastAttemptmovie = () => {
     const today = new Date().toISOString().split('T')[0]; // Get YYYY-MM-DD format
-    localStorage.setItem('lastAttempt', today);
+    localStorage.setItem('lastAttemptmovie', today);
 };
 
 // Simple hash function to create a seed from the date
@@ -161,7 +161,8 @@ const startGame = () => {
     updateWordDisplay5(selectedWord5);
     updatehighestStreakmovieDisplay();
     updatecurrentStreakmovieDisplay();
-    checkLastAttempt();
+    checkLastAttemptmovie();
+    displayStreaksmovies();
 };
 
 const updateWordDisplay1 = (selectedWord1) => {
@@ -266,7 +267,7 @@ const loadScoreboard = () => {
 };
 
 const handleGameOver = () => {
-    setLastAttempt();
+    setLastAttemptmovie();
     const selectedWords = [selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5];
     associatedWordsMessage = "";
     selectedWords.forEach(word => {
@@ -435,6 +436,7 @@ const handleGuess = (letter, button) => {
             wonMessage.innerHTML = `<br><strong>Woo! High Five!<br>They're ALL Right!</strong><br>The movies were:<br> ${associatedWordsMessage}<br>COME BACK TOMORROW<br>FOR FIVE MORE MOVIES<br>`;
             pointsDisplay.innerText = `You WON!`;
             wonModal.style.display = 'block';
+            setLastAttemptmovie();
         }
     }
 
