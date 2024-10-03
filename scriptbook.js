@@ -437,6 +437,7 @@ const handleGuess = (letter, button) => {
             wonMessage.innerHTML = `<br><strong>Woo! High Five!<br>They're ALL Right!</strong><br>The books were: <br>${associatedWordsMessage}<br>COME BACK TOMORROW<br>FOR FIVE MORE BOOKS<br>`;
             pointsDisplay.innerText = `You WON!`;
             wonModal.style.display = 'block';
+            setLastAttemptbook();
         }
     }
 
