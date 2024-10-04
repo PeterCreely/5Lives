@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const displayballScoreboard = () => {
        // const ballscoreboardDiv = document.getElementById('ballscoreboard');
         ballscoreboardDiv.innerHTML = `
-        <h3>SCOREBOARD</h3>
+        <h3>BALL SCOREBOARD</h3>
         <div class="header">
             <span>No.</span>
             <span>Name</span>
