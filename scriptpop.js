@@ -79,7 +79,7 @@
     }
 
     function initializeLevel3() {
-        score = [];
+       // score = [];
         maxLives = 5;
         bubbles.length = 0; 
         popArea.innerHTML = ''; 
@@ -89,7 +89,7 @@
     }
 
     function initializeLevel4() {
-        score = [];
+        //score = [];
         maxLives = 5;
         bubbles.length = 0;
         popArea.innerHTML = '';
@@ -99,7 +99,7 @@
     }
 
     function initializeLevel5() {
-        score = [];
+       // score = [];
         maxLives = 5;
         bubbles.length = 0;
         popArea.innerHTML = '';
