@@ -52,6 +52,7 @@
     const handlepopGameOver = () => {
         popgameOverMessage.innerHTML = `<strong>Game Over!</strong><br>You scored ${score} points.<br>Enter your name for the scoreboard:`;
         popgameOverModal.style.display = 'block';
+        console.log("Game Over modal should be displayed now.");
     };
 
     const updateLivesDisplay = () => {
