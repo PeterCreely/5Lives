@@ -1,4 +1,4 @@
-﻿
+
 const words1 = ["die", "das", "der", "akt", "amt", "ate", "auf", "bär", "bau", "bei", "bin", "bis", "bus",
     "den", "dom", "ein", "eis", "elf", "eng", "fan", "fax", "fit", "fuß", "gar", "gut", "hai", "hin", "hof",
     "hut", "ice", "ich", "ind", "inn", "ins", "ist", "klo", "kuh", "lkw", "maß", "men", "mit", "mon", "mut",
@@ -69,7 +69,7 @@ const words3 = ["acker", "adler", "agent", "aktie", "alarm", "allee", "ally", "a
     "trotz", "tulpe", "türke", "übung", "umbau", "union", "unter", "uralt", "urope", "venus", "video",
     "villa", "virus", "vogel", "voran", "waage", "wachs", "warze", "weich", "welle", "wende", "wessi",
     "wiese", "wieum", "wille", "witwe", "wolke", "wolle", "woran", "wunde", "wurst", "wüste", "zeile",
-    "zumal", "zunge", "zuvor", "zweck", "zwölf", "damit", "hallo", "igitt", "prima", 
+    "zumal", "zunge", "zuvor", "zweck", "zwölf", "damit", "hallo", "igitt", "prima", "tself",
 ];
 let selectedWord3 = words3[Math.floor(Math.random() * words3.length)];
 
@@ -356,6 +356,8 @@ const associatedWords = {
     "schutz": "protection", "schwan": "swan", "schwül": "sultry", "segeln": "sail", "seidig": "silky", "selten": "seldom", "senden": "send", "senior": "senior", "senken": "lower", "sessel": "armchair", "shorts": "shorts", "silber": "silver", "singen": "sing", "simone": "simone", "sinken": "sink", "sitzen": "sit", "sketch": "sketch", "sofern": "if", "soldat": "soldier", "sommer": "summer", "sonnig": "sunny", "soweit": "as far as", "sowohl": "and", "spalte": "column", "sparen": "save", "spinat": "spinach", "spitze": "top", "spülen": "rinse", "spüren": "feel", "stabil": "stable", "stärke": "starch", "stehen": "stand", "steuer": "tax", "stören": "disturb", "strand": "beach", "streit": "dispute", "streng": "severe", "stress": "stress", "strikt": "strict", "stumpf": "dull", "sturen": "stubborn", "südpol": "south pole", "symbol": "symbol", "system": "system", "taktik": "tactics", "talent": "talent", "tanken": "refuel", "tänzer": "dancer", "tapete": "wallpaper", "tapfer": "brave", "tatort": "crime scene", "teilen": "divide", "teller": "plate", "tennis": "tennis", "termin": "appointment", "terror": "terror", "tippen": "type", "tomate": "tomato", "trauer": "mourning", "treppe": "stairs", "trikot": "jersey", "truppe": "troupe",
     "tself": "tself", "tunnel": "tunnel", "türkei": "turkey", "türkin": "turk", "turnen": "gymnastics", "umfang": "circumference", "umgang": "dealings", "umland": "hinterland", "umsatz": "turnover", "umwelt": "environment", "uneben": "uneven", "unfall": "accident", "ungarn": "hungary", "ungern": "unwillingly", "urlaub": "holiday", "urteil": "judgment", "utopie": "utopia", "veränn": "change", "verben": "verbs", "verein": "association", "verlag": "publisher", "vernen": "vernen", "vernst": "vernst", "vorbei": "over", "vorort": "suburb", "vulkan": "volcano", "wachen": "be awake", "wählen": "choose", "wahren": "maintain", "warnen": "warn", "wäsche": "laundry", "wecken": "wake", "wecker": "alarm clock", "weinen": "cry", "wenden": "turn", "werfen": "throw", "westen": "west", "wetten": "bet", "wetter": "weather", "widmen": "dedicate", "wiegen": "weigh", "wiener": "viennese", "wilich": "wilich", "windig": "windy", "winter": "winter", "winzig": "tiny", "witwer": "widower", "witzig": "funny", "wohnen": "dwell", "wolkig": "cloudy", "wunsch": "wish", "wurmig": "wormy", "würzig": "spicy", "wütend": "furious", "zählen": "count", "zauber": "spell", "zelten": "camp", "zensur": "censorship", "zettel": "note", "zeugin": "witness", "zimmer": "room", "zinsen": "interest", "zögern": "hesitate", "zornig": "angry", "zucker": "sugar", "zufall": "chance", "zugabe": "encore", "zugang": "access", "zusatz": "addition", "arning": "arning", "coins": "coins", "herein": "come in", "schade": "what a pity", "servus": "servus", "abfahrt": "departure", "abgeben": "give off", "abhaken": "tick off", "abholen": "collect", "ablegen": "discard", "absehen": "foresee", "absicht": "intention", "absolut": "absolute", "abstand": "distance", "abwasch": "washing-up", "adresse": "address", "ähnlich": "similar", "alkohol": "alcohol", "analyse": "analysis", "anbauen": "cultivate", "anfrage": "inquiry", "angeben": "boast", "angebot": "offer", "angehen": "concern", "angriff": "attack", "anhören": "listen to", "anklage": "accusation", "ankunft": "arrival", "anlegen": "berth", "ansehen": "look at", "ansicht": "view", "anstatt": "instead of", "anthalb": "anthalb", "anzeige": "display", "apparat": "apparatus", "appetit": "appetite", "applaus": "applause", "armband": "bracelet", "artikel": "article", "aufgabe": "task", "aufsatz": "essay", "auftrag": "order", "ausfall": "sortie", "ausflug": "outing", "ausgabe": "edition", "ausgang": "exit", "ausland": "foreign countries", "ausrede": "excuse", "aussage": "statement", "äußerst": "extremely", "ausüben": "exert", "auswahl": "selection", "auswann": "when", "ausweis": "identity card", "automat": "automaton", "bahnhof": "railway station", "barcode": "barcode", "bargeld": "cash", "basteln": "do handicrafts", "baumlos": "treeless", "baustil": "architectural style", "bedeckt": "overcast", "bedroht": "threatened", "beenden": "finish", "begehen": "commit", "begriff": "concept", "behörde": "agency", "beinahe": "almost", "bekannt": "known", "belegen": "occupy", "belgien": "belgium", "beliebt": "popular", "berater": "consultant", "bereich": "range", "bereits": "already", "bereuen": "regret", "bericht": "report", "berühmt": "famous", "besetzt": "busy", "besorgt": "worried", "bestand": "stock", "besteck": "cutlery", "betonen": "emphasize", "betrieb": "operation", "betteln": "beg", "bewährt": "proven", "bewölkt": "cloudy", "bewusst": "conscious", "bildung": "education", "billard": "billiards", "bislang": "so far", "blitzen": "flash", "botanik": "botany", "branche": "industry", "brechen": "break", "bremsen": "brake", "brennen": "burn", "brosche": "brooch", "brüllen": "roar", "brünett": "brunette", "buchung": "booking", "bürsten": "brush", "buschig": "bushy", "bußgeld": "fine", "cheddar": "cheddar", "chronik": "chronicle", "college": "college", "cousine": "cousin", "damalig": "then", "daneben": "besides", "dänisch": "danish", "danklos": "thankless", "darüber": "over it", "debatte": "debate", "deckung": "cover", "demnach": "so", "deutsch": "german", "dialekt": "dialect", "digital": "digital", "donnern": "thunder", "doppeln": "double", "doppelt": "double", "dorthin": "thither", "drängen": "press", "dreckig": "dirty", "dreißig": "thirty", "drinnen": "inside", "drittel": "third", "dröhnen": "boom", "drucken": "print", "drücken": "press", "drucker": "printer", "durstig": "thirsty", "duschen": "shower", "dutzend": "dozen", "ehefrau": "wife", "ehemann": "husband", "ehepaar": "married couple", "eingang": "entrance", "einheit": "unit", "einhorn": "unicorn", "eintrag": "entry", "einwann": "when", "einzeln": "singly", "eisbahn": "skating rink", "eiserne": "iron", "elefant": "elephant", "elegant": "elegant", "element": "element", "empfang": "reception", "energie": "energy", "england": "england", "enkelin": "granddaughter", "entlang": "along", "entwurf": "draft", "ergeben": "loyal", "erheben": "raise", "erleben": "experience", "erobern": "conquer", "erraten": "guess", "estland": "estonia", "etliche": "several", "experte": "expert", "fahrrad": "bicycle", "farblos": "colourless", "fassade": "facade", "fassung": "socket", "februar": "february", "festtag": "feast day", "festung": "fortress", "fischen": "fish", "flasche": "bottle", "fleisch": "meat", "fleißig": "diligent", "flicken": "patch", "flieger": "aviator", "fliehen": "flee", "fließen": "flow", "flirten": "flirt", "fluchen": "swear", "folgend": "following", "formlos": "shapeless", "franken": "franc", "freitag": "friday", "fressen": "eat", "friseur": "hairdresser", "führung": "management", "fünfzig": "fifty", "fußball": "soccer", "füttern": "feed", "galaxie": "galaxy", "galerie": "gallery", "gardine": "curtain", "gärtner": "gardener", "gasherd": "gas stove", "gasthof": "inn", "gebäude": "building", "gedicht": "poem", "gehoben": "elevated", "gehören": "belong", "geistig": "mental", "geladen": "loaded", "geliebt": "beloved", "gemälde": "painting", "genauso": "just as", "genetik": "genetics", "genügen": "suffice", "geraten": "guessed", "gerücht": "rumour", "gestalt": "shape", "getränk": "drink", "gewicht": "weight", "gewohnt": "accustomed", "giraffe": "giraffe", "gitarre": "guitar", "gottlos": "godless", "gourmet": "gourmet", "grausam": "cruel", "grenzen": "border", "grieche": "greek", "gründen": "establish", "grunzen": "grunt", "günstig": "auspicious", "gurgeln": "gargle", "haarlos": "hairless", "haftung": "liability", "haltung": "attitude", "hamster": "hamster", "handeln": "act", "händler": "dealer", "harmlos": "harmless", "haustür": "front door", "heimweg": "way home", "heizung": "heating", "herzlos": "heartless", "hierfür": "therefor", "hilflos": "helpless", "hinweis": "hint", "höflich": "polite", "hörsaal": "lecture hall", "hügelig": "hilly", "hungern": "hunger", "hungrig": "hungry", "illegal": "illegal", "infolge": "owing to", "italien": "italy", "jahraus": "always", "japaner": "japanese", "jenigen": "those", "jüdisch": "jewish", "känguru": "kangaroo", "kanzler": "chancellor", "kapelle": "chapel", "kapitel": "chapter", "kariert": "checkered", "karotte": "carrot", "kellner": "waiter", "klappen": "work out", "klärung": "clarification", "klatsch": "gossip", "klavier": "piano", "klebrig": "sticky", "klingel": "bell", "klingen": "sound", "klopfen": "knock", "klumpen": "lump", "knipsen": "snap", "koffein": "caffeine", "kollege": "colleague", "kommend": "coming", "kommode": "chest of drawers", "komplex": "complex", "königin": "queen", "kontakt": "contact", "kontext": "context", "konzept": "concept", "konzern": "combine", "konzert": "concert", "kräftig": "strong", "kreativ": "creative", "künftig": "future", "kutsche": "carriage", "lächeln": "smile", "landung": "landing", "lauwarm": "lukewarm", "lebhaft": "vivid", "legende": "legend", "leisten": "achieve", "leitung": "management", "lenkrad": "steering wheel", "letztes": "last", "lexicon": "lexicon", "lieblos": "unloving", "liefern": "deliver", "lispeln": "lisp", "litauen": "lithuania", "löschen": "delete", "machbar": "feasible", "mächtig": "powerful", "magazin": "magazine", "malerei": "painting", "manager": "manager", "mancher": "many a", "manuell": "manual", "märchen": "fairy tale", "matrose": "sailor", "maximal": "maximum", "medizin": "medicine", "mehrere": "several", "merkmal": "feature", "metzger": "butcher", "million": "million", "mittels": "by means of", "modisch": "fashionable", "morgens": "in the morning", "moskito": "mosquito", "münchen": "munich", "murmeln": "mumble", "musiker": "musician", "nachbar": "neighbour", "nachher": "afterwards", "nämlich": "namely", "nebenan": "next door", "negativ": "negative", "neigung": "slope", "neujahr": "new year", "neulich": "recently", "niedrig": "low", "nielage": "nielage", "niemand": "nobody", "nieseln": "drizzle", "nochmal": "again", "nordpol": "north pole", "nordsee": "north sea", "notfall": "emergency", "nutzlos": "useless", "nutzung": "use", "ohnehin": "anyway", "ohrring": "earring", "oktober": "october", "ordnung": "order", "östlich": "eastern", "packung": "pack", "parkett": "parquet", "partner": "partner", "passend": "suitable", "patient": "patient", "pendler": "commuter", "pension": "pension", "perfekt": "perfect", "pfarrer": "pastor", "pfeffer": "pepper", "pfennig": "pfennig", "pflanze": "plant", "pflaume": "plum", "pflegen": "nurse", "pflicht": "duty", "pflügen": "plough", "pfosten": "post", "pianist": "pianist", "pistole": "pistol", "planung": "planning", "plastik": "plastic", "politik": "politics", "popcorn": "popcorn", "populär": "popular", "porträt": "portrait", "postamt": "post office", "präsens": "present tense", "produkt": "product", "projekt": "project", "protzig": "showy", "provinz": "province", "prozent": "percent", "prüfung": "examination", "pudding": "pudding", "quatsch": "nonsense", "radikal": "radical", "rasseln": "rattle", "rathaus": "town hall", "rauchen": "smoke", "rechnen": "calculate", "rechner": "computer", "referat": "report",
     "reklame": "advertisement", "respekt": "respect", "rettung": "rescue", "richter": "judge", "riechen": "smell", "rosarot": "rosy", "rotkohl": "red cabbage", "rotwein": "red wine", "rückzug": "retreat", "sammeln": "collect", "samstag": "saturday", "sandale": "sandal", "sardine": "sardine", "satteln": "saddle", "scanner": "scanner", "schädel": "skull", "schaden": "damage", "schämen": "feel ashamed", "schauer": "shower", "scheibe": "disk", "schicht": "layer", "schlank": "slender", "schlips": "tie", "schloss": "lock", "schmerz": "pain", "schmuck": "jewellery", "schnaps": "schnapps", "schrank": "cupboard", "schreck": "fright", "schrift": "writing", "schüler": "pupil", "schwach": "weak", "schwarz": "black", "schweiß": "sweat", "schweiz": "switzerland", "seemann": "sailor", "seitdem": "since", "seither": "since", "sekunde": "second", "seltsam": "strange", "seminar": "seminar", "sendung": "mission", "serbien": "serbia", "service": "service", "sexuell": "sexual", "shampoo": "shampoo", "sichern": "secure", "silbern": "silver", "sitzung": "session", "softeis": "soft ice cream", "solcher": "such", "sonntag": "sunday", "sonstig": "other", "spalten": "split", "spanien": "spain", "sparsam": "frugal", "spiegel": "mirror", "spieler": "player", "spinnen": "spin", "sprache": "language", "stadion": "stadium", "stammen": "originate", "starren": "stare", "starten": "start", "stechen": "stab", "stecken": "stick", "stehlen": "steal", "steigen": "climb", "steuern": "steer", "stiefel": "boot", "stiften": "donate", "stimmen": "tune", "stimmt": "agrees", "stinken": "stink", "stinkig": "stinky", "stöhnen": "groan", "stoppel": "stubble", "stoppen": "stop", "störung": "disturbance", "strecke": "stretch", "strumpf": "stocking", "student": "student", "studium": "study", "stürzen": "overthrow", "südlich": "southern", "suspekt": "suspect", "synonym": "synonym", "tabelle": "table", "täglich": "daily", "taktlos": "tactless", "tauchen": "dive", "tausend": "thousand", "technik": "technology", "teppich": "carpet", "theater": "theatre", "theorie": "theory", "toaster": "toaster", "tödlich": "fatal", "torwart": "goalkeeper", "tourist": "tourist", "tragbar": "portable", "trainer": "coach", "trampen": "hitchhike", "träumen": "dream", "traurig": "sad", "treffer": "hit", "trennen": "separate", "triumph": "triumph", "trocken": "dry", "tropfen": "drop", "t-shirt": "t-shirt", "typisch": "typical", "übersät": "strewn", "uhrzeit": "time", "ukraine": "ukraine", "umarmen": "hug", "umfrage": "survey", "umgeben": "surround", "umgehen": "circumvent", "umsonst": "free", "umstand": "circumstance", "unrecht": "wrong", "ursache": "cause", "venedig": "venice", "verband": "association", "verkehr": "traffic", "verlobt": "engaged", "verlust": "loss", "versuch": "attempt", "verwunt": "wounded", "viertel": "quarter", "vierzig": "forty", "violett": "violet", "vitamin": "vitamin", "vokabel": "word", "vorfahr": "ancestor", "vorfall": "incident", "vorgang": "process", "vorhang": "curtain", "vorlage": "template", "vorname": "forename", "vorsatz": "premeditation", "vorteil": "advantage", "vorwahl": "area code", "vorwurf": "reproach", "wachsen": "grow", "während": "during", "währung": "currency", "walkman": "walkman", "warnung": "warning", "waschen": "wash", "website": "website", "wechsel": "change", "wegfall": "discontinuation", "weltall": "universe", "werbung": "advertising", "wertlos": "worthless", "weshalb": "why", "wickeln": "wrap", "wirksam": "effective", "wistand": "wistand", "wohnort": "residence", "wunkind": "wunkind", "wunvoll": "wunvoll", "zahllos": "countless", "zahlung": "payment", "zahnlos": "toothless", "zeichen": "sign", "zeitung": "newspaper", "zentral": "central", "zentrum": "centre", "ziellos": "aimless", "zigarre": "cigar", "zittern": "tremble", "züchten": "breed", "zugeben": "admit", "zugriff": "access", "zuhause": "at home", "zuhören": "listen", "zuletzt": "finally", "zwanzig": "twenty", "zweifel": "doubt", "zweimal": "twice", "zwiebel": "onion", "zwingen": "compel", "tschüss": "goodbye",
+
+
     "die": "the", "das": "that", "der": "the", "akt": "act", "amt": "office", "ate": "Ate", "auf": "on", "bär": "bear", "bau": "construction", "bei": "at", "bin": "am", "bis": "until", "bus": "bus", "den": "the", "dom": "cathedral", "ein": "one", "eis": "ice", "elf": "eleven", "eng": "narrow", "fan": "fan", "fax": "fax", "fit": "fit", "fuß": "foot", "gar": "done", "gut": "good", "hai": "shark", "hin": "There", "hof": "yard", "hut": "hat", "ice": "Ice", "ich": "I", "ind": "Ind", "inn": "Inn", "ins": "into", "ist": "is", "klo": "loo", "kuh": "cow", "lkw": "truck", "maß": "measure", "men": "Men", "mit": "with", "mon": "Mon", "mut": "courage", "nah": "near", "nen": "nen", "ner": "ner", "nie": "never", "not": "distress", "nst": "Nst", "ode": "ode", "ohr": "ear", "oma": "Granny", "opa": "Grandfather", "per": "per", "pro": "per", "rad": "wheel", "rat": "advice", "rot": "red", "ruf": "reputation", "sag": "Tell", "see": "lake", "sie": "they", "ski": "ski", "stu": "Stu", "süß": "sweet", "tal": "valley", "tee": "tea", "ton": "clay", "tor": "gate", "ums": "ums", "uni": "university", "von": "from", "vor": "before", "wie": "how", "wir": "we", "wut": "fury", "zeh": "toe", "zum": "To", "zur": "the"
 };
 
@@ -395,27 +397,6 @@ const closeModalButtons = document.querySelectorAll('.close, #continueButton');
 const logoImage = document.getElementById('logo-image');
 
 logoImage.src = 'logode.png';
-
-
-/*const updateWordDisplay1 = () => {
-    wordDisplay1.innerHTML = selectedWord1.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
-};
-
-const updateWordDisplay2 = () => {
-    wordDisplay2.innerHTML = selectedWord2.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
-};
-
-const updateWordDisplay3 = () => {
-    wordDisplay3.innerHTML = selectedWord3.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
-};
-
-const updateWordDisplay4 = () => {
-    wordDisplay4.innerHTML = selectedWord4.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
-};
-
-const updateWordDisplay5 = () => {
-    wordDisplay5.innerHTML = selectedWord5.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
-};*/
 
 const updateWordDisplay1 = () => {
     const wordDisplay1 = document.getElementById('word-display1');
@@ -478,28 +459,28 @@ const updatepointsDisplay = () => {
     pointsDisplay.innerText = `Du hast ${points} Punkte`;
 };
 
-let scoreboard = [];
+let scoreboardde = [];
 
-const updateScoreboard = (name, points) => {
-    scoreboard.push({ name, points });
+const updateScoreboardde = (name, points) => {
+    scoreboardde.push({ name, points });
     // Sort the scoreboard by points in descending order
-    scoreboard.sort((a, b) => b.points - a.points);
-    localStorage.setItem('scoreboard', JSON.stringify(scoreboard)); // Save to localStorage
-    displayScoreboard();
+    scoreboardde.sort((a, b) => b.points - a.points);
+    localStorage.setItem('scoreboardde', JSON.stringify(scoreboardde)); // Save to localStorage
+    displayScoreboardde();
 };
 
-const displayScoreboard = () => {
-    const scoreboardDiv = document.getElementById('scoreboard');
-    scoreboardDiv.innerHTML = `
+const displayScoreboardde = () => {
+    const scoreboarddeDiv = document.getElementById('scoreboardde');
+    scoreboarddeDiv.innerHTML = `
         <h3>Bestenliste</h3>
         <div class="header">
             <span>No.</span>
             <span>Name</span>
-            <span>Score</span>
+            <span>Punktzahl</span>
         </div>
     `;
-    scoreboard.forEach((entry, index) => {
-        scoreboardDiv.innerHTML += `
+    scoreboardde.forEach((entry, index) => {
+        scoreboarddeDiv.innerHTML += `
             <div class="entry">
                 <span>${index + 1}</span>
                 <span>${entry.name}</span>
@@ -509,11 +490,11 @@ const displayScoreboard = () => {
     });
 };
 
-const loadScoreboard = () => {
-    const savedScoreboard = localStorage.getItem('scoreboard');
-    if (savedScoreboard) {
-        scoreboard = JSON.parse(savedScoreboard);
-        displayScoreboard();
+const loadScoreboardde = () => {
+    const savedScoreboardde = localStorage.getItem('scoreboardde');
+    if (savedScoreboardde) {
+        scoreboardde = JSON.parse(savedScoreboardde);
+        displayScoreboardde();
     }
 };
 
@@ -547,7 +528,7 @@ window.onclick = (event) => {
 submitNameButton.onclick = () => {
     const playerName = playerNameInput.value;
     if (playerName) {
-        updateScoreboard(playerName, points);
+        updateScoreboardde(playerName, points);
         gameOverModal.style.display = 'none';
         location.reload(); // Reload the page or reset the game as needed
     } else {
@@ -587,66 +568,64 @@ const handleGuess = (letter, button) => {
         correctGuess = true;
     }
 
- if (correctGuess) {
-     const wordDisplays = [wordDisplay1, wordDisplay2, wordDisplay3, wordDisplay4, wordDisplay5];
-     let allWordsGuessed = true;
-     wordDisplays.forEach(display => {
-         if (display.style.display !== 'none' && display.innerText.includes('_')) {
-             allWordsGuessed = false;
-         }
-     });
+    if (correctGuess) {
+        const wordDisplays = [wordDisplay1, wordDisplay2, wordDisplay3, wordDisplay4, wordDisplay5];
+        let allWordsGuessed = true;
+        wordDisplays.forEach(display => {
+            if (display.style.display !== 'none' && display.innerText.includes('_')) {
+                allWordsGuessed = false;
+            }
+        });
 
-     if (allWordsGuessed) {
-         points++;
-         let associatedWordsMessage = "";
-         wordDisplays.forEach(display => {
-             const displayedWord = display.innerText.replace(/\s+/g, '').trim();
-             console.log(`Checking word: ${displayedWord}`); // Debugging output
-             if (associatedWords[displayedWord]) {
-                 associatedWordsMessage += `${displayedWord} = ${associatedWords[displayedWord]}<br>`;
-                 console.log(`Match found: ${displayedWord} = ${associatedWords[displayedWord]}`); // Debugging output
-             } else {
-                 console.log(`No match found for: ${displayedWord}`); // Debugging output
-             }
-         });
+        if (allWordsGuessed) {
+            points++;
+            let associatedWordsMessage = "";
+            wordDisplays.forEach(display => {
+                const displayedWord = display.innerText.replace(/\s+/g, '').trim();
+                console.log(`Checking word: ${displayedWord}`); // Debugging output
+                if (associatedWords[displayedWord]) {
+                    associatedWordsMessage += `${displayedWord} = ${associatedWords[displayedWord]}<br>`;
+                    console.log(`Match found: ${displayedWord} = ${associatedWords[displayedWord]}`); // Debugging output
+                } else {
+                    console.log(`No match found for: ${displayedWord}`); // Debugging output
+                }
+            });
 
-         wonMessage.innerHTML = `<br><strong>Juhuu! Gib mir fünf!<br>Es geht ihnen ALLES gut!</strong><br><br>the words were:${associatedWordsMessage}<br>Du hast noch ${maxLives} Leben. <br>Weitermachen!<br> `;
-         pointsDisplay.innerText = `Punkte: ${points}`;
-         wonModal.style.display = 'block';
-     }
+            wonMessage.innerHTML = `<br><strong>Juhuu! Gib mir fünf!<br>Es geht ihnen ALLES gut!</strong><br><br>the words were:${associatedWordsMessage}<br>Du hast noch ${maxLives} Leben. <br>Weitermachen!<br> `;
+            pointsDisplay.innerText = `Punkte: ${points}`;
+            wonModal.style.display = 'block';
+        }
 
- }
+    } else {
+        button.classList.add('notselected');
+        incorrectGuesses--;
+        updateLivesDisplay();
+        updateincorrectGuessesDisplay();
+        updatepointsDisplay();
+        if (incorrectGuesses === 0) {
+            maxLives--;
+            const selectedWords = [selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5];
+            associatedWordsMessage = "";
+            selectedWords.forEach(word => {
+                const cleanWord = word.replace(/\s+/g, '').trim();
+                if (associatedWords[cleanWord]) {
+                    associatedWordsMessage += `${cleanWord} = ${associatedWords[cleanWord]}<br>`;
+                }
+            });
+            lostMessage.innerHTML = `<strong>Ei Ei Ei!<br>Sie haben keine Vermutungen mehr</strong><br><br>Du hast noch ${maxLives} Leben. <br><br> Die Worte waren:<br>${associatedWordsMessage} <br>`;
+            continueButton.innerText = `Weiter mit ${maxLives} verbleibenden Leben`; // Set button text
+            lostModal.style.display = 'block';
 
- else {
-     button.classList.add('notselected');
-     incorrectGuesses--;
-     updateLivesDisplay();
-     updateincorrectGuessesDisplay();
-     updatepointsDisplay();
-     if (incorrectGuesses === 0) {
-         maxLives--;
-         const selectedWords = [selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5];
-         associatedWordsMessage = "";
-         selectedWords.forEach(word => {
-             const cleanWord = word.replace(/\s+/g, '').trim();
-             if (associatedWords[cleanWord]) {
-                 associatedWordsMessage += `${cleanWord} = ${associatedWords[cleanWord]}<br>`;
-             }
-         });
-         lostMessage.innerHTML = `<strong>Ei Ei EI!<br>Sie haben keine Vermutungen mehr</strong><br><br>Du hast noch ${maxLives} Leben. <br><br> Die Worte waren:<br>${associatedWordsMessage} <br>`;
-         continueButton.innerText = `Weiter mit ${maxLives} verbleibenden Leben`; // Set button text
-         lostModal.style.display = 'block';
-
-         points--;
-         incorrectGuesses = 5;
-         updateLivesDisplay();
-         updateincorrectGuessesDisplay();
-         updatepointsDisplay();
-         if (maxLives === 0) {
-             handleGameOver();
-         }
-     }
- }
+            points--;
+            incorrectGuesses = 5;
+            updateLivesDisplay();
+            updateincorrectGuessesDisplay();
+            updatepointsDisplay();
+            if (maxLives === 0) {
+                handleGameOver();
+            }
+        }
+    }
 };
 
 closeModal.onclick = () => {
@@ -671,8 +650,7 @@ const createKeyboard = () => {
     const rows = [
         'qwertzuiop',
         'asdfghjkl',
-        'yxcvbnm',
-        'ßüäö'
+        'yxcvbnmßüäö'
     ];
 
     keyboard.innerHTML = ''; // Clear existing buttons
@@ -799,7 +777,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updatewordcountDisplay();
 
     //displayScoreboard();
-    loadScoreboard();
+    loadScoreboardde();
 
     resetButton.addEventListener('click', resetGame);
 
@@ -816,4 +794,8 @@ document.getElementById('open-en-image').addEventListener('click', () => {
 
 document.getElementById('open-ie-image').addEventListener('click', () => {
     window.open('indexie.html', '_blank'); // Opens the new page in a new tab
+});
+
+document.getElementById('open-mov-image').addEventListener('click', () => {
+    window.open('indexmov.html', '_blank'); // Opens the new page in a new tab
 });
