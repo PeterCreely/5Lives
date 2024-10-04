@@ -1,4 +1,4 @@
-﻿
+
 const words1 = ["act", "aim", "add", "aid", "ago", "and", "age", "all", "art", "air", "ace", "amp", "aft", "ale", "axe", "abs", "box",
     "buy", "boy", "big", "bed", "bag", "bad", "bet", "bar", "bit", "ban", "bus", "but", "bop", "bum", "bow", "cow", "cry",
     "cap", "cop", "cup", "can", "car", "cat", "cut", "day", "dry", "dad", "dig", "dog", "die", "due", "eye", "egg", "end",
@@ -205,7 +205,6 @@ let wordcount = 5;
 
 let clickCount = 0;
 
-//const livesImage = document.getElementById('lives-image');
 const wordDisplay1 = document.getElementById('word-display1');
 const wordDisplay2 = document.getElementById('word-display2');
 const wordDisplay3 = document.getElementById('word-display3');
@@ -233,27 +232,6 @@ const closeModalButtons = document.querySelectorAll('.close, #continueButton');
 const logoImage = document.getElementById('logo-image');
 
 logoImage.src = 'logo1.png';
-
-
-/*const updateWordDisplay1 = () => {
-    wordDisplay1.innerHTML = selectedWord1.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
-};
-
-const updateWordDisplay2 = () => {
-    wordDisplay2.innerHTML = selectedWord2.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
-};
-
-const updateWordDisplay3 = () => {
-    wordDisplay3.innerHTML = selectedWord3.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
-};
-
-const updateWordDisplay4 = () => {
-    wordDisplay4.innerHTML = selectedWord4.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
-};
-
-const updateWordDisplay5 = () => {
-    wordDisplay5.innerHTML = selectedWord5.split('').map(letter => guessedLetters.includes(letter) ? letter : '_').join(' ');
-};*/
 
 const updateWordDisplay1 = () => {
     const wordDisplay1 = document.getElementById('word-display1');
@@ -316,28 +294,28 @@ const updatepointsDisplay = () => {
     pointsDisplay.innerText = `You have ${points} points`;
 };
 
-let scoreboard = [];
+let scoreboarden = [];
 
-const updateScoreboard = (name, points) => {
-    scoreboard.push({ name, points });
+const updateScoreboarden = (name, points) => {
+    scoreboarden.push({ name, points });
     // Sort the scoreboard by points in descending order
-    scoreboard.sort((a, b) => b.points - a.points);
-    localStorage.setItem('scoreboard', JSON.stringify(scoreboard)); // Save to localStorage
-    displayScoreboard();
+    scoreboarden.sort((a, b) => b.points - a.points);
+    localStorage.setItem('scoreboarden', JSON.stringify(scoreboarden)); // Save to localStorage
+    displayScoreboarden();
 };
 
-const displayScoreboard = () => {
-    const scoreboardDiv = document.getElementById('scoreboard');
-    scoreboardDiv.innerHTML = `
-        <h3>SCOREBOARD</h3>
+const displayScoreboarden = () => {
+    const scoreboardenDiv = document.getElementById('scoreboarden');
+    scoreboardenDiv.innerHTML = `
+        <h3>ENGLISH SCOREBOARD</h3>
         <div class="header">
             <span>No.</span>
             <span>Name</span>
             <span>Score</span>
         </div>
     `;
-    scoreboard.forEach((entry, index) => {
-        scoreboardDiv.innerHTML += `
+    scoreboarden.forEach((entry, index) => {
+        scoreboardenDiv.innerHTML += `
             <div class="entry">
                 <span>${index + 1}</span>
                 <span>${entry.name}</span>
@@ -347,11 +325,11 @@ const displayScoreboard = () => {
     });
 };
 
-const loadScoreboard = () => {
-    const savedScoreboard = localStorage.getItem('scoreboard');
-    if (savedScoreboard) {
-        scoreboard = JSON.parse(savedScoreboard);
-        displayScoreboard();
+const loadScoreboarden = () => {
+    const savedScoreboarden = localStorage.getItem('scoreboarden');
+    if (savedScoreboarden) {
+        scoreboarden = JSON.parse(savedScoreboarden);
+        displayScoreboarden();
     }
 };
 
@@ -385,7 +363,7 @@ window.onclick = (event) => {
 submitNameButton.onclick = () => {
     const playerName = playerNameInput.value;
     if (playerName) {
-        updateScoreboard(playerName, points);
+        updateScoreboarden(playerName, points);
         gameOverModal.style.display = 'none';
         location.reload(); // Reload the page or reset the game as needed
     } else {
@@ -470,12 +448,14 @@ const handleGuess = (letter, button) => {
 closeModal.onclick = () => {
     lostModal.style.display = 'none';
     wonModal.style.display = 'none';
+    continueGame();
 };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = (event) => {
     if (event.target == lostModal) {
         lostModal.style.display = 'none';
+        continueGame();
     }
 };
 
@@ -616,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updatewordcountDisplay();
 
     //displayScoreboard();
-    loadScoreboard();
+    loadScoreboarden();
 
     resetButton.addEventListener('click', resetGame);
 
