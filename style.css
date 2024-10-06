@@ -608,3 +608,129 @@ x
 .new-shade {
     filter: brightness(0.5); /* Darken the image */
 }
+
+canvas {
+    display: block;
+    background-color: #000; /* Optional: Set a background color for the canvas */
+}
+
+.card {
+    width: 80px;
+    height: 80px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    position: relative;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: black;
+    border: black;
+}
+
+.card-back {
+    background-color: white;
+    transform: rotateY(180deg);
+}
+#playAreacard {
+    width: 350px;
+    height: 400px;
+    border: 2px solid white;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto; /* This centers it horizontally */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 5px; /* Optional: Adds space between cards */
+}
+
+#letterPanel {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.large-button {
+    width: 150px; /* Adjust width as needed */
+    height: 70px; /* Adjust height as needed */
+    font-size: 20px; /* Adjust font size as needed */
+    padding: 10px; /* Adjust padding as needed */
+    background-color: white; /* Adjust background color as needed */
+    color: black; /* Adjust text color as needed */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+    .large-button:hover {
+        background-color: grey; /* Change background color on hover */
+    }
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 320px; /* Adjust width as needed */
+    margin: 0 auto; /* Center the container */
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-between;
+    width: 320px; /* Adjust width as needed */
+    margin: 10px auto; /* Center the container and add space above */
+}
+
+.score-box {
+    width: 130px; /* Same width as buttons */
+    height: 70px; /* Adjust height as needed */
+    font-size: 20px; /* Adjust font size as needed */
+    padding: 10px; /* Padding inside the box */
+    background-color: white; /* Light grey background */
+    color: black; /* Adjust text color as needed */
+    border: none; /* Light grey border */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 10px; /* Space above the box */
+    text-align: center; /* Center text */
+}
+
+#soloScoreBox {
+    width: 320px; /* Adjust width as needed */
+    margin: 10px auto; /* Center the container and add space above */
+}
+
+.solo-button {
+    width: 300px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    font-size: 20px; /* Adjust font size as needed */
+    padding: 10px; /* Adjust padding as needed */
+    background-color: white; /* Adjust background color as needed */
+    color: black; /* Adjust text color as needed */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+    .solo-button:hover {
+        background-color: grey; /* Change background color on hover */
+    }
