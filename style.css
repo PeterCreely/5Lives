@@ -618,7 +618,7 @@ canvas {
     width: 80px;
     height: 80px;
     background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     position: relative;
     perspective: 1000px;
 }
@@ -654,7 +654,7 @@ canvas {
 }
 #playAreacard {
     width: 350px;
-    height: 400px;
+    height: 350px;
     border: 2px solid white;
     position: relative;
     overflow: hidden;
