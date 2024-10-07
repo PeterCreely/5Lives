@@ -19,7 +19,7 @@ body {
 }
 */
 #word-display1 {
-font-family: 'Ink Free';
+    font-family: 'Ink Free';
     font-weight: bold;
     font-size: 24px;
     margin-bottom: 20px;
@@ -192,7 +192,7 @@ footer {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 1000; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -209,6 +209,7 @@ footer {
     border: 1px solid #888;
     width: 200px; /* Could be more or less, depending on screen size */
     text-align: center;
+    color: black;
 }
 
 .close {
@@ -256,7 +257,7 @@ x
 }
 
 #submitNameButton {
-    background-color: #4CAF50; /* Green background */
+    background-color: black; /* Green background */
     color: white; /* White text */
     padding: 10px 20px; /* Padding */
     border: none; /* Remove border */
@@ -267,7 +268,7 @@ x
 }
 
     #submitNameButton:hover {
-        background-color: #45a049; /* Darker green on hover */
+        background-color: grey; /* Darker green on hover */
     }
 
 #gameOverMessage {
@@ -441,7 +442,7 @@ x
 }
 
 
-#popgameOverMessage {
+#popMessage {
     display: none; /* Hide the message initially */
     position: absolute;
     top: 50%;
@@ -567,7 +568,6 @@ x
     position: absolute;
     cursor: grab;
 }
-
 
 #open-ie-image:hover {
     filter: brightness(0.5); /* Darken the image */
@@ -699,6 +699,7 @@ canvas {
     margin: 0 auto; /* Center the container */
 }
 
+
 .score-container {
     display: flex;
     justify-content: space-between;
@@ -743,9 +744,10 @@ canvas {
 
 }
 
-    .solo-button:hover {
+    #soloButton.solo-button:hover {
         background-color: grey; /* Change background color on hover */
     }
+
 selectbutton {
     margin: 10px;
     padding: 10px 20px;
@@ -767,4 +769,24 @@ selectbutton {
 .disable-click {
     pointer-events: none;
     opacity: 0.5; /* Optional: to visually indicate that the cards are disabled */
+}
+
+#flipgameOverModal .modal-content {
+    color: black;
+}
+
+#submitwordButton {
+    width: 300px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    font-size: 20px; /* Adjust font size as needed */
+    padding: 10px; /* Adjust padding as needed */
+    background-color: white; /* Adjust background color as needed */
+    color: black; /* Adjust text color as needed */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+#submitwordButton.submitword-button:hover {
+    background-color: grey; /* Change background color on hover */
 }
