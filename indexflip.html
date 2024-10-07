@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,14 +23,7 @@
         <h3 id="guesses-display"> </h3>
         <h3 id="points-display" class="reduced-line-spacing"> </h3>
         <div id="playAreacard">
-            <div id="ballgameOverModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">×</span>
-                    <p id="ballgameOverMessage"></p>
-                    <input type="text" id="playerNameInput" placeholder="Enter your name" />
-                    <button id="submitNameButton">SUBMIT</button>
-                </div>
-            </div>
+
             <div id="startGameModal" class="modal">
                 <div class="modal-content">
                     <span class="close">×</span>
@@ -41,9 +34,15 @@
         </div>
 
         <br />
-        <button id="player1Button" class="large-button">READY PLAYER 1</button>
-        <button id="player2Button" class="large-button">READY PLAYER 2</button>
-        <br />
+        <div id="soloButtonContainer">
+            <button id="soloButton">Start Solo Game</button>
+        </div>
+      
+        <div id="playerButtonsContainer">
+            <button id="player1Button" class="large-button">READY PLAYER 1</button>
+            <button id="player2Button" class="large-button">READY PLAYER 2</button>
+        </div>
+      
         <div class="score-container">
             <div id="player1ScoreBox" class="score-box">
                 <div id="player1Score">Player 1<br>Score: 0<br>Turn: 0</div>
@@ -53,12 +52,11 @@
                 <div id="player2Score">Player 2<br>Score: 0<br>Turn: 0</div>
             </div>
         </div>
-        <br />
-        <button id="soloButton" class="solo-button">SOLO PLAY</button>
+   
+
         <div id="letterPanel">Clicked Letter: <span id="clickedLetter"></span></div>
         <button id="submitButton" class="solo-button">SUBMIT</button>
         <div id="resultPanel"></div>
-        <div id="flipscoreboard"></div>
         <div id="soloScoreBox" class="score-box">
             <div id="soloScore">Solo Player<br>Score: 0<br>Turn: 0</div>
         </div>
@@ -69,6 +67,15 @@
                 <p id="flipgameOverMessage"></p>
                 <input type="text" id="playerNameInput" placeholder="Enter your name" />
                 <button id="submitNameButton">SUBMIT</button>
+            </div>
+        </div>
+        <div id="flipscoreboard"></div>
+
+        <div id="modeSelectionModal" class="modal">
+            <div class="modal-content">
+                <p>Select Game Mode:</p> <!-- Added message here -->
+                <button id="soloModeButton">Solo</button>
+                <button id="multiplayerModeButton">Multiplayer</button>
             </div>
         </div>
 
