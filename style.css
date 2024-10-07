@@ -746,17 +746,22 @@ canvas {
     .solo-button:hover {
         background-color: grey; /* Change background color on hover */
     }
-
-button {
+selectbutton {
     margin: 10px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: black;
+    display: inline-block; /* Ensure custom elements are inline-block */
 }
 
 #modeSelectionModal .modal-content p {
     font-size: 26px;
     margin-bottom: 20px; /* Adjust spacing as needed */
     color: #333; /* Adjust color as needed */
+
 }
 
 .disable-click {
