@@ -117,6 +117,7 @@ let flipscoreboard = JSON.parse(localStorage.getItem('flipscoreboard')) || [];
 
 window.onload = () => {
     modeSelectionModal.style.display = 'block';
+    displayflipScoreboard();
 };
 
 soloModeButton.onclick = () => {
