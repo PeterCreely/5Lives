@@ -255,6 +255,9 @@ function showCountdown(seconds, callback) {
     countdownDiv.style.borderRadius = '10px';
     document.body.appendChild(countdownDiv);
 
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => card.classList.add('disable-click'));
+
     let countdown = seconds;
     countdownDiv.textContent = countdown;
 
@@ -265,6 +268,7 @@ function showCountdown(seconds, callback) {
         } else {
             clearInterval(interval);
             document.body.removeChild(countdownDiv);
+            cards.forEach(card => card.classList.remove('disable-click'));
             callback();
         }
     }, 1000);
