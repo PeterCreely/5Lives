@@ -1,7 +1,7 @@
 document.getElementById('player1Button').addEventListener('click', () => startGame(1));
 document.getElementById('player2Button').addEventListener('click', () => startGame(2));
 document.getElementById('soloButton').addEventListener('click', () => startGame('solo'));
-document.getElementById('submitButton').addEventListener('click', checkWords);
+document.getElementById('submitwordButton').addEventListener('click', checkWords);
 
 let originalLetters = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghilmnoprstuvwyabcdefghilmnoprstuvwyadefghilmnoprstuvyadegilnorstuadegilnorstuadeilnorstuadeilnorstuaenorstaeinoraeinoraeinoraeinoraeioaeioaeioaeioaeieeeeeee';
 let letters = originalLetters.split('');
