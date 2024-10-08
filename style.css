@@ -692,6 +692,10 @@ canvas {
         background-color: grey; /* Change background color on hover */
     }
 
+    .large-button:disabled:hover {
+    background-color: white; /* Reset background color when disabled */
+    }
+
 .button-container {
     display: flex;
     justify-content: space-between;
