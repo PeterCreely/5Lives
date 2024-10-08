@@ -798,3 +798,27 @@ selectbutton {
 #submitwordButton.submitword-button:hover {
     background-color: grey; /* Change background color on hover */
 }
+
+
+#flipscoreboard {
+    border: 2px solid white; /* Frame around the table */
+    width: 350px; /* Fixed width */
+    border-collapse: collapse;
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+}
+
+    #flipscoreboard .header, #flipscoreboard .entry {
+        display: grid;
+        grid-template-columns: 50px 1fr 100px 100px; /* Fixed widths for columns */
+        border-bottom: 1px solid black; /* Line between rows */
+    }
+
+        #flipscoreboard .header span, #flipscoreboard .entry span {
+            padding: 10px;
+            border-right: 1px solid black; /* Line between columns */
+        }
+
+            #flipscoreboard .header span:last-child, #flipscoreboard .entry span:last-child {
+                border-right: none; /* Remove the right border from the last column */
+            }
