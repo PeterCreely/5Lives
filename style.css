@@ -748,6 +748,10 @@ canvas {
         background-color: grey; /* Change background color on hover */
     }
 
+    #soloButton.solo-button:disabled:hover {
+        background-color: white; /* Reset background color when disabled */
+    }
+
 selectbutton {
     margin: 10px;
     padding: 10px 20px;
