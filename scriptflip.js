@@ -130,8 +130,11 @@ const playerNameInput = document.getElementById('playerNameInput');
 const modeSelectionModal = document.getElementById('modeSelectionModal');
 const soloModeButton = document.getElementById('soloModeButton');
 const multiplayerModeButton = document.getElementById('multiplayerModeButton');
+const difficultySelectionModal = document.getElementById('difficultySelectionModal');
 
 let flipscoreboard = JSON.parse(localStorage.getItem('flipscoreboard')) || [];
+
+let difficultyLevel = 'easy'; 
 
 window.onload = () => {
     modeSelectionModal.style.display = 'block';
@@ -140,6 +143,7 @@ window.onload = () => {
 
 soloModeButton.onclick = () => {
     modeSelectionModal.style.display = 'none';
+    difficultySelectionModal.style.display = 'block'; 
     document.getElementById('playerButtonsContainer').style.display = 'none';
     document.getElementById('player1ScoreBox').style.display = 'none';
     document.getElementById('player2ScoreBox').style.display = 'none';
@@ -149,12 +153,35 @@ soloModeButton.onclick = () => {
 
 multiplayerModeButton.onclick = () => {
     modeSelectionModal.style.display = 'none';
+    difficultySelectionModal.style.display = 'block'; 
     document.getElementById('playerButtonsContainer').style.display = 'flex'; 
     document.getElementById('player1ScoreBox').style.display = 'block';
     document.getElementById('player2ScoreBox').style.display = 'block';
     document.getElementById('soloButtonContainer').style.display = 'none';
     document.getElementById('soloScoreBox').style.display = 'none';
 };
+
+easyModeButton.onclick = () => {
+    setDifficulty('easy');
+    difficultySelectionModal.style.display = 'none';
+};
+
+mediumModeButton.onclick = () => {
+    setDifficulty('easy');
+    difficultySelectionModal.style.display = 'none';
+};
+
+hardModeButton.onclick = () => {
+    setDifficulty('easy');
+    difficultySelectionModal.style.display = 'none';
+};
+
+function setDifficulty(level) {
+    difficultyLevel = level;
+    console.log(`Difficulty set to: ${level}`);
+    // Additional logic to apply the difficulty setting in the game
+}
+
 function startGame(player) {
     currentPlayer = player;
     if ((currentPlayer === 1 && player1Turns < maxTurns) ||
@@ -299,7 +326,16 @@ function flipAllCards() {
         card.classList.add('flipped');
     });
 
-    showCountdown(5, flipBackAllCards); // Show 5-second countdown immediately after flipping cards
+    let countdownTime;
+    if (difficultyLevel === 'easy') {
+        countdownTime = 15;
+    } else if (difficultyLevel === 'medium') {
+        countdownTime = 10;
+    } else if (difficultyLevel === 'hard') {
+        countdownTime = 5;
+    }
+
+    showCountdown(countdownTime, flipBackAllCards); // Show countdown based on difficulty level
 }
 
 function flipBackAllCards() {
@@ -376,6 +412,7 @@ const displayflipScoreboard = () => {
             <span>No.</span>
             <span>Name</span>
             <span>Score</span>
+            <span>Level</span>
         </div>
     `;
     flipscoreboard.forEach((entry, index) => {
@@ -384,6 +421,7 @@ const displayflipScoreboard = () => {
                 <span>${index + 1}</span>
                 <span>${entry.name}</span>
                 <span>${entry.soloScore}</span>
+                <span>${difficultyLevel}</span>
             </div>
         `;
     });
