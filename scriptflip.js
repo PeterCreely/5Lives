@@ -1,7 +1,25 @@
-document.getElementById('player1Button').addEventListener('click', () => startGame(1));
-document.getElementById('player2Button').addEventListener('click', () => startGame(2));
-document.getElementById('soloButton').addEventListener('click', () => startGame('solo'));
-document.getElementById('submitwordButton').addEventListener('click', checkWords);
+document.getElementById('player1Button').addEventListener('click', () => {
+    startGame(1);
+    document.getElementById('player1Button').disabled = true;
+    document.getElementById('player2Button').disabled = true;
+});
+
+document.getElementById('player2Button').addEventListener('click', () => {
+    startGame(2);
+    document.getElementById('player1Button').disabled = true;
+    document.getElementById('player2Button').disabled = true;
+});
+document.getElementById('soloButton').addEventListener('click', () => {
+    startGame('solo');
+    document.getElementById('soloButton').disabled = true;
+});
+
+document.getElementById('submitwordButton').addEventListener('click', () => {
+    checkWords();
+    document.getElementById('soloButton').disabled = false;
+    document.getElementById('player1Button').disabled = false;
+    document.getElementById('player2Button').disabled = false;
+});
 
 let originalLetters = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghilmnoprstuvwyabcdefghilmnoprstuvwyadefghilmnoprstuvyadegilnorstuadegilnorstuadeilnorstuadeilnorstuaenorstaeinoraeinoraeinoraeinoraeioaeioaeioaeioaeieeeeeee';
 let letters = originalLetters.split('');
