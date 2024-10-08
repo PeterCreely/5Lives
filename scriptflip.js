@@ -430,7 +430,7 @@ const displayflipScoreboard = () => {
             <span>Level</span>
         </div>
     `;
-    flipscoreboard.forEach((entry, index) => {
+    topTenScores.forEach((entry, index) => {
         flipscoreboardDiv.innerHTML += `
             <div class="entry">
                 <span>${index + 1}</span>
