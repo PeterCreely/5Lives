@@ -167,12 +167,12 @@ easyModeButton.onclick = () => {
 };
 
 mediumModeButton.onclick = () => {
-    setDifficulty('easy');
+    setDifficulty('medium');
     difficultySelectionModal.style.display = 'none';
 };
 
 hardModeButton.onclick = () => {
-    setDifficulty('easy');
+    setDifficulty('hard');
     difficultySelectionModal.style.display = 'none';
 };
 
@@ -200,7 +200,7 @@ function startGame(player) {
 }
 
 const handleflipGameOver = () => {
-    flipgameOverMessage.innerHTML = `<strong>Game Over!</strong><br>You scored ${soloScore} points.<br>Enter your name for the scoreboard:`;
+    flipgameOverMessage.innerHTML = `<strong>Game Over!</strong><br>You scored ${soloScore} points.<br>On Difficulty Level ${difficultyLevel}<br>Enter your name for the scoreboard:`;
     flipgameOverModal.style.display = 'block';
 };
 
@@ -219,7 +219,8 @@ window.onclick = (event) => {
 submitNameButton.onclick = () => {
     const playerName = playerNameInput.value;
     if (playerName) {
-        updateflipScoreboard(playerName, soloScore);
+        //updateflipScoreboard(playerName, soloScore);
+        addScoreEntry(playerName, soloScore);
         flipgameOverModal.style.display = 'none';
         location.reload(); // Reload the page or reset the game as needed
     } else {
@@ -404,8 +405,22 @@ function announceWinner() {
     alert(winnerMessage);
 }
 
+function addScoreEntry(name, score) {
+    console.log(`Adding score entry with difficulty level: ${difficultyLevel}`);
+    flipscoreboard.push({ name, soloScore: score, level: difficultyLevel });
+    console.log(`Current flipscoreboard: ${JSON.stringify(flipscoreboard)}`);
+    localStorage.setItem('flipscoreboard', JSON.stringify(flipscoreboard));
+    displayflipScoreboard();
+}
+
 const displayflipScoreboard = () => {
-    // const ballscoreboardDiv = document.getElementById('flipscoreboard');
+    // Sort the scoreboard by score in descending order
+    flipscoreboard.sort((a, b) => b.soloScore - a.soloScore);
+
+    // Slice the array to get the top ten entries
+    const topTenScores = flipscoreboard.slice(0, 10);
+
+    const flipscoreboardDiv = document.getElementById('flipscoreboard');
     flipscoreboardDiv.innerHTML = `
         <h3>FLIP SCOREBOARD</h3>
         <div class="header">
@@ -421,11 +436,17 @@ const displayflipScoreboard = () => {
                 <span>${index + 1}</span>
                 <span>${entry.name}</span>
                 <span>${entry.soloScore}</span>
-                <span>${difficultyLevel}</span>
+                <span>${entry.level}</span>
             </div>
         `;
     });
 };
+
+function addScoreEntry(name, score) {
+    flipscoreboard.push({ name, soloScore: score, level: difficultyLevel });
+    localStorage.setItem('flipscoreboard', JSON.stringify(flipscoreboard));
+    displayflipScoreboard();
+}
 
 const loadflipScoreboard = () => {
     const savedflipScoreboard = localStorage.getItem('flipscoreboard');
