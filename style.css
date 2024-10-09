@@ -780,7 +780,7 @@ selectbutton {
 
 .disable-click {
     pointer-events: none;
-    opacity: 0.5; /* Optional: to visually indicate that the cards are disabled */
+
 }
 
 #flipgameOverModal .modal-content {
