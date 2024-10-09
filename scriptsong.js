@@ -369,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dailyWords = getDailyWords();
     [selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5] = dailyWords;
 
-    console.log('Selected words:', selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5); // Add this line
+//    console.log('Selected words:', selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5); // Add this line
 
     if (selectedWord1) updateWordDisplay1(selectedWord1);
     if (selectedWord2) updateWordDisplay2(selectedWord2);
