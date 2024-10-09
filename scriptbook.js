@@ -167,7 +167,7 @@ const startGame = () => {
 };
 
 const updateWordDisplay1 = (selectedWord1) => {
-    console.log('Updating word display 1:', selectedWord1);
+  //  console.log('Updating word display 1:', selectedWord1);
     if (typeof selectedWord1 === 'string') {
         wordDisplay1.innerHTML = selectedWord1.split('').map(letter => {
             const span = document.createElement('span');
