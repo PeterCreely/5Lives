@@ -154,7 +154,7 @@ const startGame = () => {
     }
     // Store the selected words
     const [selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5] = dailyWords;
-    console.log('Selected words:', selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5);
+  //  console.log('Selected words:', selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5);
     // Initialize your game with the daily words
     updateWordDisplay1(selectedWord1);
     updateWordDisplay2(selectedWord2);
@@ -168,7 +168,7 @@ const startGame = () => {
 };
 
 const updateWordDisplay1 = (selectedWord1) => {
-    console.log('Updating word display 1:', selectedWord1);
+  //  console.log('Updating word display 1:', selectedWord1);
     if (typeof selectedWord1 === 'string') {
     wordDisplay1.innerHTML = selectedWord1.split('').map(letter => {
         const span = document.createElement('span');
@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dailyWords = getDailyWords();
     [selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5] = dailyWords;
 
-    console.log('Selected words:', selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5); // Add this line
+  //  console.log('Selected words:', selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5); // Add this line
 
     if (selectedWord1) updateWordDisplay1(selectedWord1);
     if (selectedWord2) updateWordDisplay2(selectedWord2);
