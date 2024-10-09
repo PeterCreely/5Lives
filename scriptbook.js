@@ -146,7 +146,7 @@ const getDailyWords = () => {
 
 const startGame = () => {
     const dailyWords = getDailyWords();
-    console.log('Today\'s words:', dailyWords);
+   // console.log('Today\'s words:', dailyWords);
     if (dailyWords.length < 5) {
         console.error('Not enough words generated:', dailyWords);
         return; // Exit the function to prevent further errors
@@ -269,7 +269,7 @@ const loadScoreboard = () => {
 
 const handleGameOver = () => {
     setLastAttemptbook();
-    const selectedWords = [selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5];
+//    const selectedWords = [selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5];
     associatedWordsMessage = "";
     selectedWords.forEach(word => {
         const cleanWord = word.replace(/\s+/g, '').trim();
@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dailyWords = getDailyWords();
     [selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5] = dailyWords;
 
-    console.log('Selected words:', selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5); // Add this line
+ //   console.log('Selected words:', selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5); // Add this line
 
     if (selectedWord1) updateWordDisplay1(selectedWord1);
     if (selectedWord2) updateWordDisplay2(selectedWord2);
