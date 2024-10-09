@@ -839,3 +839,42 @@ selectbutton {
             #flipscoreboard .header span:last-child, #flipscoreboard .entry span:last-child {
                 border-right: none; /* Remove the right border from the last column */
             }
+
+#infoButtonflip {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: fixed; /* Fixes the button to the viewport */
+    top: 10px; /* Adjust the distance from the top */
+    left: 10px; /* Adjust the distance from the left */
+    z-index: 1000; /* Ensures the button is on top of other elements */
+}
+
+#infoLogo {
+    width: 20px;
+    height: 20px;
+    border: none;
+    padding: 0; /* Removes any padding */
+    margin: 0; /* Removes any margin */
+    display: block;
+}
+
+
+#infoText {
+    display: none;
+    position: fixed; /* Fixes the text to the viewport */
+    top: 50px; /* Adjust the distance from the top */
+    left: 10px; /* Adjust the distance from the left */
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
+
+    #infoText.visible {
+        display: block;
+    }
