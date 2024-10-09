@@ -150,7 +150,6 @@ const getDailyWords = () => {
 
 const startGame = () => {
     const dailyWords = getDailyWords();
-    console.log('Today\'s words:', dailyWords);
     if (dailyWords.length < 5) {
         console.error('Not enough words generated:', dailyWords);
         return; // Exit the function to prevent further errors
@@ -171,7 +170,6 @@ const startGame = () => {
 };
 
 const updateWordDisplay1 = (selectedWord1) => {
-    console.log('Updating word display 1:', selectedWord1);
     if (typeof selectedWord1 === 'string') {
         wordDisplay1.innerHTML = selectedWord1.split('').map(letter => {
             const span = document.createElement('span');
