@@ -167,6 +167,7 @@ const startGame = () => {
     updatehighestStreaksongDisplay();
     updatecurrentStreaksongDisplay();
     checkLastAttemptsong();
+    displayStreakssong();
 };
 
 const updateWordDisplay1 = (selectedWord1) => {
