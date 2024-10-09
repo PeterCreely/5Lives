@@ -666,6 +666,7 @@ canvas {
     transform: rotateY(180deg);
 }
 #playAreacard {
+    position: relative;
     width: 350px;
     height: 350px;
     border: 2px solid white;
@@ -676,14 +677,13 @@ canvas {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 5px; /* Optional: Adds space between cards */
-        background-image: url('flip.gif'); 
+    background-image: url('flip.gif'); 
     background-size: cover; /* Adjusts the size of the background */
     background-repeat: no-repeat; /* Prevents the GIF from repeating */
     background-position: center; /* Centers the GIF */
 }
 
 #letterPanel {
-
     text-align: center;
     font-size: 24px;
 }
