@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let highestStreak = localStorage.getItem('highestStreak') ? parseInt(localStorage.getItem('highestStreak')) : 0;
 
     const updateLivesDisplay = () => {
-        livesDisplay.innerText = `You Have ${maxLives} Balls`;
+        livesDisplay.innerText = `You Have ${maxLives} Lives`;
     };
 
     const updatepointsDisplay = () => {
@@ -254,4 +254,21 @@ document.addEventListener('DOMContentLoaded', () => {
     loadballScoreboard(); 
 
     startGameModal.style.display = 'block';
+});
+
+document.getElementById('infoButtonflip').addEventListener('mouseover', function () {
+    document.getElementById('infoText').classList.add('visible');
+});
+
+document.getElementById('infoButtonflip').addEventListener('mouseout', function () {
+    document.getElementById('infoText').classList.remove('visible');
+});
+
+document.getElementById('infoButtonflip').addEventListener('click', function () {
+    var infoText = document.getElementById('infoText');
+    if (infoText.classList.contains('visible')) {
+        infoText.classList.remove('visible');
+    } else {
+        infoText.classList.add('visible');
+    }
 });
