@@ -466,3 +466,6 @@ document.getElementById('open-ie-image').addEventListener('click', () => {
 document.getElementById('open-mov-image').addEventListener('click', () => {
     window.open('indexmov.html', '_blank'); // Opens the new page in a new tab
 });
+
+document.getElementById('infoButtonflip').addEventListener('mouseover', function () {
+
