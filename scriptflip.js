@@ -16,6 +16,9 @@ document.getElementById('soloButton').addEventListener('click', () => {
 
 document.getElementById('submitwordButton').addEventListener('click', () => {
     checkWords();
+    document.querySelectorAll('.card').forEach(card => {
+        card.classList.remove('disabled'); // Remove disabled class
+    });
     document.getElementById('soloButton').disabled = false;
     document.getElementById('player1Button').disabled = false;
     document.getElementById('player2Button').disabled = false;
@@ -270,6 +273,7 @@ function createCards() {
 
         card.addEventListener('click', () => {
             card.classList.toggle('flipped');
+            card.classList.add('disabled'); // Add disabled class
             clickedLetters.push(cardBack.textContent);
             displayClickedLetters();
         });
