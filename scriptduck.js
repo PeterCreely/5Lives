@@ -421,3 +421,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+document.getElementById('infoButtonflip').addEventListener('mouseover', function () {
+    document.getElementById('infoText').classList.add('visible');
+});
+
+document.getElementById('infoButtonflip').addEventListener('mouseout', function () {
+    document.getElementById('infoText').classList.remove('visible');
+});
+
+document.getElementById('infoButtonflip').addEventListener('click', function () {
+    var infoText = document.getElementById('infoText');
+    if (infoText.classList.contains('visible')) {
+        infoText.classList.remove('visible');
+    } else {
+        infoText.classList.add('visible');
+    }
+});
