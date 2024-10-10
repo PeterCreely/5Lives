@@ -878,3 +878,8 @@ selectbutton {
     #infoText.visible {
         display: block;
     }
+
+.card.disabled {
+    pointer-events: none;
+    opacity: 0.5; /* Optional: to visually indicate the card is disabled */
+}
