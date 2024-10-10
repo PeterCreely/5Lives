@@ -668,3 +668,20 @@ document.getElementById('open-ie-image').addEventListener('click', () => {
 document.getElementById('open-mov-image').addEventListener('click', () => {
     window.open('indexmov.html', '_blank'); // Opens the new page in a new tab
 });
+
+document.getElementById('infoButtonflip').addEventListener('mouseover', function () {
+    document.getElementById('infoText').classList.add('visible');
+});
+
+document.getElementById('infoButtonflip').addEventListener('mouseout', function () {
+    document.getElementById('infoText').classList.remove('visible');
+});
+
+document.getElementById('infoButtonflip').addEventListener('click', function () {
+    var infoText = document.getElementById('infoText');
+    if (infoText.classList.contains('visible')) {
+        infoText.classList.remove('visible');
+    } else {
+        infoText.classList.add('visible');
+    }
+});
