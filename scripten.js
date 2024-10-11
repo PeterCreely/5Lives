@@ -398,7 +398,7 @@ const closeGameOverModal = document.getElementsByClassName('close')[0];
 const closeModalButtons = document.querySelectorAll('.close, #continueButton');
 const logoImage = document.getElementById('logo-image');
 
-logoImage.src = 'logo1.png';
+logoImage.src = 'logo1.gif';
 
 const updateWordDisplay1 = () => {
     const wordDisplay1 = document.getElementById('word-display1');
