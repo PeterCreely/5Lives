@@ -35,7 +35,7 @@ const logoImage = document.getElementById('logo-image');
 const highestStreakmovieDisplay = document.getElementById('highestStreakmovie-display');
 const currentStreakmovieDisplay = document.getElementById('currentStreakmovie-display');
 
-logoImage.src = 'logomov.png';
+logoImage.src = 'logo1.gif';
 
 let selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5;
 
