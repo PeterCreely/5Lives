@@ -35,7 +35,7 @@ const logoImage = document.getElementById('logo-image');
 const highestStreaksongDisplay = document.getElementById('highestStreaksong-display');
 const currentStreaksongDisplay = document.getElementById('currentStreaksong-display');
 
-logoImage.src = 'logomov.png';
+logoImage.src = 'logo1.gif';
 
 let selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5;
 
