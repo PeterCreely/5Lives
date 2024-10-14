@@ -597,7 +597,7 @@ const handleGuess = (letter, button) => {
         if (incorrectGuesses === 0) {
             maxLives--;
             lostMessage.innerHTML = `<strong>Oops a Daisy!<br>You ran out of guesses</strong><br><br>You have ${maxLives} lives left. <br><br> The words were: <br>${selectedWord1}, ${selectedWord2}, ${selectedWord3}, ${selectedWord4}, ${selectedWord5}`;
-            continueButton.innerText = `Continue with ${maxLives} lives left`; // Set button text
+        //    continueButton.innerText = `Continue with ${maxLives} lives left`; // Set button text
             lostModal.style.display = 'block';
 
             points--;
