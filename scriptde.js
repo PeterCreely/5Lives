@@ -519,7 +519,8 @@ const createKeyboard = () => {
     const rows = [
         'qwertzuiop',
         'asdfghjkl',
-        'yxcvbnmßüäö'
+        'yxcvbnm',
+        'ßüäö'
     ];
 
     keyboard.innerHTML = ''; // Clear existing buttons
