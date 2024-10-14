@@ -482,7 +482,7 @@ const handleGuess = (letter, button) => {
                 }
             });
             lostMessage.innerHTML = `<strong>Ei Ei Ei!<br>Sie haben keine Vermutungen mehr</strong><br><br>Du hast noch ${maxLives} Leben. <br><br> Die Worte waren:<br>${associatedWordsMessage} <br>`;
-            continueButton.innerText = `Weiter mit ${maxLives} verbleibenden Leben`; // Set button text
+           // continueButton.innerText = `Weiter mit ${maxLives} verbleibenden Leben`; // Set button text
             lostModal.style.display = 'block';
 
             points--;
