@@ -684,10 +684,11 @@ document.getElementById('infoButtonflip').addEventListener('click', function () 
     }
 });
 
-    document.getElementById('colourButton').onclick = function() {
-        var dropdown = document.getElementById('color-dropdown');
+
+document.getElementById('colourButton').onclick = function () {
+    var dropdown = document.getElementById('color-dropdown');
     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-    };
+};
 
 // Function to change the background color and save it to localStorage
 function changeColor(backgroundColor, textColor) {
@@ -723,6 +724,7 @@ function loadColors() {
         document.documentElement.style.setProperty('--border-color', textColor);
     }
 }
+
 
 // Load the background color when the page loads
 window.onload = loadColors;
