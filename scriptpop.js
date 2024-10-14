@@ -362,3 +362,46 @@ document.getElementById('infoButtonflip').addEventListener('click', function () 
         infoText.classList.add('visible');
     }
 });
+
+    document.getElementById('colourButton').onclick = function() {
+        var dropdown = document.getElementById('color-dropdown');
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    };
+
+// Function to change the background color and save it to localStorage
+function changeColor(backgroundColor, textColor) {
+    document.body.style.backgroundColor = backgroundColor;
+    localStorage.setItem('backgroundColor', backgroundColor);
+    localStorage.setItem('textColor', textColor);
+
+    // Change the text color for all elements
+    var allElements = document.querySelectorAll('*');
+    allElements.forEach(function (element) {
+        element.style.color = textColor;
+    });
+
+    // Change the border color for all elements
+    document.documentElement.style.setProperty('--border-color', textColor);
+
+    document.getElementById('color-dropdown').style.display = 'none';
+}
+
+// Function to load the background and text color from localStorage
+function loadColors() {
+    var backgroundColor = localStorage.getItem('backgroundColor');
+    var textColor = localStorage.getItem('textColor');
+    if (backgroundColor) {
+        document.body.style.backgroundColor = backgroundColor;
+    }
+    if (textColor) {
+        // Apply the text color to all elements
+        var allElements = document.querySelectorAll('*');
+        allElements.forEach(function (element) {
+            element.style.color = textColor;
+        });
+        document.documentElement.style.setProperty('--border-color', textColor);
+    }
+}
+
+// Load the background color when the page loads
+window.onload = loadColors;
