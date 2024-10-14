@@ -279,7 +279,7 @@ const handleGuess = (letter, button) => {
                 }
             });
             lostMessage.innerHTML = `<strong>¡Oh, no!<br>Te quedaste sin conjeturas</strong><br><br>Te quedan ${maxLives} vidas. <br><br> Las palabras fueron:<br>${associatedWordsMessage} <br>`;
-            continueButton.innerText = `Lean ar aghaidh le ${maxLives} shaol fágtha`; // Set button text
+ //           continueButton.innerText = `Lean ar aghaidh le ${maxLives} shaol fágtha`; // Set button text
             lostModal.style.display = 'block';
 
             points--;
