@@ -24,11 +24,11 @@ body {
     font-size: 24px;
     margin-bottom: 20px;
     color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
     #word-display1 span {
         border: 1px solid white;
+        border-color: inherit;
         padding: 2px;
         margin: 1px;
         display: inline-block;
@@ -38,15 +38,18 @@ body {
         text-align: center; /* Center the text inside the box */
     }
 
+
 #word-display2 {
+    font-family: 'Ink Free';
+    font-weight: bold;
     font-size: 24px;
     margin-bottom: 20px;
     color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
     #word-display2 span {
         border: 1px solid white;
+        border-color: inherit;
         padding: 2px;
         margin: 1px;
         display: inline-block;
@@ -57,14 +60,16 @@ body {
     }
 
 #word-display3 {
+    font-family: 'Ink Free';
+    font-weight: bold;
     font-size: 24px;
     margin-bottom: 20px;
     color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
     #word-display3 span {
         border: 1px solid white;
+        border-color: inherit;
         padding: 2px;
         margin: 1px;
         display: inline-block;
@@ -75,14 +80,16 @@ body {
     }
 
 #word-display4 {
+    font-family: 'Ink Free';
+    font-weight: bold;
     font-size: 24px;
     margin-bottom: 20px;
     color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
     #word-display4 span {
         border: 1px solid white;
+        border-color: inherit;
         padding: 2px;
         margin: 1px;
         display: inline-block;
@@ -93,14 +100,16 @@ body {
     }
 
 #word-display5 {
+    font-family: 'Ink Free';
+    font-weight: bold;
     font-size: 24px;
     margin-bottom: 20px;
     color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
     #word-display5 span {
         border: 1px solid white;
+        border-color: inherit;
         padding: 2px;
         margin: 1px;
         display: inline-block;
@@ -158,6 +167,7 @@ footer {
 
 #scoreboard {
     border: 1px solid #ccc;
+    border-color: inherit;
     padding: 10px;
     margin: 20px auto;
     background-color: black;
@@ -207,6 +217,7 @@ footer {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
+    border-color: inherit;
     width: 200px; /* Could be more or less, depending on screen size */
     text-align: center;
     color: black;
@@ -292,6 +303,7 @@ x
     width: 350px;
     height: 400px;
     border: 2px solid white;
+    border-color: inherit;
     position: relative;
     overflow: hidden;
     margin: 0 auto; /* This centers it horizontally */
@@ -321,9 +333,10 @@ x
 
 #ballscoreboard {
     border: 1px solid #ccc;
+    border-color: inherit;
     padding: 10px;
     margin: 20px auto;
-    background-color: black;
+    background-color: transparent;
     width: 300px;
     font-family: 'Ink Free';
 }
@@ -356,6 +369,7 @@ x
     width: 350px;
     height: 500px;
     border: 2px solid white;
+    border-color: inherit;
     position: relative;
     overflow: hidden;
     margin: 0 auto; /* This centers it horizontally */
@@ -366,6 +380,7 @@ x
     height: 30px;
     background-color: white;
     border: 1px solid white;
+    border-color: inherit;
     button .style.color = 'black';
     font-weight: bold;
     position: absolute;
@@ -381,6 +396,7 @@ x
     height: 30px;
     background-color: grey;
     border: 1px solid white;
+    border-color: inherit;
     button .style.color = 'black';
     position: absolute;
     text-align: center;
@@ -399,6 +415,7 @@ x
     width: 50px;
     height: 40px;
     border: 2px solid white;
+    border-color: inherit;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -421,6 +438,7 @@ x
     width: 350;
     height: 40px;
     border: 2px solid white;
+    border-color: inherit;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -433,6 +451,7 @@ x
     width: 350;
     height: 40px;
     border: 2px solid white;
+    border-color: inherit;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -472,6 +491,7 @@ x
 
 #popscoreboard {
     border: 1px solid #ccc;
+    border-color: inherit;
     padding: 10px;
     margin: 20px auto;
     background-color: black;
@@ -637,6 +657,7 @@ canvas {
 
 .card-front {
     position: absolute;
+
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
@@ -665,6 +686,7 @@ canvas {
     background-color: white;
     transform: rotateY(180deg);
 }
+
 #playAreacard {
     position: relative;
     width: 350px;
@@ -677,13 +699,14 @@ canvas {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 5px; /* Optional: Adds space between cards */
-    background-image: url('flip.gif'); 
+    background-image: url('flip.gif'); /* Add your GIF URL here */
     background-size: cover; /* Adjusts the size of the background */
     background-repeat: no-repeat; /* Prevents the GIF from repeating */
     background-position: center; /* Centers the GIF */
 }
 
 #letterPanel {
+
     text-align: center;
     font-size: 24px;
 }
@@ -793,7 +816,7 @@ selectbutton {
 
 .disable-click {
     pointer-events: none;
-
+   
 }
 
 #flipgameOverModal .modal-content {
@@ -815,7 +838,6 @@ selectbutton {
 #submitwordButton.submitword-button:hover {
     background-color: grey; /* Change background color on hover */
 }
-
 
 #flipscoreboard {
     border: 2px solid white; /* Frame around the table */
@@ -882,4 +904,48 @@ selectbutton {
 .card.disabled {
     pointer-events: none;
     opacity: 0.5; /* Optional: to visually indicate the card is disabled */
+}
+
+
+#colourButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: fixed; /* Fixes the button to the viewport */
+    top: 10px; /* Adjust the distance from the top */
+    right: 10px; /* Adjust the distance from the left */
+    z-index: 1000; /* Ensures the button is on top of other elements */
+
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background-color: transparent;
+    box-shadow: none; /* Removes the box shadow */
+    z-index: 1000;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    display: block; /* Ensures the buttons are displayed vertically */
+}
+}
+
+    .color-option:hover {
+        opacity: 0.7;
+    }
+
+.bordered {
+    border: 1px white; /* Default border color */
+}
+
+* {
+    border-color: var(--border-color, initial); /* Use the CSS variable for border color */
 }
