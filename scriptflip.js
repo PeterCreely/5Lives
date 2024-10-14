@@ -142,6 +142,7 @@ let difficultyLevel = 'easy';
 window.onload = () => {
     modeSelectionModal.style.display = 'block';
     displayflipScoreboard();
+    loadColors();
 };
 
 soloModeButton.onclick = () => {
@@ -525,5 +526,3 @@ function loadColors() {
     }
 }
 
-// Load the background color when the page loads
-window.onload = loadColors;
