@@ -317,20 +317,6 @@ x
     transform: translateX(-50%);
 }
 
-#ballgameOverMessage {
-    display: none; /* Hide the message initially */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2em;
-    color: red;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
-
 #ballscoreboard {
     border: 1px solid #ccc;
     border-color: inherit;
