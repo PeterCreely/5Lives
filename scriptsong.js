@@ -381,8 +381,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateIncorrectGuessesDisplay();
     updatepointsDisplay();
     updatewordcountDisplay();
+    displayStreakssong();
     checkLastAttemptsong();
-
 });
 
 const handleGuess = (letter, button) => {
