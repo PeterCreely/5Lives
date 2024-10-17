@@ -981,3 +981,49 @@ selectbutton {
             #scoreboardes .header span:last-child, #scoreboardes .entry span:last-child {
                 border-right: none; /* Remove the right border from the last column */
             }
+
+#scoreboardie {
+    border: 2px solid white; /* Frame around the table */
+    width: 350px; /* Fixed width */
+    border-collapse: collapse;
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+}
+
+    #scoreboardie .header, #scoreboardie .entry {
+        display: grid;
+        grid-template-columns: 50px 1fr 100px; /* Fixed widths for columns */
+        border-bottom: 1px solid black; /* Line between rows */
+    }
+
+        #scoreboardie .header span, #scoreboardie .entry span {
+            padding: 10px;
+            border-right: 1px solid black; /* Line between columns */
+        }
+
+            #scoreboardie .header span:last-child, #scoreboardie .entry span:last-child {
+                border-right: none; /* Remove the right border from the last column */
+            }
+
+#scoreboardde {
+    border: 2px solid white; /* Frame around the table */
+    width: 350px; /* Fixed width */
+    border-collapse: collapse;
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+}
+
+    #scoreboardde .header, #scoreboardde .entry {
+        display: grid;
+        grid-template-columns: 50px 1fr 100px; /* Fixed widths for columns */
+        border-bottom: 1px solid black; /* Line between rows */
+    }
+
+        #scoreboardde .header span, #scoreboardde .entry span {
+            padding: 10px;
+            border-right: 1px solid black; /* Line between columns */
+        }
+
+            #scoreboardde .header span:last-child, #scoreboardde .entry span:last-child {
+                border-right: none; /* Remove the right border from the last column */
+            }
