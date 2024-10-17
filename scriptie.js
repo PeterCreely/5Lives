@@ -167,7 +167,7 @@ const displayScoreboardie = () => {
         <h3>Clár Ceannaire</h3>
         <div class="header">
             <span>No.</span>
-            <span>Ainm</span>
+            <span class="middle-column">Ainm</span>
             <span>Scór</span>
         </div>
     `;
@@ -175,7 +175,7 @@ const displayScoreboardie = () => {
         scoreboardieDiv.innerHTML += `
             <div class="entry">
                 <span>${index + 1}</span>
-                <span>${entry.name}</span>
+                <span class="middle-column">${entry.name}</span>
                 <span>${entry.points}</span>
             </div>
         `;
