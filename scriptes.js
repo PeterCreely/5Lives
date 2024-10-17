@@ -141,7 +141,7 @@ const displayScoreboardes = () => {
         <h3>Marcador</h3>
         <div class="header">
             <span>No.</span>
-            <span>Nombre</span>
+            <span class="middle-column">Nombre</span>
             <span>Puntaje</span>
         </div>
     `;
@@ -149,7 +149,7 @@ const displayScoreboardes = () => {
         scoreboardesDiv.innerHTML += `
             <div class="entry">
                 <span>${index + 1}</span>
-                <span>${entry.name}</span>
+                <span class="middle-column">${entry.name}</span>
                 <span>${entry.points}</span>
             </div>
         `;
