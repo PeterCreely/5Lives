@@ -602,7 +602,7 @@ const displayScoreboarden = () => {
         <h3>ENGLISH SCOREBOARD</h3>
         <div class="header">
             <span>No.</span>
-            <span>Name</span>
+            <span class="middle-column">Name</span>
             <span>Score</span>
         </div>
     `;
@@ -610,7 +610,7 @@ const displayScoreboarden = () => {
         scoreboardenDiv.innerHTML += `
             <div class="entry">
                 <span>${index + 1}</span>
-                <span>${entry.name}</span>
+                   <span class="middle-column">${entry.name}</span>
                 <span>${entry.points}</span>
             </div>
         `;
