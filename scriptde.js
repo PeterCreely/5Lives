@@ -344,7 +344,7 @@ const displayScoreboardde = () => {
         <h3>Bestenliste</h3>
         <div class="header">
             <span>No.</span>
-            <span>Name</span>
+            <span class="middle-column">Name</span>
             <span>Punktzahl</span>
         </div>
     `;
@@ -352,7 +352,7 @@ const displayScoreboardde = () => {
         scoreboarddeDiv.innerHTML += `
             <div class="entry">
                 <span>${index + 1}</span>
-                <span>${entry.name}</span>
+                <span class="middle-column">${entry.name}</span>
                 <span>${entry.points}</span>
             </div>
         `;
