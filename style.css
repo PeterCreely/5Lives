@@ -955,6 +955,10 @@ selectbutton {
             border-right: 1px solid black; /* Line between columns */
         }
 
+        #scoreboardde .middle-column {
+            text-align: left;
+        }
+
             #scoreboarden .header span:last-child, #scoreboarden .entry span:last-child {
                 border-right: none; /* Remove the right border from the last column */
             }
@@ -976,6 +980,10 @@ selectbutton {
         #scoreboardes .header span, #scoreboardes .entry span {
             padding: 10px;
             border-right: 1px solid black; /* Line between columns */
+        }
+
+        #scoreboardde .middle-column {
+            text-align: left;
         }
 
             #scoreboardes .header span:last-child, #scoreboardes .entry span:last-child {
@@ -1001,6 +1009,10 @@ selectbutton {
             border-right: 1px solid black; /* Line between columns */
         }
 
+        #scoreboardde .middle-column {
+            text-align: left;
+        }
+
             #scoreboardie .header span:last-child, #scoreboardie .entry span:last-child {
                 border-right: none; /* Remove the right border from the last column */
             }
@@ -1022,6 +1034,10 @@ selectbutton {
         #scoreboardde .header span, #scoreboardde .entry span {
             padding: 10px;
             border-right: 1px solid black; /* Line between columns */
+        }
+
+        #scoreboardde .middle-column {
+            text-align: left;
         }
 
             #scoreboardde .header span:last-child, #scoreboardde .entry span:last-child {
