@@ -139,11 +139,12 @@ const checkLastAttemptsong = () => {
     const lastAttemptsong = localStorage.getItem('lastAttemptsong');
     const today = new Date().toISOString().split('T')[0]; // Get YYYY-MM-DD format
 
-    if (lastAttemptsong === today) {
-        alert("You have already played today. Come back tomorrow!");
-        window.location.href = "index.html";
-        return false;
-    }
+        if (lastAttemptsong === today) {
+            // alert("You have already played today. Come back tomorrow!");
+            document.getElementById('streakModal').style.display = 'block';
+           // window.location.href = "index.html";
+            return false;
+        }
 
     const yesterday = new Date(new Date().setDate(new Date().getDate() - 1)).toISOString().split('T')[0];
     if (lastAttemptsong !== yesterday) {
@@ -421,7 +422,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updatepointsDisplay();
     updatewordcountDisplay();
     displayStreakssong();
-    checkLastAttemptsong();
+    if (!checkLastAttemptsong()) return;
 });
 
 const handleGuess = (letter, button) => {
