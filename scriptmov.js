@@ -80,6 +80,7 @@ function displayStreaksmovies() {
     updatecurrentStreakmovieDisplay();// Ensure the highest streak display is always updated
 }
 
+/*
 function updatePoints(newPoints) {
     if (newPoints > 0) {
         points += newPoints;
@@ -107,6 +108,43 @@ const checkLastAttemptmovie = () => {
         window.location.href = "index.html";
         return false;
 
+    }
+
+    return true;
+};
+*/
+
+function updatePoints(correctAttempt) {
+    if (correctAttempt) {
+        currentStreakmovie += 1;
+        localStorage.setItem('currentStreakmovie', currentStreakmovie);
+
+        if (currentStreakmovie > highestStreakmovie) {
+            highestStreakmovie = currentStreakmovie;
+            localStorage.setItem('highestStreakmovie', highestStreakmovie); // Save to local storage
+        }
+    } else {
+        currentStreakmovie = 0; // Reset current streak if the attempt is incorrect
+        localStorage.setItem('currentStreakmovie', currentStreakmovie);
+    }
+    displayStreaksmovies();
+}
+
+const checkLastAttemptmovie = () => {
+    const lastAttemptmovie = localStorage.getItem('lastAttemptmovie');
+    const today = new Date().toISOString().split('T')[0]; // Get YYYY-MM-DD format
+
+    if (lastAttemptmovie === today) {
+        // alert("You have already played today. Come back tomorrow!");
+        document.getElementById('streakModal').style.display = 'block';
+        // window.location.href = "index.html";
+        return false;
+    }
+
+    const yesterday = new Date(new Date().setDate(new Date().getDate() - 1)).toISOString().split('T')[0];
+    if (lastAttemptmovie !== yesterday) {
+        currentStreakmovie = 0; // Reset streak if the last attempt was not yesterday
+        localStorage.setItem('currentStreakmovie', currentStreakmovie);
     }
 
     return true;
@@ -379,8 +417,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updatepointsDisplay();
     updatewordcountDisplay();
     displayStreaksmovies();
-    checkLastAttemptmovie();
+    if (!checkLastAttemptmovie()) return;
 });
+
 
 const handleGuess = (letter, button) => {
     if (guessedLetters.includes(letter)) return;
