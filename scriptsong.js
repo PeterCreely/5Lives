@@ -84,7 +84,7 @@ function displayStreakssong() {
     updatecurrentStreaksongDisplay();// Ensure the highest streak display is always updated
 }
 
-function updatePoints(newPoints) {
+/*function updatePoints(newPoints) {
     if (newPoints > 0) {
         points += newPoints;
         currentStreaksong += newPoints;
@@ -100,6 +100,39 @@ function updatePoints(newPoints) {
         localStorage.setItem('currentStreaksong', currentStreaksong);
     }
     displayStreakssong();
+} 
+
+
+
+const checkLastAttemptsong = () => {
+    const lastAttemptsong = localStorage.getItem('lastAttemptsong');
+    const today = new Date().toISOString().split('T')[0]; // Get YYYY-MM-DD format
+
+    if (lastAttemptsong === today) {
+        alert("You have already played today. Come back tomorrow!");
+        window.location.href = "index.html";
+        return false;
+    }
+
+    return true;
+};
+*/
+
+function updatePoints(correctAttempt) {
+    if (correctAttempt) {
+        currentStreaksong += 1;
+        localStorage.setItem('currentStreaksong', currentStreaksong);
+
+        if (currentStreaksong > highestStreaksong) {
+            highestStreaksong = currentStreaksong;
+            localStorage.setItem('highestStreaksong', highestStreaksong); // Save to local storage
+        }
+    } else {
+        currentStreaksong = 0; // Reset current streak if the attempt is incorrect
+        localStorage.setItem('currentStreaksong', currentStreaksong);
+    }
+
+    displayStreakssong();
 }
 
 const checkLastAttemptsong = () => {
@@ -110,6 +143,12 @@ const checkLastAttemptsong = () => {
         alert("You have already played today. Come back tomorrow!");
         window.location.href = "index.html";
         return false;
+    }
+
+    const yesterday = new Date(new Date().setDate(new Date().getDate() - 1)).toISOString().split('T')[0];
+    if (lastAttemptsong !== yesterday) {
+        currentStreaksong = 0; // Reset streak if the last attempt was not yesterday
+        localStorage.setItem('currentStreaksong', currentStreaksong);
     }
 
     return true;
