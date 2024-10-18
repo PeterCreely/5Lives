@@ -80,6 +80,7 @@ function displayStreaksbook() {
     updatecurrentStreakDisplaybook();// Ensure the highest streak display is always updated
 }
 
+/*
 function updatePoints(newPoints) {
     if (newPoints > 0) {
         points += newPoints;
@@ -106,6 +107,44 @@ const checkLastAttemptbook = () => {
         alert("You have already played today. Come back tomorrow!");
         window.location.href = "index.html";
         return false;
+    }
+
+    return true;
+};
+*/
+
+function updatePoints(correctAttempt) {
+    if (correctAttempt) {
+        currentStreakbook += 1;
+        localStorage.setItem('currentStreakbook', currentStreakbook);
+
+        if (currentStreakbook > highestStreakbook) {
+            highestStreakbook = currentStreakbook;
+            localStorage.setItem('highestStreakbook', highestStreakbook); // Save to local storage
+        }
+    } else {
+        currentStreakbook = 0; // Reset current streak if the attempt is incorrect
+        localStorage.setItem('currentStreakbook', currentStreakbook);
+    }
+
+    displayStreaksbook();
+}
+
+const checkLastAttemptbook = () => {
+    const lastAttemptbook = localStorage.getItem('lastAttemptbook');
+    const today = new Date().toISOString().split('T')[0]; // Get YYYY-MM-DD format
+
+    if (lastAttemptbook === today) {
+        // alert("You have already played today. Come back tomorrow!");
+        document.getElementById('streakModal').style.display = 'block';
+        // window.location.href = "index.html";
+        return false;
+    }
+
+    const yesterday = new Date(new Date().setDate(new Date().getDate() - 1)).toISOString().split('T')[0];
+    if (lastAttemptbook !== yesterday) {
+        currentStreakbook = 0; // Reset streak if the last attempt was not yesterday
+        localStorage.setItem('currentStreakbook', currentStreakbook);
     }
 
     return true;
@@ -381,6 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
    // loadScoreboard();
     displayStreaksbook();
     checkLastAttemptbook();
+    if (!checkLastAttemptbook()) return;
 });
 
 const handleGuess = (letter, button) => {
