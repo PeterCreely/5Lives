@@ -198,16 +198,22 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const displayballScoreboard = () => {
-       // const ballscoreboardDiv = document.getElementById('ballscoreboard');
+        // Sort the scoreboard by score in descending order
+        ballscoreboard.sort((a, b) => b.score - a.score);
+
+        // Slice the array to get the top ten entries
+        const topTenScores = ballscoreboard.slice(0, 10);
+
+        const ballscoreboardDiv = document.getElementById('ballscoreboard');
         ballscoreboardDiv.innerHTML = `
-        <h3>BALL SCOREBOARD</h3>
+        <h3>FLIP SCOREBOARD</h3>
         <div class="header">
             <span>No.</span>
             <span>Name</span>
             <span>Score</span>
         </div>
     `;
-        ballscoreboard.forEach((entry, index) => {
+        topTenScores.forEach((entry, index) => {
             ballscoreboardDiv.innerHTML += `
             <div class="entry">
                 <span>${index + 1}</span>
@@ -217,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         });
     };
-
+    
     const loadballScoreboard = () => {
         const savedScoreboard = localStorage.getItem('ballscoreboard');
         if (savedScoreboard) {
