@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', (event) => {
     const popArea = document.getElementById('popArea');
     let score = 0;
     let maxLives = 5;
@@ -25,6 +25,32 @@
     const continueButton = document.getElementById('continueButton');
     const popgameOverModal = document.getElementById('popgameOverModal');
     const popgameOverMessage = document.getElementById('popgameOverMessage');
+    const submitNameButton = document.getElementById('submitNameButton');
+    const playerNameInput = document.getElementById('playerNameInput');
+
+    // let popscoreboard = localStorage.getItem('popscoreboard') ? JSON.parse(localStorage.getItem('popscoreboard')) : [];
+
+    let popscoreboard = [];
+
+
+
+    if (levelMessage && levelModal && popgameOverModal) {
+        function showModal(message) {
+            console.log('showModal called with message:', message); // Debug log
+            levelMessage.textContent = message;
+            levelModal.style.display = 'block';
+            popgameOverModal.style.display = 'block !important';
+            popgameOverModal.style.visibility = 'visible !important';
+            popgameOverModal.style.opacity = '1 !important';
+            loadpopscoreboard();
+        }
+
+        window.onload = () => {
+            showModal('Game Over');
+        };
+    } else {
+        console.error('One or more elements are not found');
+    }
 
     closeModal.onclick = function () {
         levelModal.style.display = 'none';
@@ -47,18 +73,69 @@
         console.log('showModal called with message:', message); // Debug log
         levelMessage.textContent = message;
         levelModal.style.display = 'block';
+        popgameOverModal.style.display = 'block';
+        popgameOverModal.style.visibility = 'visible';
+        popgameOverModal.style.opacity = '1';
     }
 
     const handlepopGameOver = () => {
-        popgameOverMessage.innerHTML = `<strong>Game Over!</strong><br>You scored ${score} points.<br>Enter your name for the scoreboard:`;
+        popgameOverMessage.innerHTML = `<strong>Game Over!</strong><br>You scored ${score}  points.<br>Enter your name for the scoreboard:`;
         popgameOverModal.style.display = 'block';
         console.log("Game Over modal should be displayed now.");
+        console.log(popgameOverModal);
+    };
+
+    submitNameButton.onclick = () => {
+        const playerName = playerNameInput.value;
+        if (playerName) {
+            updatepopscoreboard(playerName, score);
+            popgameOverModal.style.display = 'none';
+            location.reload(); // Reload the page or reset the game as needed
+        } else {
+            alert("Please enter your name.");
+        }
+    };
+
+    const updatepopscoreboard = (playerName, score) => {
+        popscoreboard.push({ playerName, score });
+        // Sort the scoreboard by points in descending order
+        popscoreboard.sort((a, b) => b.score - a.score);
+        localStorage.setItem('popscoreboard', JSON.stringify(popscoreboard)); // Save to localStorage
+        displaypopscoreboard();
+    };
+
+    const displaypopscoreboard = () => {
+        const popscoreboardDiv = document.getElementById('popscoreboard');
+        popscoreboardDiv.innerHTML = `
+        <h3>POP SCOREBOARD</h3>
+        <div class="header">
+            <span>No.</span>
+            <span>Name</span>
+            <span>Score</span>
+        </div>
+    `;
+        popscoreboard.forEach((entry, index) => {
+            popscoreboardDiv.innerHTML += `
+            <div class="entry">
+                <span>${index + 1}</span>
+                <span>${entry.playerName}</span>
+                <span>${entry.score}</span>
+            </div>
+        `;
+        });
+    };
+
+    const loadpopscoreboard = () => {
+        const savedpopscoreboard = localStorage.getItem('popscoreboard');
+        if (savedpopscoreboard) {
+            popscoreboard = JSON.parse(savedpopscoreboard);
+            displaypopscoreboard();
+        }
     };
 
     const updateLivesDisplay = () => {
         livesDisplay.innerText = `You Have ${maxLives} Lives`;
     };
-
 
     function initializeLevel() {
         //score = 0;
@@ -90,7 +167,7 @@
     }
 
     function initializeLevel4() {
-        //score = [];
+       // score = [];
         maxLives = 5;
         bubbles.length = 0;
         popArea.innerHTML = '';
@@ -100,7 +177,7 @@
     }
 
     function initializeLevel5() {
-       // score = [];
+     //   score = [];
         maxLives = 5;
         bubbles.length = 0;
         popArea.innerHTML = '';
@@ -200,15 +277,18 @@
 
             if (expectedResult == parseInt(box5)) {
                 document.getElementById('resultBox').textContent = 'Correct';
+                resultBox.classList.remove('placeholder');
                 score += expectedResult;
             } else {
                 failSound.play();
                 document.getElementById('resultBox').textContent = 'Wrong';
+                resultBox.classList.remove('placeholder');
                 score -= Math.abs(expectedResult); // Subtract the absolute value of the expected result
             }
             document.getElementById('scoreBox').textContent = `Score: ${score}`;
         } else {
             document.getElementById('resultBox').textContent = 'Fill all boxes';
+            resultBox.classList.remove('placeholder');
         }
         document.getElementById('calculateButton').disabled = true;
     }
@@ -219,6 +299,7 @@
         document.getElementById('box3').textContent = '';
         document.getElementById('box5').textContent = '';
         document.getElementById('resultBox').textContent = 'Keep Going!';
+        resultBox.classList.remove('placeholder');
 
         // Ensure all used buttons remain disabled
         const bubbles = document.querySelectorAll('.bubble');
@@ -249,6 +330,23 @@
         document.getElementById('calculateButton').disabled = false;
     }
 
+    function isLevel5Completed() {
+        return maxLives <= 0;
+    }
+
+    function onLifeLost() {
+        maxLives--;
+        updateLivesDisplay(); // Update the display to show remaining lives
+        if (isLevel5Completed()) {
+            handlepopGameOver();
+        }
+    }
+
+    // Example function to simulate losing a life
+    function loseLife() {
+        onLifeLost();
+    }
+
     function transitionToNextLevel() {
         switch (level) {
             case 2:
@@ -264,8 +362,10 @@
                 initializeLevel5();
                 break;
             default:
-                 alert('Congratulations! You have completed all levels.');
-                showModal('Congratulations! You have completed all levels.');
+                // alert('Congratulations! You have completed all levels.');
+                // showModal('Congratulations! You have completed all levels.');
+               // popgameOverMessage.innerHTML = `<strong>Game Over!</strong><br>You scored ${score}  points.<br>Enter your name for the scoreboard:`;
+             //   popgameOverModal.style.display = 'block';
                 handlepopGameOver();
                 break;
         }
@@ -363,10 +463,11 @@ document.getElementById('infoButtonflip').addEventListener('click', function () 
     }
 });
 
-    document.getElementById('colourButton').onclick = function() {
-        var dropdown = document.getElementById('color-dropdown');
+
+document.getElementById('colourButton').onclick = function () {
+    var dropdown = document.getElementById('color-dropdown');
     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-    };
+};
 
 // Function to change the background color and save it to localStorage
 function changeColor(backgroundColor, textColor) {
@@ -402,6 +503,3 @@ function loadColors() {
         document.documentElement.style.setProperty('--border-color', textColor);
     }
 }
-
-// Load the background color when the page loads
-window.onload = loadColors;
