@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>5LIVES PoP</title>
-    <link rel="stylesheet" href="style.css">
+    stylesheet<link rel="stylesheet" href="style.css">
     <style>
         .reduced-line-spacing {
             line-height: 0.1; /* Adjust this value as needed */
@@ -15,7 +15,7 @@
     <div class="container">
 
         <h1 class="reduced-line-spacing">WELCOME TO</h1>
-        <img id="logo-image" src="logo1.gif" alt="Logo Image" class="reduced-line-spacing">
+        <img id="logo-image" src="logo1.png" alt="Logo Image" class="reduced-line-spacing">
         <button id="infoButtonflip">
             <img src="info.png" alt="Info" id="infoLogo" border="0">
         </button>
@@ -24,11 +24,11 @@
             *** SCOREBOARD UNDER CONSTRUCTION ***<br>
             Do the Maths. There are 5 symbols per round, +(plus),-(minus),*(multiply),/(divide). Use these to complete a calculation.
             Once you have filled each box (eg. 5 + 5 = 10) click CALCULATE. Then click CLEAR to clear the boxes for the next sum.
-            If correct the total will be added to your score. If you're wrong the correct total will be taken from your score. 
+            If correct the total will be added to your score. If you're wrong the correct total will be taken from your score.
             There are 5 calculations needed per round and 5 diffent rounds. <br>How high can you score?<br>
             Good Luck!
         </div>
-                <button id="colourButton">
+        <button id="colourButton">
             <img src="colour.png" alt="Info" id="infoLogo" border="0">
         </button>
         <div id="color-dropdown" class="dropdown-content">
@@ -48,7 +48,7 @@
             <button class="color-option" style="background-color: blueviolet;" onclick="changeColor('blueviolet', 'black')"></button>
             <button class="color-option" style="background-color: yellowgreen;" onclick="changeColor('yellowgreen', 'black')"></button>
         </div>
-        <h3>This is Number Pop! </h3>
+        <h2>This is Number Pop...! </h2>
         <h3 id="wordcount-display" class="reduced-line-spacing"></h3>
         <h1 id="lives-display" class="reduced-line-spacing"></h1>
         <h3>There are 5 Levels...</h3>
@@ -57,15 +57,8 @@
         <h3 id="points-display" class="reduced-line-spacing"> </h3>
         <div id="popArea">
             <img id="ball" src="ball.png" alt="Ball">
-            <div id="popgameOverModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">×</span>
-                    <p id="popgameOverMessage"></p>
-                    <input type="text" id="playerNameInput" placeholder="Enter your name" />
-                    <button id="submitNameButton">SUBMIT</button>
-                </div>
-            </div>
-        
+
+
             <div id="levelModal" class="modal">
                 <div class="level-content">
                     <span class="close">×</span>
@@ -85,56 +78,71 @@
 
         <div id="buttons">
             <button id="calculateButton">Calculate</button>
-            <button id="clearButton">Clear</button>
+            <button id="clearButton">Clear/Pass</button>
         </div>
 
-        <div id="resultBox"></div>
-        <div id="scoreBox"></div>
+        <div id="resultBox" class="placeholder">Right/Wrong</div>
 
-        <div id="popscoreboard"></div>
-         
+        <div id="scoreBox">Score</div>
+
+        <div id="popscoreboard">
+            <h3>POP SCOREBOARD</h3>
+            <div class="header">
+                <span>No.</span>
+                <span>Name</span>
+                <span>Score</span>
+            </div>
+        </div>
+
+
         <br />
 
-            <img id="open-ie-image" src="ie.png" alt="Open ie Page" style="cursor: pointer;">
-            <script>
-                document.getElementById('open-ie-image').addEventListener('click', () => {
-                    window.open('indexie.html', '_blank'); // Opens the new page in a new tab
-                });
-            </script>
+        <img id="open-ie-image" src="ie.png" alt="Open ie Page" style="cursor: pointer;">
 
-            <img id="open-de-image" src="de.png" alt="Open de Page" style="cursor: pointer;">
-            <script>
-                document.getElementById('open-de-image').addEventListener('click', () => {
-                    window.open('indexde.html', '_blank'); // Opens the new page in a new tab
-                });
-            </script>
+        <script>
+            document.getElementById('open-ie-image').addEventListener('click', () => {
+                window.open('indexie.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <img id="open-de-image" src="de.png" alt="Open de Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-de-image').addEventListener('click', () => {
+                window.open('indexde.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
 
 
-            <img id="open-en-image" src="en.png" alt="Open en Page" style="cursor: pointer;">
-            <script>
-                document.getElementById('open-en-image').addEventListener('click', () => {
-                    window.open('indexen.html', '_blank'); // Opens the new page in a new tab
-                });
-            </script>
+        <img id="open-en-image" src="en.png" alt="Open en Page" style="cursor: pointer;">
 
-            <img id="open-es-image" src="es.png" alt="Open es Page" style="cursor: pointer;">
-            <script>
-                document.getElementById('open-es-image').addEventListener('click', () => {
-                    window.open('indexes.html', '_blank'); // Opens the new page in a new tab
-                });
-            </script>
+        <script>
+            document.getElementById('open-en-image').addEventListener('click', () => {
+                window.open('indexen.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
 
-            <br />
+        <img id="open-es-image" src="es.png" alt="Open es Page" style="cursor: pointer;">
 
-            <img id="open-mov-image" src="mov.png" alt="Open mov Page" style="cursor: pointer;">
+        <script>
+            document.getElementById('open-es-image').addEventListener('click', () => {
+                window.open('indexes.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
 
-            <script>
-                document.getElementById('open-mov-image').addEventListener('click', () => {
-                    window.open('indexmov.html', '_blank'); // Opens the new page in a new tab
-                });
-            </script>
-        
+        <br />
+
+        <img id="open-mov-image" src="mov.png" alt="Open mov Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-mov-image').addEventListener('click', () => {
+                window.open('indexmov.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+
         <img id="open-book-image" src="book.png" alt="Open book Page" style="cursor: pointer;">
+
         <script>
             document.getElementById('open-book-image').addEventListener('click', () => {
                 window.open('indexbook.html', '_blank'); // Opens the new page in a new tab
@@ -148,22 +156,22 @@
             });
         </script>
 
-            <img id="open-ball-image" src="ball1.png" alt="Open ball Page" style="cursor: pointer;">
+        <img id="open-ball-image" src="ball1.png" alt="Open ball Page" style="cursor: pointer;">
 
-            <script>
-                document.getElementById('open-ball-image').addEventListener('click', () => {
-                    window.open('indexball.html', '_blank'); // Opens the new page in a new tab
-                });
-            </script>
+        <script>
+            document.getElementById('open-ball-image').addEventListener('click', () => {
+                window.open('indexball.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
 
-                <img id="open-pop-image" src="bubble1.png" alt="Open pop Page" style="cursor: pointer;">
+        <img id="open-pop-image" src="bubble1.png" alt="Open pop Page" style="cursor: pointer;">
 
         <script>
             document.getElementById('open-pop-image').addEventListener('click', () => {
                 window.open('indexpop.html', '_blank'); // Opens the new page in a new tab
             });
         </script>
-        
+
         <img id="open-duck-image" src="duck1.png" alt="Open duck Page" style="cursor: pointer;">
 
         <script>
@@ -181,7 +189,7 @@
                 window.open('indexflip.html', '_blank'); // Opens the new page in a new tab
             });
         </script>
-        
+
         <br />
 
         <img id="open-home-image" src="home2.png" alt="Open home Page" style="cursor: pointer;">
@@ -192,13 +200,21 @@
             });
         </script>
 
-            <h4>© 2023 - 5Lives - fivelives@outlook.ie</h4>
-        </div>
+        <h4>© 2023 - 5Lives - fivelives@outlook.com</h4>
+    </div>
 
-        <!--<footer>
+    <div id="popgameOverModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <p id="popgameOverMessage"></p>
+            <input type="text" id="playerNameInput" placeholder="Enter your name" />
+            <button id="submitNameButton">SUBMIT</button>
+        </div>
+    </div>
+    <!--<footer>
         <p>© 2023 - 5Lives</p>
     </footer>-->
-        <script src="scriptpop.js"></script>
+    <script src="scriptpop.js"></script>
 
 </body>
 </html>
