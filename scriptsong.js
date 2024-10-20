@@ -314,7 +314,7 @@ const handleGameOver = () => {
     const selectedWords = [selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5];
     associatedWordsMessage = "";
     selectedWords.forEach(word => {
-        const cleanWord = word.replace(/\s+/g, '').trim();
+        const cleanWord = word.replace(/\s+/g, ' ').trim();
         if (associatedWords[cleanWord]) {
             associatedWordsMessage += `${cleanWord} = ${associatedWords[cleanWord]}<br>`;
         }
