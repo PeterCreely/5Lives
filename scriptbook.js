@@ -308,7 +308,7 @@ const loadScoreboard = () => {
 
 const handleGameOver = () => {
     setLastAttemptbook();
-//    const selectedWords = [selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5];
+    const selectedWords = [selectedWord1, selectedWord2, selectedWord3, selectedWord4, selectedWord5];
     associatedWordsMessage = "";
     selectedWords.forEach(word => {
         const cleanWord = word.replace(/\s+/g, ' ').trim();
