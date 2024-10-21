@@ -9,7 +9,6 @@ body {
 }
 
 .container {
-    width: 100%;
     text-align: center;
     color: white;
 }
@@ -476,39 +475,6 @@ x
     text-align: center;
 }
 
-#popscoreboard {
-    border: 1px solid #ccc;
-    border-color: inherit;
-    padding: 10px;
-    margin: 20px auto;
-    background-color: black;
-    width: 300px;
-    font-family: 'Ink Free';
-}
-
-    #popscoreboard h3 {
-        margin-top: 0;
-        text-align: center;
-    }
-
-    #popscoreboard .header, #ballscoreboard .entry {
-        display: flex;
-        justify-content: space-between;
-        padding: 5px 0;
-    }
-
-    #popscoreboard .header {
-        font-weight: bold;
-        border-bottom: 1px solid #ddd;
-    }
-
-    #popscoreboard .entry {
-        border-bottom: 1px solid #eee;
-    }
-
-        #popscoreboard .entry:last-child {
-            border-bottom: none;
-        }
 
 #startButton {
     font-family: 'Ink Free';
