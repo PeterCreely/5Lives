@@ -1012,28 +1012,35 @@ selectbutton {
             }
 
 #popscoreboard {
-    border: 2px solid white; /* Frame around the table */
-    width: 350px; /* Fixed width */
-    border-collapse: collapse;
-    margin-left: auto; /* Center horizontally */
-    margin-right: auto; /* Center horizontally */
+    border: 1px solid #ccc;
+    border-color: inherit;
+    padding: 10px;
+    margin: 20px auto;
+    background-color: black;
+    width: 300px;
+    font-family: 'Ink Free';
 }
 
-    #popscoreboard .header, #popscoreboard .entry {
-        display: grid;
-        grid-template-columns: 50px 1fr 100px; /* Fixed widths for columns */
-        border-bottom: 1px solid black; /* Line between rows */
+    #popscoreboard h3 {
+        margin-top: 0;
+        text-align: center;
     }
 
-        #popscoreboard .header span, #popscoreboard .entry span {
-            padding: 10px;
-            border-right: 1px solid black; /* Line between columns */
+    #popscoreboard .header, #ballscoreboard .entry {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+    }
+
+    #popscoreboard .header {
+        font-weight: bold;
+        border-bottom: 1px solid #ddd;
+    }
+
+    #popscoreboard .entry {
+        border-bottom: 1px solid #eee;
+    }
+
+        #popscoreboard .entry:last-child {
+            border-bottom: none;
         }
-
-    #popscoreboard .middle-column {
-        text-align: left;
-    }
-
-    #popscoreboard .header span:last-child, #popscoreboard .entry span:last-child {
-        border-right: none; /* Remove the right border from the last column */
-    }
