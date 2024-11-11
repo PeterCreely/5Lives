@@ -145,6 +145,7 @@ const checkLastAttemptbook = () => {
     if (lastAttemptbook !== yesterday) {
         currentStreakbook = 0; // Reset streak if the last attempt was not yesterday
         localStorage.setItem('currentStreakbook', currentStreakbook);
+        updatecurrentStreakDisplaybook();
     }
 
     return true;
