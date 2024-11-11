@@ -145,6 +145,7 @@ const checkLastAttemptmovie = () => {
     if (lastAttemptmovie !== yesterday) {
         currentStreakmovie = 0; // Reset streak if the last attempt was not yesterday
         localStorage.setItem('currentStreakmovie', currentStreakmovie);
+       updatecurrentStreakmovieDisplay();
     }
 
     return true;
