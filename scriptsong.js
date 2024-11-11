@@ -150,6 +150,7 @@ const checkLastAttemptsong = () => {
     if (lastAttemptsong !== yesterday) {
         currentStreaksong = 0; // Reset streak if the last attempt was not yesterday
         localStorage.setItem('currentStreaksong', currentStreaksong);
+        updatecurrentStreaksongDisplay();
     }
 
     return true;
