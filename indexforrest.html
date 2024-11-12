@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5LIVES PoP</title>
+    stylesheet
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .reduced-line-spacing {
+            line-height: 0.1; /* Adjust this value as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1 class="reduced-line-spacing">WELCOME TO</h1>
+        <img id="logo-image" src="logo1.gif" alt="Logo Image" class="reduced-line-spacing">
+        <button id="infoButtonflip">
+            <img src="info.png" alt="Info" id="infoLogo" border="0">
+        </button>
+        <div id="infoText" class="hidden">
+            Welcome to 5Lives Forrest!!! <br>
+            You wake up and find your self lying on the floor of a mossy forrest.
+            There are 5 calculations needed per round and 5 diffent rounds. <br>How high can you score?<br>
+            Good Luck!
+        </div>
+        <button id="colourButton">
+            <img src="colour.png" alt="Info" id="infoLogo" border="0">
+        </button>
+        <div id="color-dropdown" class="dropdown-content">
+            <button class="color-option" style="background-color: black;" onclick="changeColor('black', 'grey')"></button>
+            <button class="color-option" style="background-color: cyan;" onclick="changeColor('cyan', 'black')"></button>
+            <button class="color-option" style="background-color: grey;" onclick="changeColor('lightgrey', 'black')"></button>
+            <button class="color-option" style="background-color: magenta;" onclick="changeColor('magenta', 'black')"></button>
+            <button class="color-option" style="background-color: orange;" onclick="changeColor('orange', 'black')"></button>
+            <button class="color-option" style="background-color: lightpink;" onclick="changeColor('lightpink', 'black')"></button>
+            <button class="color-option" style="background-color: teal;" onclick="changeColor('teal', 'black')"></button>
+            <button class="color-option" style="background-color: aquamarine;" onclick="changeColor('aquamarine', 'black')"></button>
+            <button class="color-option" style="background-color: peachpuff;" onclick="changeColor('peachpuff', 'black')"></button>
+            <button class="color-option" style="background-color: lightgreen;" onclick="changeColor('lightgreen', 'black')"></button>
+            <button class="color-option" style="background-color: palevioletred;" onclick="changeColor('palevioletred', 'black')"></button>
+            <button class="color-option" style="background-color: lightyellow;" onclick="changeColor('lightyellow', 'black')"></button>
+            <button class="color-option" style="background-color: violet;" onclick="changeColor('violet', 'black')"></button>
+            <button class="color-option" style="background-color: blueviolet;" onclick="changeColor('blueviolet', 'black')"></button>
+            <button class="color-option" style="background-color: yellowgreen;" onclick="changeColor('yellowgreen', 'black')"></button>
+        </div>
+        <h2>The Forrest...! </h2>
+        <h3 id="wordcount-display" class="reduced-line-spacing"></h3>
+        <h1 id="lives-display" class="reduced-line-spacing"></h1>
+        <h3>You wake up groggily and find yourself lying </h3>
+        <h3>on the floor of a dark, mossy forrest.</h3>
+        <h3>There are four other kids waking up near you.</h3>
+        <h3>None of you know how you even got here?</h3>
+        <h3>Or where you are? Or why you are here!</h3>
+        <h2>Can you find your way home...?</h2>
+        <div id="forrestimageArea"> </div>
+        <div id="forrestArea"></div>
+
+        <h2>CHOOSE WHICH WAY TO GO</h2>
+        <div id="buttons">
+            <button id="leftButton">LEFT</button>
+            <button id="forwardButton">FORWARD</button>
+            <button id="backwardButton">BACKWARD</button>
+            <button id="rightButton">RIGHT</button>
+        </div>
+        <h3 id="dynamite-display" class="reduced-line-spacing"> </h3>
+        <h3 id="kids-display" class="reduced-line-spacing"></h3>
+        <h3 id="crates-display" class="reduced-line-spacing"></h3>
+        <br />
+
+        <div id="forrestscoreboard">
+            <h3>Forrest SCOREBOARD</h3>
+            <div class="header">
+                <span>No.</span>
+                <span>Name</span>
+                <span>Score</span>
+            </div>
+        </div>
+
+
+        <br />
+
+        <img id="open-ie-image" src="ie.png" alt="Open ie Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-ie-image').addEventListener('click', () => {
+                window.open('indexie.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <img id="open-de-image" src="de.png" alt="Open de Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-de-image').addEventListener('click', () => {
+                window.open('indexde.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+
+        <img id="open-en-image" src="en.png" alt="Open en Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-en-image').addEventListener('click', () => {
+                window.open('indexen.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <img id="open-es-image" src="es.png" alt="Open es Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-es-image').addEventListener('click', () => {
+                window.open('indexes.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <br />
+
+        <img id="open-mov-image" src="mov.png" alt="Open mov Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-mov-image').addEventListener('click', () => {
+                window.open('indexmov.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+
+        <img id="open-book-image" src="book.png" alt="Open book Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-book-image').addEventListener('click', () => {
+                window.open('indexbook.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <img id="open-music-image" src="music.png" alt="Open music Page" style="cursor: pointer;">
+        <script>
+            document.getElementById('open-music-image').addEventListener('click', () => {
+                window.open('indexsong.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <img id="open-ball-image" src="ball1.png" alt="Open ball Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-ball-image').addEventListener('click', () => {
+                window.open('indexball.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <img id="open-pop-image" src="bubble1.png" alt="Open pop Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-pop-image').addEventListener('click', () => {
+                window.open('indexpop.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <img id="open-duck-image" src="duck1.png" alt="Open duck Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-duck-image').addEventListener('click', () => {
+                window.open('indexduck.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <br />
+
+        <img id="open-flip-image" src="flip.png" alt="Open flip Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-flip-image').addEventListener('click', () => {
+                window.open('indexflip.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <br />
+
+        <img id="open-home-image" src="home2.png" alt="Open home Page" style="cursor: pointer;">
+
+        <script>
+            document.getElementById('open-home-image').addEventListener('click', () => {
+                window.open('index.html', '_blank'); // Opens the new page in a new tab
+            });
+        </script>
+
+        <h4>© 2023 - 5Lives - fivelives@outlook.com</h4>
+    </div>
+
+    <div id="popgameOverModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <p id="popgameOverMessage"></p>
+            <input type="text" id="playerNameInput" placeholder="Enter your name" />
+            <button id="submitNameButton">SUBMIT</button>
+        </div>
+    </div>
+    <!--<footer>
+        <p>© 2023 - 5Lives</p>
+    </footer>-->
+    <script src="scriptforrest.js"></script>
+
+</body>
+</html>
