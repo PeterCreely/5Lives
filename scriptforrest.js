@@ -132,7 +132,7 @@ const gridPrompts = {
     'K1': 'The clearing is empty. There is nothing here.',
     'K2': 'The clearing is empty. There is nothing here.',
     'K3': 'The way backwards is blocked by trees!',
-    'You stop and look around. No one knows which way to go. No one knows what to do. You decide to take the lead!',
+    'K4': 'You stop and look around. No one knows which way to go. No one knows what to do. You decide to take the lead!',
     'K5': 'There is a HOLE and one kid falls in with a scream and dissapears!',
     'K6': 'The clearing is empty. There is nothing here.',
     'K7': 'The way forwards is blocked by trees!',
