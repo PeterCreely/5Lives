@@ -2,7 +2,7 @@
 const rows = 12;
 const columns = 12;
 const startPosition = { row: 5, col: 5 }; // Starting at AF (row 12) and A6 (column 6)
-let currentPosition = { ...startPosition };
+//let currentPosition = { ...startPosition };
 let dynamite = 0; // Initialize the number of keys collected
 let kids = 5;
 const dynamiteDisplay = document.getElementById('dynamite-display');
@@ -55,7 +55,7 @@ const gridPrompts = {
     'C7': 'The clearing is empty. There is nothing here.',
     'C8': 'The way forward is blocked!',
     'C9': 'The way to the right is blocked by trees!',
-    'C10': 'The clearing is empty. There is nothing here.',
+    'C10': 'You glance around. No one knows which way to go. No one knows what to do. You decide to take the lead!',
     'C11': 'The clearing is empty. There is nothing here.',
     'C12': 'The clearing is empty. There is nothing here.',
     'D1': 'The clearing is empty. There is nothing here.',
@@ -82,12 +82,12 @@ const gridPrompts = {
     'E10': 'There is a small hole in the ground! Do you look in ?',
     'E11': 'The clearing is empty. There is nothing here.',
     'E12': 'The clearing is empty. There is nothing here.',
-    'F1': 'The clearing is empty. There is nothing here.',
+    'You look around. No one knows which way to go. No one knows what to do. You are chosen to take the lead!',
     'F2': 'There is a HOLE and one kid falls in with a scream and dissapears!',
     'F3': 'There is a river behind you, you cant go that way!',
     'F4': 'There is a river behind you, you cant go that way!',
     'F5': 'There is a river behind you, you cant go that way!',
-    'F6': 'You look around. No one knows which way to go. No one knows what to do. You decide to take the lead!',
+    'F6': 'You look around. Confused no one knows which way to go. No one knows what to do. You decide to take the lead!',
     'F7': 'The clearing is empty. There is nothing here.',
     'F8': 'The clearing is empty. There is nothing here.',
     'F9': 'The clearing is empty. There is nothing here.',
@@ -132,7 +132,7 @@ const gridPrompts = {
     'K1': 'The clearing is empty. There is nothing here.',
     'K2': 'The clearing is empty. There is nothing here.',
     'K3': 'The way backwards is blocked by trees!',
-    'K4': 'The clearing is empty. There is nothing here.',
+    'You stop and look around. No one knows which way to go. No one knows what to do. You decide to take the lead!',
     'K5': 'There is a HOLE and one kid falls in with a scream and dissapears!',
     'K6': 'The clearing is empty. There is nothing here.',
     'K7': 'The way forwards is blocked by trees!',
@@ -149,12 +149,11 @@ const gridPrompts = {
     'L6': 'The clearing is empty. There is nothing here.',
     'L7': 'A large monster appears!', 
     'L8': 'The clearing is empty. There is nothing here.',
-    'L9': 'The clearing is empty. There is nothing here.',
+    'L9': 'You look around Puzzled. No one knows which way to go. No one knows what to do. You decide to take the lead!',
     'L10': 'The path to the left is blocked by trees!',
     'L11': 'There is a HOLE and one kid falls in with a scream and dissapears!',
     'L12': 'The clearing is empty. There is nothing here.',
 };
-
 
 const directions = {
     forward: [-1, 0],
@@ -230,6 +229,8 @@ const possiblePositions1 = [
     { row: 5, col: 5 }, // F6 
     { row: 2, col: 9 }, // C10 
     { row: 5, col: 0 } // F1
+    { row: 10, col: 3 }, // k4
+    { row: 11, col: 8 } // k4
 ];
 
 function getRandomPosition1() {
@@ -237,10 +238,13 @@ function getRandomPosition1() {
     return possiblePositions1[randomIndex];
     }
 
+let currentPosition = getRandomPosition1();
+
 function updateDisplay() {
     const positionLabel = grid[currentPosition.row][currentPosition.col];
     forrestArea.innerHTML = `
-        <h3>Current Position: ${positionLabel}</h3>
+        </BR>
+        <h3>Where are we?</h3>
         <p>${gridPrompts[positionLabel] || 'There is nothing remarkable here.'}</p>
          `;
 
