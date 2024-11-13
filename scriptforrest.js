@@ -228,7 +228,7 @@ function checkGameStatus() {
 const possiblePositions1 = [
     { row: 5, col: 5 }, // F6 
     { row: 2, col: 9 }, // C10 
-    { row: 5, col: 0 } // F1
+    { row: 5, col: 0 }, // F1
     { row: 10, col: 3 }, // k4
     { row: 11, col: 8 } // k4
 ];
