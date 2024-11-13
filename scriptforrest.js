@@ -248,33 +248,34 @@ function updateDisplay() {
     forrestimageArea.innerHTML = `<img src="${imageUrl}" alt="${positionLabel} image">`;
 
     const forwardButton = document.getElementById('forwardButton');
-    if (positionLabel === 'E6' || positionLabel === 'D3' || positionLabel === 'D5' || positionLabel === 'A12'
-        || positionLabel === 'C8' || positionLabel === 'B6' || positionLabel === 'J1' || positionLabel === 'I4'
-        || positionLabel === 'I5' || positionLabel === 'I10' || positionLabel === 'I11' || positionLabel === 'J2'
-        || positionLabel === 'L7' || positionLabel === 'K7' || positionLabel === 'K9')
-    { forwardButton.disabled = true; } else { forwardButton.disabled = false; }
+if (positionLabel === 'E6' || positionLabel === 'D3' || positionLabel === 'D5' || positionLabel === 'A12'
+    || positionLabel === 'C8' || positionLabel === 'B6' || positionLabel === 'J1' || positionLabel === 'I4'
+    || positionLabel === 'I5' || positionLabel === 'I10' || positionLabel === 'I11' || positionLabel === 'J2'
+    || positionLabel === 'L7' || positionLabel === 'K7' || positionLabel === 'K9' || positionLabel === 'J6'
+    || positionLabel === 'J7' || positionLabel === 'J8' || positionLabel === 'I3' || positionLabel === 'J12')
+{ forwardButton.disabled = true; } else { forwardButton.disabled = false; }
 
-    const backwardButton = document.getElementById('backwardButton');
-    if (positionLabel === 'B2' || positionLabel === 'K3' || positionLabel === 'G6' || positionLabel === 'F3'
-        || positionLabel === 'F4' || positionLabel === 'F5' || positionLabel === 'G2' || positionLabel === 'G7'
-        || positionLabel === 'G8' || positionLabel === 'G12' || positionLabel === 'F10' || positionLabel === 'F11'
-        || positionLabel === 'D5' || positionLabel === 'A12' || positionLabel === 'D12' || positionLabel === 'J2'
-        || positionLabel === 'L7')
-    { backwardButton.disabled = true; } else { backwardButton.disabled = false; }
+const backwardButton = document.getElementById('backwardButton');
+if (positionLabel === 'B2' || positionLabel === 'K3' || positionLabel === 'G6' || positionLabel === 'F3'
+    || positionLabel === 'F4' || positionLabel === 'F5' || positionLabel === 'G2' || positionLabel === 'G7'
+    || positionLabel === 'G8' || positionLabel === 'G12' || positionLabel === 'F10' || positionLabel === 'F11'
+    || positionLabel === 'D5' || positionLabel === 'A12' || positionLabel === 'D12' || positionLabel === 'J2'
+    || positionLabel === 'L7' || positionLabel === 'G1')
+{ backwardButton.disabled = true; } else { backwardButton.disabled = false; }
 
-    const leftButton = document.getElementById('leftButton');
-    if (positionLabel === 'G6' || positionLabel === 'I3' || positionLabel === 'I9' || positionLabel === 'G12'
-        || positionLabel === 'E2' || positionLabel === 'D5' || positionLabel === 'A12' || positionLabel === 'D11'
-        || positionLabel === 'C3' || positionLabel === 'B12' || positionLabel === 'J2' || positionLabel === 'L7'
-        || positionLabel === 'L10')
-    { leftButton.disabled = true; } else { leftButton.disabled = false; }
+const leftButton = document.getElementById('leftButton');
+if (positionLabel === 'G6' || positionLabel === 'I3' || positionLabel === 'I9' || positionLabel === 'G12'
+    || positionLabel === 'E2' || positionLabel === 'D5' || positionLabel === 'A12' || positionLabel === 'D11'
+    || positionLabel === 'C3' || positionLabel === 'B12' || positionLabel === 'J2' || positionLabel === 'L7'
+    || positionLabel === 'L10')
+{ leftButton.disabled = true; } else { leftButton.disabled = false; }
 
-    const rightButton = document.getElementById('rightButton');
-    if (positionLabel === 'G2' || positionLabel === 'G9' || positionLabel === 'I5' || positionLabel === 'I11'
-        || positionLabel === 'D5' || positionLabel === 'C9' || positionLabel === 'A12' || positionLabel === 'I5'
-        || positionLabel === 'I11' || positionLabel === 'A5' || positionLabel === 'A10' || positionLabel === 'J2'
-        || positionLabel === 'L7' || positionLabel === 'J5' || positionLabel === 'L4')
-    { rightButton.disabled = true; } else { rightButton.disabled = false; }
+const rightButton = document.getElementById('rightButton');
+if (positionLabel === 'G2' || positionLabel === 'G9' || positionLabel === 'I5' || positionLabel === 'I11'
+    || positionLabel === 'D5' || positionLabel === 'C9' || positionLabel === 'A12' || positionLabel === 'I5'
+    || positionLabel === 'I11' || positionLabel === 'A5' || positionLabel === 'A10' || positionLabel === 'J2'
+    || positionLabel === 'L7' || positionLabel === 'J5' || positionLabel === 'L4')
+{ rightButton.disabled = true; } else { rightButton.disabled = false; }
 
     if (positionLabel === 'E7' || positionLabel === 'C2' || positionLabel === 'I3' || positionLabel === 'J10') {
        
