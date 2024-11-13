@@ -82,7 +82,7 @@ const gridPrompts = {
     'E10': 'There is a small hole in the ground! Do you look in ?',
     'E11': 'The clearing is empty. There is nothing here.',
     'E12': 'The clearing is empty. There is nothing here.',
-    'You look around. No one knows which way to go. No one knows what to do. You are chosen to take the lead!',
+    'F1':'You look around. No one knows which way to go. No one knows what to do. You are chosen to take the lead!',
     'F2': 'There is a HOLE and one kid falls in with a scream and dissapears!',
     'F3': 'There is a river behind you, you cant go that way!',
     'F4': 'There is a river behind you, you cant go that way!',
